@@ -1,6 +1,6 @@
 import Link from 'next/link'
-import Logo from '../public/logo.svg'
 import './globals.css'
+import Logo from './components/Logo'
 
 export const metadata = {
   title: 'TES — Tröndle Embedded System',
