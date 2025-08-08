@@ -1,26 +1,15 @@
+export const metadata = { title: 'Power — TES' }
 
-import Link from 'next/link'
+import {getDictionary} from '../../i18n/getDictionary'
 
-import Breadcrumb from '../../../components/Breadcrumb'
-
-export const metadata = { title: 'Thermal & Power Safety — TES' }
-
-export default function Page() {
+export default async function Page({ params }) {
+  const locale = params?.locale || 'en'
+  const t = await getDictionary(locale)
   return (
-    <article className="prose prose-neutral dark:prose-invert max-w-3xl">
-      <Breadcrumb items={[{ href: '/', label: 'Home' }, { href: '/#what-we-do', label: 'What we do' }, { label: 'Thermal & Power Safety' }]} />
-      <h1>Thermal & Power Safety</h1>
-      <p>We ensure your designs operate safely and efficiently, with correct PD negotiation, protection circuits, and thermal safeguards.</p>
-      <h2>We provide</h2>
-      <ul>
-        <li>USB-PD negotiation & compliance</li>
-        <li>Over-voltage/over-current protection</li>
-        <li>Thermal run-away detection</li>
-        <li>Power path optimisation</li>
-      </ul>
+    <section className="max-w-3xl">
+      <h1 className="text-4xl font-semibold tracking-tight">{t.services.power.title}</h1>
+      <p className="mt-4 text-neutral-600 dark:text-neutral-300">{t.services.power.desc}</p>
 
-      <p><Link href="/#what-we-do">← Back to services</Link></p>
-
-    </article>
+    </section>
   )
 }

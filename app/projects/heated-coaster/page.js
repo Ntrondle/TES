@@ -1,12 +1,18 @@
+import Link from 'next/link'
+import {getDictionary} from '../../i18n/getDictionary'
 
+export default async function Page({ params }) {
+  const locale = params?.locale || 'en'
+  const t = await getDictionary(locale)
+
+  return (
 import Link from 'next/link'
 
 import Breadcrumb from '../../../components/Breadcrumb'
 
 export const metadata = { title: 'Smart Heated Coaster — TES' }
 
-export default function Page() {
-  return (
+
     <article className="prose prose-neutral dark:prose-invert max-w-3xl">
       <Breadcrumb items={[{ href: '/', label: 'Home' }, { href: '/portfolio', label: 'Portfolio' }, { label: 'Smart Heated Coaster' }]} />
       <h1>Smart Heated Coaster</h1>
@@ -18,7 +24,7 @@ export default function Page() {
         <li>PID loop on-board; failsafes & temp limits</li>
         <li>Firmware OTA + Home Assistant hooks</li>
       </ul>
-      <p><Link href="/portfolio">← Back to portfolio</Link></p>
+      <p><Link href="/portfolio">{t.common.backToPortfolio}</Link></p>
 
     </article>
   )

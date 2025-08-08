@@ -19,5 +19,35 @@
   "sections": {
     "whatWeDo": "What we do",
     "selected": "Selected highlights"
+  },
+  "about": {
+    "title": "About TES",
+    "p1": "TES (Tröndle Embedded System) is a Swiss embedded design studio led by Nicolas Tröndle. We turn ideas into reliable hardware — combining PCB design, firmware, and practical testing.",
+    "p2": "We’ve worked across ESP32, RP2040, and STM32 platforms; CAN, USB, and Wi‑Fi; and thermal/power‑aware designs. We care about clean schematics, manufacturable layouts, and robust software."
+  },
+  "portfolio": {
+    "title": "Portfolio",
+    "subtitle": "A few projects we’ve built recently."
+  },
+  "services": {
+    "pcb": {
+      "title": "Custom PCB design",
+      "desc": "4-layer and compact boards with solid grounding, careful routing, and manufacturing-ready outputs."
+    },
+    "firmware": {
+      "title": "Firmware & connectivity",
+      "desc": "Bare‑metal drivers and RTOS work; ESP‑IDF/Arduino, RP2040 SDK, Klipper integrations."
+    },
+    "power": {
+      "title": "Power & thermal design",
+      "desc": "Efficient regulators, protection, and thermal considerations for reliable devices."
+    },
+    "proto": {
+      "title": "Prototyping & test",
+      "desc": "Bring-up, measurement, and test jigs to validate ideas quickly."
+    }
+  },
+  "common": {
+    "backToPortfolio": "← Back to portfolio"
   }
 }

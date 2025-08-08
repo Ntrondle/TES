@@ -1,26 +1,16 @@
 import Link from 'next/link'
+import {getDictionary} from '../i18n/getDictionary'
 
-export const metadata = { title: 'Portfolio — TES' }
+export default async function Page({ params }) {
+  const locale = params?.locale || 'en'
+  const t = await getDictionary(locale)
+  return (
+    <section className="max-w-5xl">
+      <h1 className="text-4xl font-semibold tracking-tight">{t.portfolio.title}</h1>
+      <p className="mt-2 text-neutral-600 dark:text-neutral-300">{t.portfolio.subtitle}</p>
 
-function Project({ title, bullets, href }) {
-
-  const content = (
-    <>
-
-      <h3 className="font-semibold">{title}</h3>
-      <ul className="ml-5 mt-2 space-y-1 list-outside">
-        {bullets.map((b, i) => <li key={i}>{b}</li>)}
-      </ul>
-
-    </>
-  )
-
-  return href ? (
-    <Link href={href} className="card">
-      {content}
-    </Link>
-  ) : (
-    <div className="card">{content}</div>
+      {/* Existing project cards below */}
+          <div className="card">{content}</div>
 
   )
 }
@@ -60,4 +50,5 @@ export default function Page() {
       </div>
     </section>
   )
+}
 }

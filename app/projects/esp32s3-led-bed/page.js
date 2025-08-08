@@ -1,12 +1,18 @@
+import Link from 'next/link'
+import {getDictionary} from '../../i18n/getDictionary'
 
+export default async function Page({ params }) {
+  const locale = params?.locale || 'en'
+  const t = await getDictionary(locale)
+
+  return (
 import Link from 'next/link'
 
 import Breadcrumb from '../../../components/Breadcrumb'
 
 export const metadata = { title: 'ESP32-S3 LED Bed Controller — TES' }
 
-export default function Page() {
-  return (
+
     <article className="prose prose-neutral dark:prose-invert max-w-3xl">
       <Breadcrumb items={[{ href: '/', label: 'Home' }, { href: '/portfolio', label: 'Portfolio' }, { label: 'ESP32-S3 LED Bed Controller' }]} />
       <h1>ESP32-S3 LED Bed Controller</h1>
@@ -17,7 +23,7 @@ export default function Page() {
         <li>Wi-Fi control + Klipper firmware hooks</li>
         <li>4-layer layout optimized for noise & heat</li>
       </ul>
-      <p><Link href="/portfolio">← Back to portfolio</Link></p>
+      <p><Link href="/portfolio">{t.common.backToPortfolio}</Link></p>
 
     </article>
   )

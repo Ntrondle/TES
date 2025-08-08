@@ -1,26 +1,15 @@
+export const metadata = { title: 'Proto — TES' }
 
-import Link from 'next/link'
+import {getDictionary} from '../../i18n/getDictionary'
 
-import Breadcrumb from '../../../components/Breadcrumb'
-
-export const metadata = { title: 'Rapid Prototyping — TES' }
-
-export default function Page() {
+export default async function Page({ params }) {
+  const locale = params?.locale || 'en'
+  const t = await getDictionary(locale)
   return (
-    <article className="prose prose-neutral dark:prose-invert max-w-3xl">
-      <Breadcrumb items={[{ href: '/', label: 'Home' }, { href: '/#what-we-do', label: 'What we do' }, { label: 'Rapid Prototyping' }]} />
-      <h1>Rapid Prototyping</h1>
-      <p>We turn ideas into tested prototypes quickly, reducing your time to market and allowing faster iteration.</p>
-      <h2>Approach</h2>
-      <ul>
-        <li>Fast PCB fabrication & assembly</li>
-        <li>Fixture & jig creation</li>
-        <li>Firmware bring-up</li>
-        <li>Iterative refinement</li>
-      </ul>
+    <section className="max-w-3xl">
+      <h1 className="text-4xl font-semibold tracking-tight">{t.services.proto.title}</h1>
+      <p className="mt-4 text-neutral-600 dark:text-neutral-300">{t.services.proto.desc}</p>
 
-      <p><Link href="/#what-we-do">← Back to services</Link></p>
-
-    </article>
+    </section>
   )
 }
