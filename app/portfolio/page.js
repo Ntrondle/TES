@@ -8,7 +8,7 @@ function Project({ title, bullets, href }) {
     <>
 
       <h3 className="font-semibold">{title}</h3>
-      <ul className="list-disc ml-5 mt-2 space-y-1">
+      <ul className="ml-5 mt-2 space-y-1 list-outside">
         {bullets.map((b, i) => <li key={i}>{b}</li>)}
       </ul>
 

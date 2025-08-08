@@ -2,17 +2,23 @@ export default function TracesBackground() {
   const rows = [20, 60, 100, 140, 180, 220, 260, 300]
   return (
     <svg
-      className="absolute inset-0 h-full w-full pointer-events-none opacity-40 dark:opacity-30"
+      className="absolute inset-0 h-full w-full pointer-events-none opacity-20 dark:opacity-30"
       viewBox="0 0 1200 340"
       preserveAspectRatio="none"
       aria-hidden="true"
     >
       <defs>
+        {/* light theme subtle center glow that fades evenly to edges */}
+        <radialGradient id="fadeRadialLight" cx="0.5" cy="0.5" r="0.7">
+          <stop offset="0%" stopOpacity="0.25" />
+          <stop offset="55%" stopOpacity="0.12" />
+          <stop offset="100%" stopOpacity="0" />
+        </radialGradient>
         {/* soft fade at edges */}
         <linearGradient id="fadeX" x1="0" x2="1" y1="0" y2="0">
           <stop offset="0%" stopOpacity="0" />
-          <stop offset="10%" stopOpacity="1" />
-          <stop offset="90%" stopOpacity="1" />
+          <stop offset="15%" stopOpacity="0.6" />
+          <stop offset="85%" stopOpacity="0.6" />
           <stop offset="100%" stopOpacity="0" />
         </linearGradient>
         <linearGradient id="traceGrad" x1="0" x2="1" y1="0" y2="0">
@@ -51,7 +57,8 @@ export default function TracesBackground() {
       ))}
 
       {/* subtle top/bottom separators */}
-      <rect x="0" y="0" width="1200" height="340" fill="url(#fadeX)" />
+      <rect className="dark:hidden" x="0" y="0" width="1200" height="340" fill="url(#fadeRadialLight)" />
+      <rect className="hidden dark:block" x="0" y="0" width="1200" height="340" fill="url(#fadeX)" />
     </svg>
   )
 }

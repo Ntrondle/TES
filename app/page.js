@@ -6,17 +6,21 @@ import TracesBackground from '../components/TracesBackground'
 export default function Page() {
   return (
     <>
-      <section className="py-8 relative overflow-hidden rounded-2xl border border-neutral-200 dark:border-neutral-800">
+      <section className="py-12 relative overflow-hidden rounded-2xl border border-neutral-200 dark:border-neutral-800">
+        <div className="container text-center">
         <TracesBackground />
 
-        <div className="relative">
+        <div className="relative max-w-3xl mx-auto">
           <h1 className="text-4xl md:text-6xl font-semibold tracking-tight">Embedded systems, built right.</h1>
-          <p className="mt-4 max-w-2xl text-neutral-600 dark:text-neutral-300">
+          <p className="mt-4 max-w-2xl mx-auto text-neutral-600 dark:text-neutral-300">
             We design and ship custom electronics: PCB design, firmware, and connected products. From idea to tested prototypes.
           </p>
           <div className="mt-6 flex gap-3">
             <a className="btn btn-primary" href="mailto:hello@tes.swiss">Start a project</a>
-            <Link className="btn" href="/portfolio">See work</Link>
+            <div className="mt-6 flex items-center justify-center gap-3">
+            <Link className="btn-primary" href="/portfolio">See work</Link>
+            <Link className="btn-outline" href="#what-we-do">What we can do</Link>
+          </div>
           </div>
 
           <ul className="mt-6 flex flex-wrap gap-2 text-sm text-neutral-500">
@@ -28,15 +32,17 @@ export default function Page() {
           </ul>
 
         </div>
+              </div>
+              </div>
       </section>
 
       <section id="what-we-do" className="border-t border-neutral-200 dark:border-neutral-800 mt-10 pt-10">
         <h2 className="text-2xl font-semibold">What we do</h2>
         <div className="grid md:grid-cols-2 gap-6 mt-4">
 
-          <Link className="card" href="/services/pcb-design">
+          <Link className="card card-accent" href="/services/[a-z\-]+"><div className="mb-3" aria-hidden="true"><svg width="32" height="32" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="14" rx="2" fill="var(--accent-weak)"/><path d="M7 8h6M7 12h10M7 16h8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/></svg></div>
             <h3 className="text-lg font-semibold">Custom PCB design</h3>
-            <p className="text-neutral-600 dark:text-neutral-300 mt-1">4-layer and compact boards with solid power delivery and signal integrity. From schematic to ready-to-assemble Gerbers.</p>
+            <p className="text-neutral-600 dark:text-neutral-300 mt-1">Schematics, layout, DFM, EMI/ESD care. Clear docs and ready-to-manufacture outputs.</p>
           </Link>
           <Link className="card" href="/services/firmware">
             <h3 className="text-lg font-semibold">Firmware & integration</h3>
@@ -46,15 +52,17 @@ export default function Page() {
             <h3 className="text-lg font-semibold">Thermal & power safety</h3>
             <p className="text-neutral-600 dark:text-neutral-300 mt-1">PD negotiation, protections, run-away detection, and validated thermal behavior.</p>
           </Link>
-          <Link className="card" href="/services/prototyping">
+          <Link className="card card-accent" href="/services/[a-z\-]+"><div className="mb-3" aria-hidden="true"><svg width="32" height="32" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="10" rx="2" fill="var(--accent-weak)"/><path d="M6 17h12M9 20h6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/></svg></div>
             <h3 className="text-lg font-semibold">Rapid prototyping</h3>
-            <p className="text-neutral-600 dark:text-neutral-300 mt-1">Bring-up, fixtures, test scripts, and iteration until it’s shippable.</p>
+            <p className="text-neutral-600 dark:text-neutral-300 mt-1">Fast PCB/assembly, fixtures, test jigs, iterative builds to de‑risk.</p>
           </Link>
 
         </div>
+              </div>
       </section>
 
-      <section className="mt-10">
+      <section className="mt-10 bg-[radial-gradient(40%_60%_at_50%_0%,_var(--accent-weak),_transparent_60%)] rounded-2xl p-1" >
+        <div className="rounded-2xl p-4 bg-white dark:bg-neutral-950">
         <h2 className="text-2xl font-semibold">Selected highlights</h2>
         <div className="grid md:grid-cols-3 gap-4 mt-4">
 
@@ -72,6 +80,7 @@ export default function Page() {
           </Link>
 
         </div>
+              </div>
       </section>
     </>
   )

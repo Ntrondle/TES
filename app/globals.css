@@ -3,6 +3,9 @@
 @tailwind utilities;
 
 :root {
+  --accent: #e30613; /* Swiss red */
+  --accent-weak: color-mix(in oklab, var(--accent) 35%, transparent);
+
   color-scheme: light dark;
 }
 
