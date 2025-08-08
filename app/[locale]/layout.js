@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import './globals.css'
+import '../globals.css'
 import Logo from '../components/Logo'
 import LangSwitcher from '../components/LangSwitcher'
 import {getDictionary} from '../i18n/getDictionary'
