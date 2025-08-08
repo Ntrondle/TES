@@ -1,0 +1,23 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "portfolio": "Portfolio",
+    "contact": "Contact",
+    "lang": "Language"
+  },
+  "hero": {
+    "titleLine1": "Embedded systems,",
+    "titleLine2": "built right.",
+    "subtitle": "We design and ship custom electronics: PCB design, firmware, and connected products. From idea to tested prototypes."
+  },
+  "buttons": {
+    "start": "Start a project",
+    "seeWork": "See work",
+    "whatWeDo": "What we can do"
+  },
+  "sections": {
+    "whatWeDo": "What we do",
+    "selected": "Selected highlights"
+  }
+}

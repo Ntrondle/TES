@@ -1,0 +1,23 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "about": "À propos",
+    "portfolio": "Portfolio",
+    "contact": "Contact",
+    "lang": "Langue"
+  },
+  "hero": {
+    "titleLine1": "Systèmes embarqués,",
+    "titleLine2": "bien faits.",
+    "subtitle": "Nous concevons et livrons de l’électronique sur mesure : PCB, firmware et produits connectés. De l’idée aux prototypes testés."
+  },
+  "buttons": {
+    "start": "Démarrer un projet",
+    "seeWork": "Voir nos projets",
+    "whatWeDo": "Ce que nous faisons"
+  },
+  "sections": {
+    "whatWeDo": "Ce que nous faisons",
+    "selected": "Sélection de projets"
+  }
+}

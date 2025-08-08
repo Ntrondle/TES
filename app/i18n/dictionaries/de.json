@@ -1,0 +1,23 @@
+{
+  "nav": {
+    "home": "Startseite",
+    "about": "Über uns",
+    "portfolio": "Portfolio",
+    "contact": "Kontakt",
+    "lang": "Sprache"
+  },
+  "hero": {
+    "titleLine1": "Embedded‑Systeme,",
+    "titleLine2": "richtig gebaut.",
+    "subtitle": "Wir entwickeln maßgeschneiderte Elektronik: PCB‑Design, Firmware und vernetzte Produkte. Von der Idee bis zum getesteten Prototyp."
+  },
+  "buttons": {
+    "start": "Projekt starten",
+    "seeWork": "Arbeiten ansehen",
+    "whatWeDo": "Was wir tun"
+  },
+  "sections": {
+    "whatWeDo": "Was wir tun",
+    "selected": "Ausgewählte Highlights"
+  }
+}
