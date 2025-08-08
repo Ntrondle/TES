@@ -48,6 +48,16 @@ export default async function Page({ params: { locale } }) {
         </div>
       </section>
 
+      {/* separator */}
+      <div className="relative my-10 h-px">
+        <div className="h-px bg-neutral-200 dark:bg-neutral-800" />
+        <div
+          className="absolute inset-0 opacity-30"
+          style={{ background: 'conic-gradient(from 0deg, #d52b1e, #ffffff, #3ca9e2, #2e7d32, #e0e0e0, #d52b1e)' }}
+        />
+      </div>
+
+
       <section id="portfolio" className="mt-10">
         <h2 className="text-2xl font-semibold text-center">{t.sections.selected}</h2>
 
