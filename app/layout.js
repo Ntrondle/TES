@@ -24,7 +24,10 @@ export default function RootLayout({ children }) {
       <body>
         <header className="border-b border-neutral-200 dark:border-neutral-800">
           <div className="container flex items-center justify-between py-4">
-            <a href="/" className="font-semibold tracking-tight">TES <span className="text-neutral-500">Tröndle Embedded System</span></a>
+            <a href="/" className="font-semibold tracking-tight flex items-center gap-2">
+              <img src="/logo.svg" alt="TES logo" className="logo h-6" />
+              <span className="text-neutral-500">Tröndle Embedded System</span>
+            </a>
             <nav className="flex gap-4">
               <a href="/" className="hover:opacity-80">Home</a>
               <a href="/about" className="hover:opacity-80">About</a>
