@@ -49,5 +49,19 @@
   },
   "common": {
     "backToPortfolio": "← Back to portfolio"
+  },
+  "projects": {
+    "heated": {
+      "title": "Heated Coaster — Smart & Safe",
+      "desc": "USB‑PD to 24 V with safe negotiation, thermal control, and fail‑safes."
+    },
+    "ledbed": {
+      "title": "ESP32‑S3 LED Bed — Matrix Controller",
+      "desc": "High‑density LED driving with ESP32‑S3, clean power, and connectivity."
+    },
+    "rcbms": {
+      "title": "RC Car Control & BMS Board",
+      "desc": "Battery management, dual motor drive, CAN/USB comms, protected power path."
+    }
   }
 }

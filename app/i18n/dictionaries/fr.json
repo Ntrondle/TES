@@ -49,5 +49,19 @@
   },
   "common": {
     "backToPortfolio": "← Retour au portfolio"
+  },
+  "projects": {
+    "heated": {
+      "title": "Dessous de tasse chauffant — sûr et intelligent",
+      "desc": "USB‑PD jusqu’à 24 V avec négociation sûre, contrôle thermique et sécurités."
+    },
+    "ledbed": {
+      "title": "ESP32‑S3 LED Bed — contrôleur de matrice",
+      "desc": "Pilotage LED haute densité avec ESP32‑S3, alimentation propre et connectivité."
+    },
+    "rcbms": {
+      "title": "Carte de contrôle RC & BMS",
+      "desc": "Gestion de batterie, double pilotage moteur, CAN/USB, chemin d’alimentation protégé."
+    }
   }
 }

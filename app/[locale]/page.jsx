@@ -63,18 +63,18 @@ export default async function Page({ params: { locale } }) {
 
         <div className="grid md:grid-cols-3 gap-6 mt-4">
           <Link href={`/${locale}/projects/heated-coaster`} className="card hover:no-underline">
-            <h3 className="font-semibold">Heated Coaster — Smart &amp; Safe</h3>
-            <p className="text-neutral-600 dark:text-neutral-300 mt-1">USB‑PD to 24 V with safe negotiation, thermal control, and fail‑safes.</p>
+            <h3 className="font-semibold">{t.projects.heated.title}</h3>
+            <p className="text-neutral-600 dark:text-neutral-300 mt-1">{t.projects.heated.desc}</p>
           </Link>
 
           <Link href={`/${locale}/projects/esp32s3-led-bed`} className="card hover:no-underline">
-            <h3 className="font-semibold">ESP32‑S3 LED Bed — Matrix Controller</h3>
-            <p className="text-neutral-600 dark:text-neutral-300 mt-1">High‑density LED driving with ESP32‑S3, clean power, and connectivity.</p>
+            <h3 className="font-semibold">{t.projects.ledbed.title}</h3>
+            <p className="text-neutral-600 dark:text-neutral-300 mt-1">{t.projects.ledbed.desc}</p>
           </Link>
 
           <Link href={`/${locale}/projects/rc-bms`} className="card hover:no-underline">
-            <h3 className="font-semibold">RC Car Control &amp; BMS Board</h3>
-            <p className="text-neutral-600 dark:text-neutral-300 mt-1">Battery management, dual motor drive, CAN/USB comms, protected power path.</p>
+            <h3 className="font-semibold">{t.projects.rcbms.title}</h3>
+            <p className="text-neutral-600 dark:text-neutral-300 mt-1">{t.projects.rcbms.desc}</p>
           </Link>
         </div>
       </section>

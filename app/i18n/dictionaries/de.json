@@ -49,5 +49,19 @@
   },
   "common": {
     "backToPortfolio": "← Zurück zum Portfolio"
+  },
+  "projects": {
+    "heated": {
+      "title": "Beheizter Untersetzer — smart & sicher",
+      "desc": "USB‑PD bis 24 V mit sicherer Aushandlung, Temperaturregelung und Schutzfunktionen."
+    },
+    "ledbed": {
+      "title": "ESP32‑S3 LED Bed — Matrix‑Controller",
+      "desc": "Ansteuerung dichter LED‑Matrizen mit ESP32‑S3, saubere Versorgung und Konnektivität."
+    },
+    "rcbms": {
+      "title": "RC‑Steuerung & BMS‑Platine",
+      "desc": "Batteriemanagement, Doppel‑Motorsteuerung, CAN/USB‑Kommunikation, geschützter Leistungsweg."
+    }
   }
 }
