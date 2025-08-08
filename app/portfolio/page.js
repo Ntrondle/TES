@@ -1,14 +1,27 @@
+import Link from 'next/link'
+
 export const metadata = { title: 'Portfolio — TES' }
 
 function Project({ title, bullets, href }) {
-  const Tag = href ? 'a' : 'div'
-  return (
-    <Tag className="card" {...(href ? { href } : {})}>
+
+  const content = (
+    <>
+
       <h3 className="font-semibold">{title}</h3>
       <ul className="list-disc ml-5 mt-2 space-y-1">
         {bullets.map((b, i) => <li key={i}>{b}</li>)}
       </ul>
-    </Tag>
+
+    </>
+  )
+
+  return href ? (
+    <Link href={href} className="card">
+      {content}
+    </Link>
+  ) : (
+    <div className="card">{content}</div>
+
   )
 }
 

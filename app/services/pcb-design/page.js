@@ -1,3 +1,6 @@
+
+import Link from 'next/link'
+
 import Breadcrumb from '../../../components/Breadcrumb'
 
 export const metadata = { title: 'Custom PCB Design — TES' }
@@ -15,7 +18,8 @@ export default function Page() {
         <li>Gerber and manufacturing output</li>
         <li>Assembly guidance</li>
       </ul>
-      <p><a href="/#what-we-do">← Back to services</a></p>
+      <p><Link href="/#what-we-do">← Back to services</Link></p>
+
     </article>
   )
 }

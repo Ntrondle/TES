@@ -1,3 +1,6 @@
+
+import Link from 'next/link'
+
 import Breadcrumb from '../../../components/Breadcrumb'
 
 export const metadata = { title: 'RC Car Control & BMS Board — TES' }
@@ -15,7 +18,8 @@ export default function Page() {
         <li>ESP32 connectivity, CAN/USB comms</li>
         <li>Robust power path and protections</li>
       </ul>
-      <p><a href="/portfolio">← Back to portfolio</a></p>
+      <p><Link href="/portfolio">← Back to portfolio</Link></p>
+
     </article>
   )
 }

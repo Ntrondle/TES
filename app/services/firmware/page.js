@@ -1,3 +1,5 @@
+
+import Link from 'next/link'
 import Breadcrumb from '../../../components/Breadcrumb'
 
 export const metadata = { title: 'Firmware & Integration — TES' }
@@ -15,7 +17,8 @@ export default function Page() {
         <li>Wireless connectivity (Wi-Fi, BLE)</li>
         <li>Integration into existing ecosystems</li>
       </ul>
-      <p><a href="/#what-we-do">← Back to services</a></p>
+      <p><Link href="/#what-we-do">← Back to services</Link></p>
+
     </article>
   )
 }
