@@ -27,12 +27,56 @@ export default async function Page({ params: { locale } }) {
 
       <section id="what-we-do" className="border-t border-neutral-200 dark:border-neutral-800 mt-10 pt-10">
         <h2 className="text-2xl font-semibold text-center">{t.sections.whatWeDo}</h2>
-        {/* Reuse your existing cards below as-is for now */}
+        
+      <section id="what-we-do" className="border-t border-neutral-200 dark:border-neutral-800 mt-10 pt-10">
+        <h2 className="text-2xl font-semibold text-center">{t.sections.whatWeDo}</h2>
+
+        <div className="grid md:grid-cols-2 gap-6 mt-4 justify-items-center">
+          <div className="card max-w-md">
+            <h3 className="text-lg font-semibold">{t.services.pcb.title}</h3>
+            <p className="text-neutral-600 dark:text-neutral-300 mt-1">{t.services.pcb.desc}</p>
+          </div>
+          <div className="card max-w-md">
+            <h3 className="text-lg font-semibold">{t.services.firmware.title}</h3>
+            <p className="text-neutral-600 dark:text-neutral-300 mt-1">{t.services.firmware.desc}</p>
+          </div>
+          <div className="card max-w-md">
+            <h3 className="text-lg font-semibold">{t.services.power.title}</h3>
+            <p className="text-neutral-600 dark:text-neutral-300 mt-1">{t.services.power.desc}</p>
+          </div>
+          <div className="card max-w-md">
+            <h3 className="text-lg font-semibold">{t.services.proto.title}</h3>
+            <p className="text-neutral-600 dark:text-neutral-300 mt-1">{t.services.proto.desc}</p>
+          </div>
+        </div>
+      </section>
+
       </section>
 
       <section id="portfolio" className="mt-10">
         <h2 className="text-2xl font-semibold text-center">{t.sections.selected}</h2>
-        {/* Reuse your existing project cards here */}
+        
+      <section id="portfolio" className="mt-10">
+        <h2 className="text-2xl font-semibold text-center">{t.sections.selected}</h2>
+
+        <div className="grid md:grid-cols-3 gap-6 mt-4">
+          <a href="/projects/heated-coaster" className="card hover:no-underline">
+            <h3 className="font-semibold">Heated Coaster — Smart &amp; Safe</h3>
+            <p className="text-neutral-600 dark:text-neutral-300 mt-1">USB‑PD to 24 V with safe negotiation, thermal control, and fail‑safes.</p>
+          </a>
+
+          <a href="/projects/esp32s3-led-bed" className="card hover:no-underline">
+            <h3 className="font-semibold">ESP32‑S3 LED Bed — Matrix Controller</h3>
+            <p className="text-neutral-600 dark:text-neutral-300 mt-1">High‑density LED driving with ESP32‑S3, clean power, and connectivity.</p>
+          </a>
+
+          <a href="/projects/rc-bms" className="card hover:no-underline">
+            <h3 className="font-semibold">RC Car Control &amp; BMS Board</h3>
+            <p className="text-neutral-600 dark:text-neutral-300 mt-1">Battery management, dual motor drive, CAN/USB comms, protected power path.</p>
+          </a>
+        </div>
+      </section>
+
       </section>
     </>
   )
