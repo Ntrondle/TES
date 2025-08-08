@@ -1,35 +1,31 @@
 'use client'
 
 import Link from 'next/link'
-import { usePathname, useSearchParams, useSelectedLayoutSegments } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import { locales } from '../i18n/locales'
 
-// Builds /<locale>/<...restOfPath>
-function withLocale(newLocale, segments) {
-  const rest = segments.join('/')
-  return `/${newLocale}${rest ? `/${rest}` : ''}`
-}
-
 export default function LangSwitcher({ locale, className = '' }) {
-  const pathname = usePathname() || '/'
-  const params = useSearchParams()
-  const segments = useSelectedLayoutSegments() // everything after [locale]
+  const [segments, setSegments] = useState([])
+  const [search, setSearch] = useState('')
   const [hash, setHash] = useState('')
 
-  // Capture current hash after hydration so we preserve anchors like #what-we-do
+  // Hydrate current URL on client (no Next navigation hooks needed)
   useEffect(() => {
-    setHash(window.location.hash || '')
+    const { pathname, search, hash } = window.location
+    // pathname like: /en/projects/rc-bms -> keep everything after the locale
+    const parts = pathname.split('/').filter(Boolean) // ["en","projects","rc-bms"]
+    setSegments(parts.slice(1)) // ["projects","rc-bms"] or [] for homepage
+    setSearch(search || '')
+    setHash(hash || '')
   }, [])
 
-  const qs = params?.toString()
-  const tail = `${qs ? `?${qs}` : ''}${hash}`
+  // SSR fallback: links point to locale home until hydrated
+  const rest = segments.length ? `/${segments.join('/')}` : ''
 
   return (
     <div className={className}>
       {locales.map((l, i) => {
-        const targetBase = withLocale(l, segments)
-        const href = `${targetBase}${tail}`
+        const href = `/${l}${rest}${search}${hash}`
         const active = l === locale
         return (
           <Link key={l} href={href} className={`nav-link ${active ? 'font-semibold' : ''}`}>
