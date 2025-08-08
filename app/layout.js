@@ -1,6 +1,5 @@
 import Link from 'next/link'
-import Image from 'next/image'
-import logoSvg from '../public/logo.svg'
+import Logo from '../public/logo.svg'
 import './globals.css'
 
 export const metadata = {
@@ -17,7 +16,7 @@ export default function RootLayout({ children }) {
         <header className="border-b border-neutral-200 dark:border-neutral-800">
           <div className="container flex items-center justify-between py-3">
             <Link href="/" className="flex items-center gap-3 shrink-0">
-              <Image src={logoSvg} alt="TES — Tröndle Embedded System" width={120} height={28} priority />
+              <Logo className="w-[120px] h-auto text-neutral-900 dark:text-white" />
             </Link>
 
             <nav className="hidden md:flex items-center gap-1">

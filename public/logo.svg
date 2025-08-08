@@ -7,12 +7,12 @@
       }
 
       .cls-2 {
-        fill: #010101;
+        fill: currentColor;
       }
 
       @media (prefers-color-scheme: dark) {
         .cls-2 {
-          fill: #ffffff;
+          fill: currentColor;
         }
       }
     </style>
