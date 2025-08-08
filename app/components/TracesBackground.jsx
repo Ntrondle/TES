@@ -2,7 +2,7 @@ export default function TracesBackground() {
   const rows = [20, 60, 100, 140, 180, 220, 260, 300];
   return (
     <svg
-      className="absolute inset-0 h-full w-full pointer-events-none opacity-40 dark:opacity-30"
+      className="absolute inset-0 h-full w-full pointer-events-none opacity-50 dark:opacity-35"
       viewBox="0 0 1200 340"
       preserveAspectRatio="none"
       aria-hidden="true"
@@ -11,8 +11,8 @@ export default function TracesBackground() {
         {/* soft fade at edges */}
         <linearGradient id="fadeX" x1="0" x2="1" y1="0" y2="0">
           <stop offset="0%" stopOpacity="0" />
-          <stop offset="10%" stopOpacity="1" />
-          <stop offset="90%" stopOpacity="1" />
+          <stop offset="12%" stopOpacity="1" />
+          <stop offset="88%" stopOpacity="1" />
           <stop offset="100%" stopOpacity="0" />
         </linearGradient>
         <linearGradient id="traceGrad" x1="0" x2="1" y1="0" y2="0">

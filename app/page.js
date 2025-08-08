@@ -11,13 +11,14 @@ export default function Page() {
         <TracesBackground />
 
         <div className="relative max-w-3xl mx-auto text-center">
-          <h1 className="text-4xl md:text-6xl font-semibold tracking-tight">Embedded systems, built right.</h1>
+          <h1 className="text-4xl md:text-6xl font-semibold tracking-tight">Embedded systems,
+            <span className="block">built right.</span></h1>
           <p className="mt-4 max-w-2xl text-neutral-600 dark:text-neutral-300">
             We design and ship custom electronics: PCB design, firmware, and connected products. From idea to tested prototypes.
           </p>
           <div className="mt-6 flex gap-3">
             <a className="btn btn-primary" href="mailto:hello@tes.swiss">Start a project</a>
-            <div className="mt-6 flex items-center justify-center gap-3"><Link className="btn-primary" href="/portfolio">See work</Link><Link className="btn-outline" href="#what-we-do">What we can do</Link></div>
+            <div className="mt-6 flex items-center justify-center gap-3"><Link className="btn-primary" href="/portfolio">See work</Link><Link className="btn btn-outline rounded-xl btn-outline" href="#what-we-do">What we can do</Link></div>
           </div>
 
           <ul className="mt-6 flex flex-wrap gap-2 text-sm text-neutral-500">

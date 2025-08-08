@@ -58,3 +58,33 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .trace-animate { animation: none; }
 }
+
+
+.btn-outline {
+  @apply inline-block border border-neutral-300 dark:border-neutral-700 text-neutral-900 dark:text-white rounded-xl px-4 py-2 hover:bg-neutral-100/60 dark:hover:bg-neutral-800/60 transition;
+}
+
+
+/* Subtle multicolor glow on cards */
+.card {
+  position: relative;
+  transition: box-shadow 200ms ease, transform 200ms ease;
+}
+.card::after {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  background: conic-gradient(from 0deg, #e11d48, #f59e0b, #22c55e, #06b6d4, #8b5cf6, #e11d48);
+  filter: blur(26px);
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 300ms ease;
+}
+.card:hover {
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  transform: translateY(-1px);
+}
+.card:hover::after {
+  opacity: 0.18;
+}
