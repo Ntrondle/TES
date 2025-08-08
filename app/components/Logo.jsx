@@ -9,7 +9,7 @@ export default function Logo({ className = "", ...props }) {
     >
 
   <defs>
-    <style>
+    <style>{`
       .cls-1 {
         fill: #da2a1c;
       }
@@ -23,7 +23,7 @@ export default function Logo({ className = "", ...props }) {
           fill: #ffffff;
         }
       }
-    </style>
+    `}</style>
   </defs>
   <g>
     <path className="cls-2" d="M52.65,144.75H16.81s23.72-112.11,23.72-112.11H0S6.15,3.84,6.15,3.84h116.99s-6.15,28.8-6.15,28.8h-40.53s-23.82,112.12-23.82,112.12Z"/>
