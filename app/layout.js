@@ -23,6 +23,7 @@ export default function RootLayout({ children }) {
     <html lang="en" className={inter.className}>
       <body>
         <header className="border-b border-neutral-200 dark:border-neutral-800">
+
           <div className="container flex items-center justify-between py-3">
             <a href="/" className="flex items-center gap-3 shrink-0">
               <img
@@ -37,6 +38,7 @@ export default function RootLayout({ children }) {
               <a href="/about" className="nav-link">About</a>
               <a href="/portfolio" className="nav-link">Portfolio</a>
               <a href="mailto:hello@tes.swiss" className="nav-cta">Contact</a>
+
             </nav>
 
             {/* Mobile: hamburger (optional, minimal) */}

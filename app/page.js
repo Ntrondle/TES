@@ -1,3 +1,5 @@
+
+
 import TracesBackground from '../components/TracesBackground'
 
 export default function Page() {
@@ -5,15 +7,18 @@ export default function Page() {
     <>
       <section className="py-8 relative overflow-hidden rounded-2xl border border-neutral-200 dark:border-neutral-800">
         <TracesBackground />
+
         <div className="relative">
           <h1 className="text-4xl md:text-6xl font-semibold tracking-tight">Embedded systems, built right.</h1>
           <p className="mt-4 max-w-2xl text-neutral-600 dark:text-neutral-300">
             We design and ship custom electronics: PCB design, firmware, and connected products. From idea to tested prototypes.
+
           </p>
           <div className="mt-6 flex gap-3">
             <a className="btn btn-primary" href="mailto:hello@tes.swiss">Start a project</a>
             <a className="btn" href="/portfolio">See work</a>
           </div>
+
           <ul className="mt-6 flex flex-wrap gap-2 text-sm text-neutral-500">
             <li className="px-3 py-1 border border-neutral-200 dark:border-neutral-800 rounded-full">PCB design (ESP32, STM32, RP2040)</li>
             <li className="px-3 py-1 border border-neutral-200 dark:border-neutral-800 rounded-full">Firmware (C/C++, Klipper, ESP-IDF)</li>
@@ -21,6 +26,7 @@ export default function Page() {
             <li className="px-3 py-1 border border-neutral-200 dark:border-neutral-800 rounded-full">Connectivity (Wi‑Fi, BLE, USB, CAN)</li>
             <li className="px-3 py-1 border border-neutral-200 dark:border-neutral-800 rounded-full">Prototyping & test</li>
           </ul>
+
         </div>
       </section>
 
