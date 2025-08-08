@@ -29,9 +29,8 @@ export default function Page() {
           </ul>
 
         </div>
-              </div>
-              </div>
-      </section>
+      </div>
+    </section>
 
       <section id="what-we-do" className="border-t border-neutral-200 dark:border-neutral-800 mt-10 pt-10">
         <h2 className="text-2xl font-semibold">What we do</h2>
@@ -76,6 +75,7 @@ export default function Page() {
           </Link>
 
         </div>
+      </div>
       </section>
     </>
   )
