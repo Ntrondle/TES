@@ -16,9 +16,9 @@ export default function TracesBackground() {
           <stop offset="100%" stopOpacity="0" />
         </linearGradient>
         <linearGradient id="traceGrad" x1="0" x2="1" y1="0" y2="0">
-          <stop offset="0%" stopColor="currentColor" stopOpacity="0.35" />
-          <stop offset="50%" stopColor="currentColor" stopOpacity="0.65" />
-          <stop offset="100%" stopColor="currentColor" stopOpacity="0.35" />
+          <stop offset="0%" stopColor="currentColor" stopOpacity="0.65" />
+          <stop offset="50%" stopColor="currentColor" stopOpacity="0.85" />
+          <stop offset="100%" stopColor="currentColor" stopOpacity="0.65" />
         </linearGradient>
       </defs>
 

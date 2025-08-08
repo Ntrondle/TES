@@ -6,7 +6,7 @@ export default function Page() {
       <h1 className="text-4xl font-semibold tracking-tight">About TES</h1>
       <p className="mt-4">
         <strong>TES (Tröndle Embedded System)</strong> is a Swiss embedded design studio led by Nicolas Tröndle.
-        We turn ideas into reliable hardware — combining PCB design, firmware, and practical testing.
+        We turn ideas into reliable hardware; combining PCB design, firmware, and practical testing.
       </p>
       <p className="mt-3">
         We’ve worked across ESP32, RP2040, and STM32 platforms; CAN, USB, and Wi‑Fi; and thermal/power‑aware designs.
@@ -33,7 +33,7 @@ export default function Page() {
         </div>
       </div>
       <p className="mt-6 border-l-4 border-sky-500 pl-3 bg-sky-500/10 rounded">Based in Lausanne, working with teams across Switzerland and beyond.</p>
-      <p className="mt-4"><a className="btn btn-primary" href="mailto:hello@tes.swiss">Get in touch</a></p>
+      <p className="mt-4"><a className="btn btn-primary" href="mailto:info@trondle.ch">Get in touch</a></p>
     </section>
   )
 }

@@ -42,7 +42,7 @@ export default function Page() {
         ]} />
       </div>
       <div className="mt-6">
-        <a className="btn" href="mailto:hello@tes.swiss">Discuss your project</a>
+        <a className="btn" href="mailto:info@trondle.ch">Discuss your project</a>
       </div>
     </section>
   )

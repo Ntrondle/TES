@@ -29,7 +29,7 @@ export default function RootLayout({ children }) {
               <a href="/" className="hover:opacity-80">Home</a>
               <a href="/about" className="hover:opacity-80">About</a>
               <a href="/portfolio" className="hover:opacity-80">Portfolio</a>
-              <a href="mailto:hello@tes.swiss" className="btn">Contact</a>
+              <a href="mailto:hello@trondle.ch" className="btn">Contact</a>
             </nav>
           </div>
         </header>
@@ -38,9 +38,9 @@ export default function RootLayout({ children }) {
           <div className="container py-6 text-sm text-neutral-500 flex flex-wrap gap-2 justify-between">
             <div>© {new Date().getFullYear()} TES — Tröndle Embedded System · Lausanne, Switzerland</div>
             <div className="flex gap-2">
-              <a href="mailto:hello@tes.swiss">hello@tes.swiss</a>
+              <a href="mailto:hello@.trondle.ch">hello@trondle.ch</a>
               <span>·</span>
-              <a href="https://github.com/" target="_blank">GitHub</a>
+              <a href="https://github.com/orgs/Trondle-Embeeded-Systems/repositories" target="_blank">GitHub</a>
               <span>·</span>
               <a href="#">Imprint</a>
             </div>
