@@ -1,4 +1,6 @@
+
 import Link from 'next/link'
+
 import Breadcrumb from '../../../components/Breadcrumb'
 
 export const metadata = { title: 'Smart Heated Coaster — TES' }
@@ -17,6 +19,7 @@ export default function Page() {
         <li>Firmware OTA + Home Assistant hooks</li>
       </ul>
       <p><Link href="/portfolio">← Back to portfolio</Link></p>
+
     </article>
   )
 }

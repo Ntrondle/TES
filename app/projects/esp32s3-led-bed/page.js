@@ -1,4 +1,6 @@
+
 import Link from 'next/link'
+
 import Breadcrumb from '../../../components/Breadcrumb'
 
 export const metadata = { title: 'ESP32-S3 LED Bed Controller — TES' }
@@ -16,6 +18,7 @@ export default function Page() {
         <li>4-layer layout optimized for noise & heat</li>
       </ul>
       <p><Link href="/portfolio">← Back to portfolio</Link></p>
+
     </article>
   )
 }

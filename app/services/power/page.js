@@ -1,4 +1,6 @@
+
 import Link from 'next/link'
+
 import Breadcrumb from '../../../components/Breadcrumb'
 
 export const metadata = { title: 'Thermal & Power Safety — TES' }
@@ -16,7 +18,9 @@ export default function Page() {
         <li>Thermal run-away detection</li>
         <li>Power path optimisation</li>
       </ul>
+
       <p><Link href="/#what-we-do">← Back to services</Link></p>
+
     </article>
   )
 }

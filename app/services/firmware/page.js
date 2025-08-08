@@ -1,3 +1,4 @@
+
 import Link from 'next/link'
 import Breadcrumb from '../../../components/Breadcrumb'
 
@@ -17,6 +18,7 @@ export default function Page() {
         <li>Integration into existing ecosystems</li>
       </ul>
       <p><Link href="/#what-we-do">← Back to services</Link></p>
+
     </article>
   )
 }

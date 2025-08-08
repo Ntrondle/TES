@@ -3,12 +3,15 @@ import Link from 'next/link'
 export const metadata = { title: 'Portfolio — TES' }
 
 function Project({ title, bullets, href }) {
+
   const content = (
     <>
+
       <h3 className="font-semibold">{title}</h3>
       <ul className="list-disc ml-5 mt-2 space-y-1">
         {bullets.map((b, i) => <li key={i}>{b}</li>)}
       </ul>
+
     </>
   )
 
@@ -18,6 +21,7 @@ function Project({ title, bullets, href }) {
     </Link>
   ) : (
     <div className="card">{content}</div>
+
   )
 }
 
