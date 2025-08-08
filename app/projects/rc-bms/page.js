@@ -7,9 +7,12 @@ export default async function Page({ params }) {
 
   return (
     <article className="max-w-3xl">
-      <p className="mb-4"><Link href={`/${locale}/portfolio`} className="nav-link">{t.common.backToPortfolio}</Link></p>
-      <h1 className="text-3xl font-semibold tracking-tight">RC Car Control & BMS Board</h1>
-      <p className="mt-3 text-neutral-600 dark:text-neutral-300">Combined battery management and dual motor control, with CAN/USB communications and protections.</p>
+      <p className="mb-4"><Link href={`/${{locale}}/portfolio`} className="nav-link">{{t.common.backToPortfolio}}</Link></p>
+      <h1 className="text-3xl font-semibold tracking-tight">{{t.projects.rcbms.title}}</h1>
+      <p className="mt-3 text-neutral-600 dark:text-neutral-300">{{t.projects.rcbms.desc}}</p>
+      <div className="mt-4 space-y-3 text-neutral-700 dark:text-neutral-300">
+        {{t.projects.rcbms.body.map((para, i) => (<p key={i}>{para}</p>))}}
+      </div>
     </article>
   )
 }
