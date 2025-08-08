@@ -1,3 +1,4 @@
+import { Suspense } from 'react'
 import Link from 'next/link'
 import '../globals.css'
 import Logo from '../components/Logo'
