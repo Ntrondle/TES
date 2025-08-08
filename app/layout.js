@@ -12,7 +12,10 @@ export const metadata = {
     description: 'We design embedded systems: PCB design, firmware, connected products.',
     images: ['/og.jpg'],
   },
-  themeColor: '#0a0a0a'
+}
+
+export const viewport = {
+  themeColor: '#0a0a0a',
 }
 
 export default function RootLayout({ children }) {
