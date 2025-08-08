@@ -29,8 +29,12 @@ body {
   @apply bg-neutral-900 text-white dark:bg-white dark:text-neutral-900 border-transparent;
 }
 
+.btn-secondary {
+  @apply bg-neutral-100 text-neutral-900 dark:bg-neutral-800 dark:text-neutral-100 border-transparent hover:opacity-90 transition;
+}
+
 .card {
-  @apply border border-neutral-200 dark:border-neutral-800 rounded-2xl p-5;
+  @apply block border border-neutral-200 dark:border-neutral-800 rounded-2xl p-5;
 }
 
 

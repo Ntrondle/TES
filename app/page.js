@@ -16,10 +16,11 @@ export default function Page() {
           <p className="mt-4 max-w-2xl text-neutral-600 dark:text-neutral-300">
             We design and ship custom electronics: PCB design, firmware, and connected products. From idea to tested prototypes.
           </p>
-          <div className="mt-6 flex flex-wrap justify-center gap-3">
-            <a className="btn btn-primary" href="mailto:hello@tes.swiss">Start a project</a>
-            <div className="mt-6 flex items-center justify-center gap-3"><Link className="btn btn-outline rounded-xl" href="/portfolio">See work</Link><Link className="btn btn-outline rounded-xl btn-outline" href="#what-we-do">What we can do</Link></div>
-          </div>
+            <div className="mt-6 flex flex-wrap justify-center gap-3">
+              <a className="btn btn-primary" href="mailto:hello@tes.swiss">Start a project</a>
+              <Link className="btn btn-secondary" href="/portfolio">See work</Link>
+              <Link className="btn btn-secondary" href="#what-we-do">What we can do</Link>
+            </div>
 
           <ul className="mt-6 flex flex-wrap gap-2 text-sm text-neutral-500">
             <li className="px-3 py-1 border border-neutral-200 dark:border-neutral-800 rounded-full">PCB design (ESP32, STM32, RP2040)</li>
@@ -35,7 +36,7 @@ export default function Page() {
 
       <section id="what-we-do" className="border-t border-neutral-200 dark:border-neutral-800 mt-10 pt-10">
         <h2 className="text-2xl font-semibold">What we do</h2>
-        <div className="grid md:grid-cols-2 gap-6 mt-4 justify-items-center">
+        <div className="grid md:grid-cols-2 gap-6 mt-4">
 
           <Link className="card" href="/services/pcb-design">
             <h3 className="text-lg font-semibold">Custom PCB design</h3>
