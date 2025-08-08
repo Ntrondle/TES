@@ -1,34 +1,15 @@
 import Link from 'next/link'
 import {getDictionary} from '../../i18n/getDictionary'
 
-export default async function Page({ params }) {
-  const locale = params?.locale || 'en'
-  const t = await getDictionary(locale)
-import Link from 'next/link'
-
-export default async function Page({ params }) {
+export default async function Page({ params }) { 
   const locale = params?.locale || 'en'
   const t = await getDictionary(locale)
 
   return (
-
-
-export const metadata = { title: 'RC Car Control & BMS Board — TES' }
-
-
-    <article className="prose prose-neutral dark:prose-invert max-w-3xl">
-      <Breadcrumb items={[{ href: '/', label: 'Home' }, { href: '/portfolio', label: 'Portfolio' }, { label: 'RC Car Control & BMS Board' }]} />
-      <h1>RC Car Control & BMS Board</h1>
-      <p>Battery management and dual motor control in a single board, featuring ESP32 connectivity, CAN/USB communications, and a robust protected power path.</p>
-      <h2>Highlights</h2>
-      <ul>
-        <li>Battery management (BQ24075)</li>
-        <li>Dual motor driver (e.g., DRV8833)</li>
-        <li>ESP32 connectivity, CAN/USB comms</li>
-        <li>Robust power path and protections</li>
-      </ul>
-      <p><Link href="/portfolio">{t.common.backToPortfolio}</Link></p>
-
+    <article className="max-w-3xl">
+      <p className="mb-4"><Link href={`/${locale}/portfolio`} className="nav-link">{t.common.backToPortfolio}</Link></p>
+      <h1 className="text-3xl font-semibold tracking-tight">RC Car Control & BMS Board</h1>
+      <p className="mt-3 text-neutral-600 dark:text-neutral-300">Combined battery management and dual motor control, with CAN/USB communications and protections.</p>
     </article>
   )
 }

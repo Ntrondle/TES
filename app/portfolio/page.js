@@ -1,45 +1,31 @@
+import Link from 'next/link'
 import {getDictionary} from '../i18n/getDictionary'
 
 export default async function Page({ params }) {
   const locale = params?.locale || 'en'
   const t = await getDictionary(locale)
+
   return (
     <section className="max-w-5xl">
       <h1 className="text-4xl font-semibold tracking-tight">{t.portfolio.title}</h1>
       <p className="mt-2 text-neutral-600 dark:text-neutral-300">{t.portfolio.subtitle}</p>
 
-      <div className="grid md:grid-cols-2 gap-4 mt-6">
-        <Project href="/projects/heated-coaster" title="Heated Coaster — Smart & Safe" bullets={[
-          'USB‑PD → 24 V with safe negotiation',
-          'Hall‑sensor triggered actuation',
-          'On-board PID using tile thermistor',
-          'Thermal run‑away protection',
-          'ESP32 + Home Assistant integration'
-        ]} />
-        <Project href="/projects/esp32s3-led-bed" title="ESP32‑S3 LED Bed Controller" bullets={[
-          'Neopixel control with power/ground planes',
-          'Wi‑Fi control + Klipper firmware hooks',
-          '4‑layer layout optimized for noise & heat'
-        ]} />
-        <Project href="/projects/rc-bms" title="RC Car Control & BMS Board" bullets={[
-          'Battery management (BQ24075)',
-          'Dual motor driver (e.g., DRV8833)',
-          'ESP32 connectivity, CAN/USB comms',
-          'Robust power path and protections'
-        ]} />
-        <Project title="RFID Filament Detection Concept" bullets={[
-          'NFC/RFID reader integration',
-          'Data model for spool tracking',
-          'Security and encryption experiments'
-        ]} />
-      </div>
-      <div className="mt-6">
-        <a className="btn" href="mailto:hello@tes.swiss">Discuss your project</a>
+      <div className="grid md:grid-cols-3 gap-6 mt-6">
+        <Link href="/projects/heated-coaster" className="card hover:no-underline">
+          <h3 className="font-semibold">Heated Coaster — Smart &amp; Safe</h3>
+          <p className="text-neutral-600 dark:text-neutral-300 mt-1">USB‑PD to 24 V with safe negotiation, thermal control, and fail‑safes.</p>
+        </Link>
+
+        <Link href="/projects/esp32s3-led-bed" className="card hover:no-underline">
+          <h3 className="font-semibold">ESP32‑S3 LED Bed — Matrix Controller</h3>
+          <p className="text-neutral-600 dark:text-neutral-300 mt-1">High‑density LED driving with ESP32‑S3, clean power, and connectivity.</p>
+        </Link>
+
+        <Link href="/projects/rc-bms" className="card hover:no-underline">
+          <h3 className="font-semibold">RC Car Control &amp; BMS Board</h3>
+          <p className="text-neutral-600 dark:text-neutral-300 mt-1">Battery management, dual motor drive, CAN/USB comms, protected power path.</p>
+        </Link>
       </div>
     </section>
-  )
-}
-}
-
   )
 }

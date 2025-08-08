@@ -1,34 +1,15 @@
 import Link from 'next/link'
 import {getDictionary} from '../../i18n/getDictionary'
 
-export default async function Page({ params }) {
-  const locale = params?.locale || 'en'
-  const t = await getDictionary(locale)
-import Link from 'next/link'
-
-export default async function Page({ params }) {
+export default async function Page({ params }) { 
   const locale = params?.locale || 'en'
   const t = await getDictionary(locale)
 
   return (
-
-
-export const metadata = { title: 'Smart Heated Coaster — TES' }
-
-
-    <article className="prose prose-neutral dark:prose-invert max-w-3xl">
-      <Breadcrumb items={[{ href: '/', label: 'Home' }, { href: '/portfolio', label: 'Portfolio' }, { label: 'Smart Heated Coaster' }]} />
-      <h1>Smart Heated Coaster</h1>
-      <p>USB-PD power with safe negotiation to 24 V, hall-sensor triggered actuation, on-board PID using the tile’s thermistor, thermal run-away protection, and ESP32 + Home Assistant integration.</p>
-      <h2>Highlights</h2>
-      <ul>
-        <li>USB-PD trigger to 24 V (negotiation + protections)</li>
-        <li>Magnetic suspension + hall sensor to detect load</li>
-        <li>PID loop on-board; failsafes & temp limits</li>
-        <li>Firmware OTA + Home Assistant hooks</li>
-      </ul>
-      <p><Link href="/portfolio">{t.common.backToPortfolio}</Link></p>
-
+    <article className="max-w-3xl">
+      <p className="mb-4"><Link href={`/${locale}/portfolio`} className="nav-link">{t.common.backToPortfolio}</Link></p>
+      <h1 className="text-3xl font-semibold tracking-tight">Heated Coaster — Smart & Safe</h1>
+      <p className="mt-3 text-neutral-600 dark:text-neutral-300">USB‑PD negotiation up to 24 V, temperature control with safe cutoffs, and a robust power path.</p>
     </article>
   )
 }
