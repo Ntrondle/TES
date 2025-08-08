@@ -1,6 +1,6 @@
 
-import TracesBackground from '../components/TracesBackground'
 
+import TracesBackground from '../components/TracesBackground'
 
 export default function Page() {
   return (
