@@ -29,3 +29,27 @@ body {
 .card {
   @apply border border-neutral-200 dark:border-neutral-800 rounded-2xl p-5;
 }
+
+.nav-link {
+  @apply inline-flex items-center h-10 px-3 rounded-lg text-sm
+         text-neutral-700 dark:text-neutral-200 hover:bg-neutral-100/60
+         dark:hover:bg-neutral-800/60 transition;
+}
+
+.nav-cta {
+  @apply inline-flex items-center h-10 px-4 rounded-lg text-sm font-medium
+         bg-neutral-900 text-white dark:bg-white dark:text-neutral-900
+         hover:opacity-90 transition;
+}
+
+@keyframes dashShift { to { stroke-dashoffset: -2000; } }
+
+.trace-animate {
+  animation: dashShift 24s linear infinite;
+  will-change: stroke-dashoffset;
+}
+
+/* reduce motion */
+@media (prefers-reduced-motion: reduce) {
+  .trace-animate { animation: none; }
+}
