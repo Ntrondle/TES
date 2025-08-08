@@ -1,6 +1,7 @@
 # TES — Tröndle Embedded System (Next.js)
 
 Minimal App Router Next.js site with Tailwind. Static export ready (GitHub Pages).
+https://ntrondle.github.io/TES/
 
 ## Quick start
 

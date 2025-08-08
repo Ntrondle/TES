@@ -1,49 +1,47 @@
+import Link from 'next/link'
+import Image from 'next/image'
+import logoSvg from '../public/logo.svg'
 import './globals.css'
-import { Inter } from 'next/font/google'
-
-const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
   title: 'TES — Tröndle Embedded System',
   description: 'Embedded systems: PCB design, firmware, and connected products. Lausanne, Switzerland.',
-  metadataBase: new URL('https://example.com'),
-  openGraph: {
-    title: 'TES — Tröndle Embedded System',
-    description: 'We design embedded systems: PCB design, firmware, connected products.',
-    images: ['/og.jpg'],
-  },
-}
-
-export const viewport = {
+  openGraph: { images: ['/og.jpg'] },
   themeColor: '#0a0a0a',
 }
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={inter.className}>
+    <html lang="en">
       <body>
         <header className="border-b border-neutral-200 dark:border-neutral-800">
-          <div className="container flex items-center justify-between py-4">
-            <a href="/" className="font-semibold tracking-tight flex items-center gap-2">
-              <img src="/logo.svg" alt="TES logo" className="logo h-6" />
-              <span className="text-neutral-500">Tröndle Embedded System</span>
-            </a>
-            <nav className="flex gap-4">
-              <a href="/" className="hover:opacity-80">Home</a>
-              <a href="/about" className="hover:opacity-80">About</a>
-              <a href="/portfolio" className="hover:opacity-80">Portfolio</a>
-              <a href="mailto:hello@trondle.ch" className="btn">Contact</a>
+          <div className="container flex items-center justify-between py-3">
+            <Link href="/" className="flex items-center gap-3 shrink-0">
+              <Image src={logoSvg} alt="TES — Tröndle Embedded System" width={120} height={28} priority />
+            </Link>
+
+            <nav className="hidden md:flex items-center gap-1">
+              <Link href="/" className="nav-link">Home</Link>
+              <Link href="/about" className="nav-link">About</Link>
+              <Link href="/portfolio" className="nav-link">Portfolio</Link>
+              <a href="mailto:hello@tes.swiss" className="nav-cta">Contact</a>
             </nav>
+
+            <div className="md:hidden">
+              <a href="mailto:hello@tes.swiss" className="nav-cta">Contact</a>
+            </div>
           </div>
         </header>
+
         <main className="container py-10">{children}</main>
+
         <footer className="border-t border-neutral-200 dark:border-neutral-800 mt-10">
           <div className="container py-6 text-sm text-neutral-500 flex flex-wrap gap-2 justify-between">
             <div>© {new Date().getFullYear()} TES — Tröndle Embedded System · Lausanne, Switzerland</div>
             <div className="flex gap-2">
-              <a href="mailto:hello@.trondle.ch">hello@trondle.ch</a>
+              <a href="mailto:hello@tes.swiss">hello@tes.swiss</a>
               <span>·</span>
-              <a href="https://github.com/orgs/Trondle-Embeeded-Systems/repositories" target="_blank">GitHub</a>
+              <a href="https://github.com/" target="_blank">GitHub</a>
               <span>·</span>
               <a href="#">Imprint</a>
             </div>
