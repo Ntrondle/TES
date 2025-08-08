@@ -4,11 +4,14 @@ import {getDictionary} from '../../i18n/getDictionary'
 export default async function Page({ params }) {
   const locale = params?.locale || 'en'
   const t = await getDictionary(locale)
-
-  return (
 import Link from 'next/link'
 
-import Breadcrumb from '../../../components/Breadcrumb'
+export default async function Page({ params }) {
+  const locale = params?.locale || 'en'
+  const t = await getDictionary(locale)
+
+  return (
+
 
 export const metadata = { title: 'RC Car Control & BMS Board — TES' }
 

@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import {getDictionary} from '../i18n/getDictionary'
 
 export default async function Page({ params }) {
@@ -9,17 +8,6 @@ export default async function Page({ params }) {
       <h1 className="text-4xl font-semibold tracking-tight">{t.portfolio.title}</h1>
       <p className="mt-2 text-neutral-600 dark:text-neutral-300">{t.portfolio.subtitle}</p>
 
-      {/* Existing project cards below */}
-          <div className="card">{content}</div>
-
-  )
-}
-
-export default function Page() {
-  return (
-    <section className="max-w-3xl">
-      <h1 className="text-4xl font-semibold tracking-tight">Portfolio</h1>
-      <p className="mt-3 text-neutral-600 dark:text-neutral-300">Some of the work and experiments we can talk about publicly.</p>
       <div className="grid md:grid-cols-2 gap-4 mt-6">
         <Project href="/projects/heated-coaster" title="Heated Coaster — Smart & Safe" bullets={[
           'USB‑PD → 24 V with safe negotiation',
@@ -51,4 +39,7 @@ export default function Page() {
     </section>
   )
 }
+}
+
+  )
 }
