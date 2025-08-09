@@ -1,38 +1,44 @@
 'use client'
 
-import Link from 'next/link'
 import { useEffect, useState } from 'react'
+import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 import { locales } from '../i18n/locales'
 
 export default function LangSwitcher({ locale, className = '' }) {
-  const [segments, setSegments] = useState([])
-  const [search, setSearch] = useState('')
+  const router = useRouter()
+  const pathname = usePathname()
+  const searchParams = useSearchParams()
   const [hash, setHash] = useState('')
 
-  // Hydrate current URL on client (no Next navigation hooks needed)
+  // track hash to preserve anchor navigation when switching languages
   useEffect(() => {
-    const { pathname, search, hash } = window.location
-    // pathname like: /en/projects/rc-bms -> keep everything after the locale
-    const parts = pathname.split('/').filter(Boolean) // ["en","projects","rc-bms"]
-    setSegments(parts.slice(1)) // ["projects","rc-bms"] or [] for homepage
-    setSearch(search || '')
-    setHash(hash || '')
+    const updateHash = () => setHash(window.location.hash || '')
+    updateHash()
+    window.addEventListener('hashchange', updateHash)
+    return () => window.removeEventListener('hashchange', updateHash)
   }, [])
 
-  // SSR fallback: links point to locale home until hydrated
+  const segments = pathname.split('/').filter(Boolean).slice(1)
   const rest = segments.length ? `/${segments.join('/')}` : ''
+  const search = searchParams.toString()
+  const query = search ? `?${search}` : ''
+
+  function handleChange(e) {
+    const nextLocale = e.target.value
+    router.push(`/${nextLocale}${rest}${query}${hash}`)
+  }
 
   return (
-    <div className={className}>
-      {locales.map((l, i) => {
-        const href = `/${l}${rest}${search}${hash}`
-        const active = l === locale
-        return (
-          <Link key={l} href={href} className={`nav-link ${active ? 'font-semibold' : ''}`}>
-            {l.toUpperCase()}{i < locales.length - 1 ? ' · ' : ''}
-          </Link>
-        )
-      })}
-    </div>
+    <select
+      value={locale}
+      onChange={handleChange}
+      className={`nav-link bg-transparent ${className}`}
+    >
+      {locales.map((l) => (
+        <option key={l} value={l}>
+          {l.toUpperCase()}
+        </option>
+      ))}
+    </select>
   )
 }
