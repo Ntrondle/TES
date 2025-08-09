@@ -27,12 +27,11 @@ export default async function LocaleLayout({ children, params: { locale } }) {
               <Logo className="w-[120px] h-auto text-neutral-900 dark:text-white" />
             </Link>
 
-            <nav className="hidden md:flex items-center gap-1">
-              <Link href={`/${locale}`} className="nav-link">{t.nav.home}</Link>
-              <Link href={`/${locale}/about`} className="nav-link">{t.nav.about}</Link>
-              <Link href={`/${locale}/portfolio`} className="nav-link">{t.nav.portfolio}</Link>
-              <a href="mailto:hello@tes.swiss" className="nav-cta">{t.nav.contact}</a>
-            </nav>
+            <div className="md:flex hidden">
+              <Suspense fallback={<span className="nav-link opacity-50">…</span>}>
+                <LangSwitcher locale={locale} />
+              </Suspense>
+            </div>
 
             <div className="md:flex hidden">
               <LangSwitcher locale={locale} />
