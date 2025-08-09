@@ -1,6 +1,8 @@
 'use client'
 
+
 import { usePathname, useRouter } from 'next/navigation'
+
 import { locales } from '../i18n/locales'
 
 export default function LangSwitcher({ locale, className = '' }) {
@@ -9,6 +11,13 @@ export default function LangSwitcher({ locale, className = '' }) {
 
   const segments = pathname.split('/').filter(Boolean).slice(1)
   const rest = segments.length ? `/${segments.join('/')}` : ''
+  const search = searchParams.toString()
+  const query = search ? `?${search}` : ''
+
+  function handleChange(e) {
+    const nextLocale = e.target.value
+    router.push(`/${nextLocale}${rest}${query}${hash}`)
+  }
 
   function handleChange(e) {
     const nextLocale = e.target.value
