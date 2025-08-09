@@ -1,22 +1,13 @@
 'use client'
 
-import { useEffect, useState } from 'react'
-import { usePathname, useRouter, useSearchParams } from 'next/navigation'
+
+import { usePathname, useRouter } from 'next/navigation'
+
 import { locales } from '../i18n/locales'
 
 export default function LangSwitcher({ locale, className = '' }) {
   const router = useRouter()
   const pathname = usePathname()
-  const searchParams = useSearchParams()
-  const [hash, setHash] = useState('')
-
-  // track hash to preserve anchor navigation when switching languages
-  useEffect(() => {
-    const updateHash = () => setHash(window.location.hash || '')
-    updateHash()
-    window.addEventListener('hashchange', updateHash)
-    return () => window.removeEventListener('hashchange', updateHash)
-  }, [])
 
   const segments = pathname.split('/').filter(Boolean).slice(1)
   const rest = segments.length ? `/${segments.join('/')}` : ''
@@ -26,6 +17,13 @@ export default function LangSwitcher({ locale, className = '' }) {
   function handleChange(e) {
     const nextLocale = e.target.value
     router.push(`/${nextLocale}${rest}${query}${hash}`)
+  }
+
+  function handleChange(e) {
+    const nextLocale = e.target.value
+    const search = window.location.search
+    const hash = window.location.hash
+    router.push(`/${nextLocale}${rest}${search}${hash}`)
   }
 
   return (
