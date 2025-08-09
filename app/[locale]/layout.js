@@ -3,14 +3,15 @@ import Link from 'next/link'
 import '../globals.css'
 import Logo from '../components/Logo'
 import LangSwitcher from '../components/LangSwitcher'
-import {getDictionary} from '../i18n/getDictionary'
+import { getDictionary } from '../i18n/getDictionary'
 
 export async function generateStaticParams() {
-  return [{locale:'en'},{locale:'fr'},{locale:'de'}]
+  return [{ locale: 'en' }, { locale: 'fr' }, { locale: 'de' }]
 }
 
 export default async function LocaleLayout({ children, params: { locale } }) {
   const t = await getDictionary(locale)
+  const year = new Date().getFullYear()
 
   return (
     <html lang={locale}>
@@ -27,33 +28,43 @@ export default async function LocaleLayout({ children, params: { locale } }) {
               <Logo className="w-[120px] h-auto text-neutral-900 dark:text-white" />
             </Link>
 
-            <div className="md:flex hidden">
+            <nav className="hidden md:flex items-center gap-6">
+              <Link href={`/${locale}`} className="nav-link">{t?.nav?.home ?? 'Home'}</Link>
+              <Link href={`/${locale}/projects`} className="nav-link">{t?.nav?.projects ?? 'Projects'}</Link>
+              <Link href={`/${locale}/portfolio`} className="nav-link">{t?.nav?.portfolio ?? 'Portfolio'}</Link>
+              <Link href={`/${locale}/about`} className="nav-link">{t?.nav?.about ?? 'About'}</Link>
+            </nav>
+
+            <div className="hidden md:flex items-center gap-4">
               <Suspense fallback={<span className="nav-link opacity-50">…</span>}>
                 <LangSwitcher locale={locale} />
               </Suspense>
-            </div>
-
-            <div className="md:flex hidden">
-              <LangSwitcher locale={locale} />
+              <a href="mailto:hello@tes.swiss" className="nav-cta">
+                {t?.nav?.contact ?? 'Contact'}
+              </a>
             </div>
 
             <div className="md:hidden">
-              <a href="mailto:hello@tes.swiss" className="nav-cta">{t.nav.contact}</a>
+              <a href="mailto:hello@tes.swiss" className="nav-cta">
+                {t?.nav?.contact ?? 'Contact'}
+              </a>
             </div>
           </div>
         </header>
 
-        <main className="container py-10">{children}</main>
+        <main className="container py-10">
+          {children}
+        </main>
 
         <footer className="border-t border-neutral-200 dark:border-neutral-800 mt-10">
           <div className="container py-6 text-sm text-neutral-500 flex flex-wrap gap-2 justify-between">
-            <div>© {new Date().getFullYear()} TES — Tröndle Embedded System · Lausanne, Switzerland</div>
+            <div>© {year} TES — Tröndle Embedded System · Lausanne, Switzerland</div>
             <div className="flex gap-2">
               <a href="mailto:hello@tes.swiss">hello@tes.swiss</a>
               <span>·</span>
-              <a href="https://github.com/" target="_blank">GitHub</a>
+              <a href="https://github.com/Trondle-Embeeded-Systems" target="_blank" rel="noreferrer">GitHub</a>
               <span>·</span>
-              <a href="#">Imprint</a>
+              <Link href={`/${locale}/about#imprint`}>{t?.nav?.imprint ?? 'Imprint'}</Link>
             </div>
           </div>
         </footer>
