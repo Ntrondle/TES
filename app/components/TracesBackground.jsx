@@ -10,10 +10,10 @@ export default function TracesBackground() {
       <defs>
         {/* soft fade at edges */}
         <linearGradient id="fadeX" x1="0" x2="1" y1="0" y2="0">
-          <stop offset="0%" stopOpacity="0" />
-          <stop offset="12%" stopOpacity="1" />
-          <stop offset="88%" stopOpacity="1" />
-          <stop offset="100%" stopOpacity="0" />
+          <stop offset="0%" stopOpacity="0.15" />
+          <stop offset="12%" stopOpacity="0.35" />
+          <stop offset="88%" stopOpacity="0.35" />
+          <stop offset="100%" stopOpacity="0.15" />
         </linearGradient>
         <linearGradient id="traceGrad" x1="0" x2="1" y1="0" y2="0">
           <stop offset="0%" stopColor="currentColor" stopOpacity="0.35" />

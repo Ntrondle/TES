@@ -18,8 +18,8 @@ export default async function Page({ params: { locale } }) {
             <p className="mt-4 max-w-2xl text-neutral-600 dark:text-neutral-300">{t.hero.subtitle}</p>
             <div className="mt-6 flex flex-wrap justify-center gap-3">
               <a className="btn btn-primary rounded-xl" href="mailto:hello@tes.swiss">{t.buttons.start}</a>
-              <Link className="btn btn-outline rounded-xl" href={`/${locale}#portfolio`}>{t.buttons.seeWork}</Link>
-              <Link className="btn btn-outline rounded-xl" href={`/${locale}#what-we-do`}>{t.buttons.whatWeDo}</Link>
+              <Link className="btn btn-outline rounded-xl" href={`/${locale}/portfolio`}>{t.buttons.seeWork}</Link>
+              <Link className="btn btn-outline rounded-xl" href={`/${locale}/what-we-do`}>{t.buttons.whatWeDo}</Link>
             </div>
           </div>
         </div>
