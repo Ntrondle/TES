@@ -1,4 +1,4 @@
-import createMDX from '@next/mdx'
+const createMDX = require('@next/mdx')
 
 /** @type {import('next').NextConfig} */
 const repo = process.env.GITHUB_REPOSITORY?.split('/')[1] ?? ''
@@ -21,4 +21,4 @@ const withMDX = createMDX({
   // Start with minimal options
 })
 
-export default withMDX(nextConfig)
+module.exports = withMDX(nextConfig)
