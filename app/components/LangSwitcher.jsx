@@ -1,24 +1,32 @@
 'use client'
 
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
+import { useMemo, useCallback } from 'react'
 import { locales } from '../i18n/locales'
+
+const localeNames = {
+  en: 'English',
+  fr: 'Français', 
+  de: 'Deutsch'
+}
 
 export default function LangSwitcher({ locale, className = '' }) {
   const router = useRouter()
   const pathname = usePathname()
   const searchParams = useSearchParams()
 
-  // drop the leading locale segment, keep the rest of the path
-  const segments = pathname.split('/').filter(Boolean).slice(1)
-  const rest = segments.length ? `/${segments.join('/')}` : ''
+  const pathWithoutLocale = useMemo(() => {
+    const segments = pathname.split('/').filter(Boolean).slice(1)
+    return segments.length ? `/${segments.join('/')}` : ''
+  }, [pathname])
 
-  function handleChange(e) {
+  const handleChange = useCallback((e) => {
     const nextLocale = e.target.value
     const query = searchParams.toString()
     const suffix = query ? `?${query}` : ''
     const hash = typeof window !== 'undefined' ? window.location.hash : ''
-    router.push(`/${nextLocale}${rest}${suffix}${hash}`)
-  }
+    router.push(`/${nextLocale}${pathWithoutLocale}${suffix}${hash}`)
+  }, [router, pathWithoutLocale, searchParams])
 
   return (
     <select
@@ -27,7 +35,7 @@ export default function LangSwitcher({ locale, className = '' }) {
       className={`nav-link bg-transparent ${className}`}
     >
       {locales.map(l => (
-        <option key={l} value={l}>{l.toUpperCase()}</option>
+        <option key={l} value={l}>{localeNames[l] || l.toUpperCase()}</option>
       ))}
     </select>
   )
