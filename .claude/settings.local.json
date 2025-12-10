@@ -10,7 +10,8 @@
       "Bash(node:*)",
       "Bash(npm:*)",
       "Bash(cp:*)",
-      "Bash(ls:*)"
+      "Bash(ls:*)",
+      "Bash(find:*)"
     ],
     "deny": []
   }

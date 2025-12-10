@@ -32,7 +32,12 @@ export default function LangSwitcher({ locale, className = '' }) {
     <select
       value={locale}
       onChange={handleChange}
-      className={`nav-link bg-transparent ${className}`}
+      className={`md-nav-link cursor-pointer ${className}`}
+      style={{
+        backgroundColor: 'transparent',
+        border: 'none',
+        outline: 'none'
+      }}
     >
       {locales.map(l => (
         <option key={l} value={l}>{localeNames[l] || l.toUpperCase()}</option>

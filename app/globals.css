@@ -2,89 +2,383 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Material Design 3 inspired color system with red accent */
 :root {
-  --accent: #e30613; /* Swiss red */
-  --accent-weak: color-mix(in oklab, var(--accent) 35%, transparent);
+  /* Primary - Red palette */
+  --md-primary: #c62828;
+  --md-primary-light: #ff5f52;
+  --md-primary-dark: #8e0000;
+  --md-on-primary: #ffffff;
+
+  /* Surface colors */
+  --md-surface: #ffffff;
+  --md-surface-variant: #f5f5f5;
+  --md-surface-container: #fafafa;
+  --md-surface-container-high: #f0f0f0;
+  --md-on-surface: #1c1b1f;
+  --md-on-surface-variant: #49454f;
+
+  /* Background */
+  --md-background: #fefbff;
+  --md-on-background: #1c1b1f;
+
+  /* Outline and borders */
+  --md-outline: #79747e;
+  --md-outline-variant: #c4c7c5;
+
+  /* Elevation and shadows */
+  --md-shadow: rgba(0, 0, 0, 0.2);
+  --md-elevation-1: 0 1px 2px 0 rgba(0, 0, 0, 0.3), 0 1px 3px 1px rgba(0, 0, 0, 0.15);
+  --md-elevation-2: 0 1px 2px 0 rgba(0, 0, 0, 0.3), 0 2px 6px 2px rgba(0, 0, 0, 0.15);
+  --md-elevation-3: 0 4px 8px 3px rgba(0, 0, 0, 0.15), 0 1px 3px 0 rgba(0, 0, 0, 0.3);
+  --md-elevation-4: 0 6px 10px 4px rgba(0, 0, 0, 0.15), 0 2px 3px 0 rgba(0, 0, 0, 0.3);
 
   color-scheme: light dark;
 }
 
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Primary - Red palette (adjusted for dark) */
+    --md-primary: #ffb4ab;
+    --md-primary-light: #ffdad6;
+    --md-primary-dark: #93000a;
+    --md-on-primary: #690005;
+
+    /* Surface colors */
+    --md-surface: #1c1b1f;
+    --md-surface-variant: #2b2930;
+    --md-surface-container: #211f26;
+    --md-surface-container-high: #2b2930;
+    --md-on-surface: #e6e1e5;
+    --md-on-surface-variant: #cac4d0;
+
+    /* Background */
+    --md-background: #1c1b1f;
+    --md-on-background: #e6e1e5;
+
+    /* Outline and borders */
+    --md-outline: #938f99;
+    --md-outline-variant: #49454f;
+
+    /* Elevation and shadows */
+    --md-shadow: rgba(0, 0, 0, 0.4);
+    --md-elevation-1: 0 1px 3px 1px rgba(0, 0, 0, 0.5), 0 1px 2px 0 rgba(0, 0, 0, 0.4);
+    --md-elevation-2: 0 2px 6px 2px rgba(0, 0, 0, 0.5), 0 1px 2px 0 rgba(0, 0, 0, 0.4);
+    --md-elevation-3: 0 4px 8px 3px rgba(0, 0, 0, 0.5), 0 1px 3px 0 rgba(0, 0, 0, 0.4);
+    --md-elevation-4: 0 6px 10px 4px rgba(0, 0, 0, 0.5), 0 2px 3px 0 rgba(0, 0, 0, 0.4);
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 html, body {
   height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  @apply bg-white text-neutral-900 dark:bg-neutral-950 dark:text-neutral-100 antialiased;
+  background-color: var(--md-background);
+  color: var(--md-on-background);
+  font-family: 'Roboto', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.6;
 }
 
+/* Container */
 .container {
-  @apply max-w-6xl mx-auto px-4;
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
 }
 
-.btn {
-  @apply inline-block rounded-xl border border-neutral-200 dark:border-neutral-800 px-4 py-2;
+/* Material Design Typography */
+.md-headline-large {
+  font-size: 2.5rem;
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: -0.015em;
 }
 
-.btn-primary {
-  @apply bg-neutral-900 text-white dark:bg-white dark:text-neutral-900 border-transparent;
+.md-headline-medium {
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 1.3;
 }
 
-.btn-secondary {
-  @apply bg-neutral-100 text-neutral-900 dark:bg-neutral-800 dark:text-neutral-100 border-transparent hover:opacity-90 transition;
+.md-headline-small {
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 1.4;
 }
 
-.nav-link {
-  @apply inline-flex items-center h-10 px-3 rounded-lg text-sm
-         text-neutral-700 dark:text-neutral-200 hover:bg-neutral-100/60
-         dark:hover:bg-neutral-800/60 transition;
+.md-title-large {
+  font-size: 1.375rem;
+  font-weight: 500;
+  line-height: 1.4;
 }
 
-.nav-cta {
-  @apply inline-flex items-center h-10 px-4 rounded-lg text-sm font-medium
-         bg-neutral-900 text-white dark:bg-white dark:text-neutral-900
-         hover:opacity-90 transition;
+.md-title-medium {
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0.009em;
 }
 
-
-@keyframes dashShift { to { stroke-dashoffset: -2000; } }
-
-.trace-animate {
-  animation: dashShift 24s linear infinite;
-  will-change: stroke-dashoffset;
+.md-body-large {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0.031em;
 }
 
-/* reduce motion */
-@media (prefers-reduced-motion: reduce) {
-  .trace-animate { animation: none; }
+.md-body-medium {
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.43;
+  letter-spacing: 0.018em;
 }
 
-
-.btn-outline {
-  @apply inline-block border border-neutral-300 dark:border-neutral-700 text-neutral-900 dark:text-white rounded-xl px-4 py-2 hover:bg-neutral-100/60 dark:hover:bg-neutral-800/60 transition;
+.md-label-large {
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.43;
+  letter-spacing: 0.006em;
 }
 
-
-/* Subtle multicolor glow on cards */
-.card {
-  @apply block border border-neutral-200 dark:border-neutral-800 rounded-2xl p-5;
+/* Material Design Buttons */
+.md-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1.5rem;
+  border-radius: 1.25rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.006em;
+  line-height: 1.43;
+  text-decoration: none;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  border: none;
+  outline: none;
   position: relative;
-  transition: box-shadow 200ms ease, transform 200ms ease;
+  overflow: hidden;
 }
-.card::after {
-  content: "";
+
+.md-btn::before {
+  content: '';
   position: absolute;
-  inset: -2px;
-  border-radius: inherit;
-  background: conic-gradient(from 10deg, #d52b1e, #7d2e2e, #FEFEFE, #3ca9e2 , #d52b1e);
-  filter: blur(35px);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: currentColor;
   opacity: 0;
-  z-index: -1;
-  transition: opacity 300ms ease;
+  transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
-.card:hover {
-  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-  transform: translateY(-2.5px);
+
+.md-btn:hover::before {
+  opacity: 0.08;
 }
-.card:hover::after {
-  opacity: 0.20;
+
+.md-btn:active::before {
+  opacity: 0.12;
+}
+
+.md-btn-filled {
+  background-color: var(--md-primary);
+  color: var(--md-on-primary);
+  box-shadow: var(--md-elevation-1);
+}
+
+.md-btn-filled:hover {
+  box-shadow: var(--md-elevation-2);
+}
+
+.md-btn-outlined {
+  background-color: transparent;
+  color: var(--md-primary);
+  border: 1px solid var(--md-outline);
+}
+
+.md-btn-text {
+  background-color: transparent;
+  color: var(--md-primary);
+  padding: 0.625rem 0.75rem;
+}
+
+/* Material Design Cards */
+.md-card {
+  background-color: var(--md-surface);
+  border-radius: 0.75rem;
+  padding: 1rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid var(--md-outline-variant);
+  position: relative;
+  overflow: hidden;
+}
+
+.md-card-elevated {
+  background-color: var(--md-surface-container);
+  box-shadow: var(--md-elevation-1);
+  border: none;
+}
+
+.md-card-elevated:hover {
+  box-shadow: var(--md-elevation-3);
+  transform: translateY(-2px);
+}
+
+.md-card-filled {
+  background-color: var(--md-surface-variant);
+  border: none;
+}
+
+.md-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--md-primary);
+  opacity: 0;
+  transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+}
+
+.md-card:hover::before {
+  opacity: 0.04;
+}
+
+/* Material Design FAB (Floating Action Button) */
+.md-fab {
+  @apply fixed bottom-6 right-6 w-14 h-14 rounded-full flex items-center justify-center;
+  background-color: var(--md-primary);
+  color: var(--md-on-primary);
+  box-shadow: var(--md-elevation-3);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 50;
+}
+
+.md-fab:hover {
+  box-shadow: var(--md-elevation-4);
+  transform: scale(1.05);
+}
+
+/* Navigation */
+.md-nav {
+  background-color: var(--md-surface);
+  border-bottom: 1px solid var(--md-outline-variant);
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  backdrop-filter: blur(8px);
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+@media (prefers-color-scheme: dark) {
+  .md-nav {
+    background-color: rgba(28, 27, 31, 0.9);
+  }
+}
+
+.md-nav-link {
+  @apply inline-flex items-center px-3 py-2 rounded-lg text-sm font-medium;
+  color: var(--md-on-surface-variant);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.md-nav-link:hover {
+  background-color: var(--md-surface-variant);
+  color: var(--md-on-surface);
+}
+
+.md-nav-link.active {
+  color: var(--md-primary);
+}
+
+.md-nav-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background-color: var(--md-primary);
+  border-radius: 3px 3px 0 0;
+}
+
+/* Hero section */
+.md-hero {
+  @apply py-20 sm:py-28 lg:py-32;
+  background: linear-gradient(135deg,
+    var(--md-surface) 0%,
+    var(--md-surface-variant) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.md-hero::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -20%;
+  width: 80%;
+  height: 200%;
+  background: radial-gradient(circle,
+    rgba(198, 40, 40, 0.08) 0%,
+    transparent 70%);
+  pointer-events: none;
+}
+
+/* Divider */
+.md-divider {
+  height: 1px;
+  background-color: var(--md-outline-variant);
+  border: none;
+  margin: 2rem 0;
+}
+
+/* Chip */
+.md-chip {
+  @apply inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm;
+  background-color: var(--md-surface-variant);
+  color: var(--md-on-surface-variant);
+  border: 1px solid var(--md-outline);
+  font-weight: 500;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* Reduce motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
