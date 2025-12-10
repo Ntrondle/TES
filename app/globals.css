@@ -33,11 +33,6 @@ body {
   @apply bg-neutral-100 text-neutral-900 dark:bg-neutral-800 dark:text-neutral-100 border-transparent hover:opacity-90 transition;
 }
 
-.card {
-  @apply block border border-neutral-200 dark:border-neutral-800 rounded-2xl p-5;
-}
-
-
 .nav-link {
   @apply inline-flex items-center h-10 px-3 rounded-lg text-sm
          text-neutral-700 dark:text-neutral-200 hover:bg-neutral-100/60
@@ -71,6 +66,7 @@ body {
 
 /* Subtle multicolor glow on cards */
 .card {
+  @apply block border border-neutral-200 dark:border-neutral-800 rounded-2xl p-5;
   position: relative;
   transition: box-shadow 200ms ease, transform 200ms ease;
 }
