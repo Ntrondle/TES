@@ -11,7 +11,8 @@
       "Bash(npm:*)",
       "Bash(cp:*)",
       "Bash(ls:*)",
-      "Bash(find:*)"
+      "Bash(find:*)",
+      "Bash(cat:*)"
     ],
     "deny": []
   }

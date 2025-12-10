@@ -2,8 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Material Design 3 inspired color system with red accent */
-:root {
+@layer base {
+  /* Material Design 3 inspired color system with red accent */
+  :root {
   /* Primary - Red palette */
   --md-primary: #c62828;
   --md-primary-light: #ff5f52;
@@ -83,22 +84,24 @@ html, body {
   padding: 0;
 }
 
-body {
-  background-color: var(--md-background);
-  color: var(--md-on-background);
-  font-family: 'Roboto', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  line-height: 1.6;
+  body {
+    background-color: var(--md-background);
+    color: var(--md-on-background);
+    font-family: 'Roboto', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    line-height: 1.6;
+  }
 }
 
-/* Container */
-.container {
-  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
-}
+@layer components {
+  /* Container */
+  .container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
 
-/* Material Design Typography */
-.md-headline-large {
+  /* Material Design Typography */
+  .md-headline-large {
   font-size: 2.5rem;
   font-weight: 400;
   line-height: 1.2;
@@ -373,12 +376,13 @@ body {
   animation: fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
-/* Reduce motion */
-@media (prefers-reduced-motion: reduce) {
-  * {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
+  /* Reduce motion */
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
   }
 }
