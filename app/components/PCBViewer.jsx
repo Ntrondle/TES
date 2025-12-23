@@ -124,7 +124,7 @@ export default function PCBViewer({ stepFile, className = "" }) {
   return (
     <div className={`relative w-full h-[300px] md:h-[400px] rounded-xl overflow-hidden bg-neutral-100 dark:bg-neutral-900 ${className}`}>
       <Canvas dpr={[0, 1.5]} performance={{ min: 0.5 }}>
-        <PerspectiveCamera makeDefault position={[1, 3, 3]} />
+        <PerspectiveCamera makeDefault position={[0, 0, 5]} />
         <OrbitControls 
           ref={controlsRef}
           enableZoom={true}

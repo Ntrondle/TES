@@ -46,7 +46,7 @@ export default async function LocaleLayout({ children, params: { locale } }) {
             <Suspense fallback={<span className="nav-link opacity-50">…</span>}>
               <LangSwitcher locale={locale} />
             </Suspense>
-            <a href="mailto:hello@tes.swiss" className="nav-cta">
+            <a href="mailto:reach@tes-shop.ch" className="nav-cta">
               {t?.nav?.contact ?? 'Contact'}
             </a>
           </div>
@@ -79,8 +79,8 @@ export default async function LocaleLayout({ children, params: { locale } }) {
                 © {year} TES — Tröndle Embedded System
               </div>
               <div className="flex flex-wrap gap-3 text-neutral-600 dark:text-neutral-400">
-                <a href="mailto:hello@tes.swiss" className="hover:text-neutral-900 dark:hover:text-white transition-colors">
-                  hello@tes.swiss
+                <a href="mailto:reach@tes-shop.ch" className="hover:text-neutral-900 dark:hover:text-white transition-colors">
+                  reach@tes-shop.ch
                 </a>
                 <span className="text-neutral-300 dark:text-neutral-700">·</span>
                 <a 

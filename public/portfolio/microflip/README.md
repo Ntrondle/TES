@@ -2,7 +2,7 @@
 title: "MicroFlip"
 description: "Ultra-compact polarity-reverser board for N20-size brushed DC gear-motors."
 modelFile: microflip.glb
-date: "2025-01-10"
+date: "2025-06-30"
 ---
 
 # MicroFlip

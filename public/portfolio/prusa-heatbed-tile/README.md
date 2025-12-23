@@ -2,7 +2,7 @@
 title: "Prusa HeatBed Tile PCB"
 description: "Heated bed controller with USB-C Power Delivery input and Hall effect sensor for interactive beverage detection."
 modelFile: coaster.glb
-date: "2025-01-05"
+date: "TBA"
 ---
 
 # Prusa HeatBed Tile PCB

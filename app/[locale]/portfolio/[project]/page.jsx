@@ -62,6 +62,40 @@ export default async function Page({ params }) {
         {project.description}
       </p>
 
+      {/* Action Buttons */}
+      <div className="flex flex-wrap gap-4 mt-6">
+        {project.githubLink && (
+          <a
+            href={project.githubLink}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-medium transition-all duration-300 border border-neutral-300 dark:border-neutral-700 text-neutral-900 dark:text-white hover:border-neutral-400 dark:hover:border-neutral-600 hover:bg-neutral-50 dark:hover:bg-neutral-800/50 hover:shadow-md"
+          >
+            <img 
+              src="/TES/github.svg" 
+              alt="GitHub" 
+              className="w-5 h-5 text-neutral-900 dark:text-white"
+            />
+            View on GitHub
+          </a>
+        )}
+        {project.shopLink && (
+          <a
+            href={project.shopLink}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-medium transition-all duration-300 bg-gradient-to-r from-neutral-900 to-neutral-800 text-white dark:from-white dark:to-neutral-100 dark:text-neutral-900 hover:shadow-lg hover:scale-105"
+          >
+            <img 
+              src="/TES/tes-shop.svg" 
+              alt="TES-shop" 
+              className="w-5 h-5 text-white dark:text-neutral-900"
+            />
+            Buy on TES-shop
+          </a>
+        )}
+      </div>
+
       {project.modelFile && (
         <div className="mt-8">
           <PCBViewer stepFile={`/TES/portfolio/${project.slug}/${project.modelFile}`} />

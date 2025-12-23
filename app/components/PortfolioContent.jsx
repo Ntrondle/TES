@@ -158,11 +158,13 @@ export default async function PortfolioContent({ readmePath, locale = 'en' }) {
           img: ({ src, alt }) => {
             let webPath = src
             
-            // If path is relative (starts with images/), convert to absolute path
-            if (src.startsWith('images/')) {
+            // Handle relative paths (./images/ or images/)
+            if (src.startsWith('./images/') || src.startsWith('images/')) {
               // Extract project folder from readme path
-              const projectFolder = readmePath.split('/').slice(-2, -1)[0]
-              webPath = `/images/${projectFolder}/${src.replace('images/', '')}`
+              const pathParts = readmePath.split('/')
+              const projectFolder = pathParts[pathParts.length - 2]
+              const imageName = src.replace(/^\.?\/images\//, '')
+              webPath = `/TES/portfolio/${projectFolder}/images/${imageName}`
             }
             
             return (

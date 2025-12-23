@@ -1,8 +1,10 @@
 ---
-title: "AT2 3D Printer LED Bed"
+title: "AT2 WLED PCB"
 description: "Four-layer control board driving addressable LEDs for decorative and functional feedback."
 modelFile: "at2.glb"
-date: "2025-01-15"
+githubLink: "https://github.com/Trondle-Embedded-Systems"
+shopLink: "https://tes-shop.ch"
+date: "TBA"
 ---
 
 # AT2 3D Printer LED Bed PCB
@@ -85,8 +87,4 @@ TBD by AT
 
 Released under the **MIT License** – see [`LICENSE`](LICENSE).
 
-![AT2 PCB](/images/at2-led-bed/at2.png)
-
----
-
-*Made with ❤️ by **Nicolas Tröndle** (ArmoredTurtle / Tröndle Embedded Systems).*
+![AT2 PCB](./images/at2.png)
