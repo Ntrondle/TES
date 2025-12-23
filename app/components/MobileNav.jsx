@@ -56,13 +56,8 @@ export default function MobileNav({ locale, t, navItems }) {
               {/* Navigation Links */}
               <nav className="flex-1 overflow-y-auto p-4">
                 <ul className="space-y-2">
-                  {navItems.map((item, index) => (
-                    <motion.li
-                      key={item.href}
-                      initial={{ opacity: 0, x: 20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: index * 0.05 }}
-                    >
+                  {navItems.map((item) => (
+                    <li key={item.href}>
                       <Link
                         href={item.href}
                         onClick={() => setIsOpen(false)}
@@ -74,17 +69,12 @@ export default function MobileNav({ locale, t, navItems }) {
                       >
                         {item.label}
                       </Link>
-                    </motion.li>
+                    </li>
                   ))}
                 </ul>
 
                 {/* Language Switcher */}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: navItems.length * 0.05 + 0.1 }}
-                  className="mt-8 pt-6 border-t border-neutral-200 dark:border-neutral-800"
-                >
+                <div className="mt-8 pt-6 border-t border-neutral-200 dark:border-neutral-800">
                   <p className="px-4 text-sm font-medium text-neutral-500 dark:text-neutral-400 mb-3">
                     {t?.nav?.lang || 'Language'}
                   </p>
@@ -105,7 +95,7 @@ export default function MobileNav({ locale, t, navItems }) {
                       </Link>
                     ))}
                   </div>
-                </motion.div>
+                </div>
               </nav>
 
               {/* Footer */}

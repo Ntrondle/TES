@@ -26,15 +26,6 @@ A compact, four‑layer control board that sits beneath the AT2 print bed and dr
 
 ---
 
-## Board Stack‑up
-
-1. **Top** — signals & components  
-2. **Inner 1** — solid **VCC** plane (LED rail)  
-3. **Inner 2** — solid **GND** plane  
-4. **Bottom** — signals & components  
-
----
-
 ## Connectors & Pin‑out
 
 | Label      | Type         | Description                                 |
@@ -51,35 +42,6 @@ A compact, four‑layer control board that sits beneath the AT2 print bed and dr
 
 - Operates from an **existing 5 V supply** (no on‑board buck converter)  
 - **3 A  LittleFuse** protects the entire board
-
----
-
-## Firmware (TBD)
-
-TBD by AT
-
----
-
-## Mounting Guidelines
-
-1. Slide the PCB into the printer's mounting slot.  
-2. Secure with **one M3 screw**.  
-3. Maintain antenna keep‑out clearance and route power cables away from the ESP32 area.
-
----
-
-## Safety Notes
-
-- Use **AWG‑22** (or larger) wire for runs > 50 cm at ≤ 3 A.  
-- Replace the fuse **only** with the same rating.  
-- Inspect connectors periodically for heat discoloration.
-
----
-
-## Roadmap / TODO
-
-- Example animations for logo & status bar  
-- WebSocket API & OTA firmware updates  
 
 ---
 

@@ -40,10 +40,10 @@ export default function AboutPage({ params: { locale } }) {
         transition={{ delay: 0.2, duration: 0.5 }}
       >
         <p className="text-lg">
-          <strong className="text-neutral-900 dark:text-white">TES (Tröndle Embedded System)</strong> is a Swiss embedded design studio led by Nicolas Tröndle. We turn ideas into reliable hardware — combining PCB design, firmware, and practical testing.
+          <strong className="text-neutral-900 dark:text-white">TES (Tröndle Embedded System)</strong> is a small Swiss embedded design studio run by Nicolas Tröndle. We help turn ideas into solid, working hardware by handling everything from PCB design to firmware and real-world testing.
         </p>
         <p>
-          We've worked across ESP32, RP2040, and STM32 platforms; CAN, USB, and Wi‑Fi; and thermal/power‑aware designs. We care about clean schematics, manufacturable layouts, and robust software.
+          We've worked with ESP32, RP2040, and STM32 platforms, across CAN, USB, and Wi-Fi projects, with a strong focus on power and thermal constraints. Our approach is practical and detail-oriented: clean schematics, layouts that are easy to manufacture, and software that behaves reliably outside the lab.
         </p>
       </motion.section>
 

@@ -16,8 +16,8 @@ export default async function LocaleLayout({ children, params: { locale } }) {
   const navItems = [
     { href: `/${locale}`, label: t?.nav?.home ?? 'Home' },
     { href: `/${locale}/portfolio`, label: t?.nav?.portfolio ?? 'Portfolio' },
-    { href: `/${locale}/about`, label: t?.nav?.about ?? 'About' },
     { href: `/${locale}/services/pcb-design`, label: 'Services' },
+    { href: `/${locale}/about`, label: t?.nav?.about ?? 'About' },
   ]
 
   return (
