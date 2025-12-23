@@ -3,6 +3,7 @@ import remarkGfm from 'remark-gfm'
 import { MDXRemote } from 'next-mdx-remote/rsc'
 import fs from 'fs'
 import path from 'path'
+import matter from 'gray-matter'
 
 /**
  * PortfolioContent Component
@@ -15,7 +16,10 @@ export default async function PortfolioContent({ readmePath, locale = 'en' }) {
   
   let readmeContent = ''
   try {
-    readmeContent = fs.readFileSync(fullPath, 'utf8')
+    const fileContent = fs.readFileSync(fullPath, 'utf8')
+    // Strip frontmatter using gray-matter
+    const { content } = matter(fileContent)
+    readmeContent = content
   } catch (error) {
     return (
       <div className="prose prose-neutral dark:prose-invert max-w-none">

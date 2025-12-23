@@ -1,3 +1,10 @@
+---
+title: "MicroFlip"
+description: "Ultra-compact polarity-reverser board for N20-size brushed DC gear-motors."
+modelFile: microflip.glb
+date: "2025-01-10"
+---
+
 # MicroFlip
 
 *Ultra‑compact polarity‑reverser board for N20‑size brushed DC gear‑motors*
@@ -22,4 +29,3 @@ Drop MicroFlip between your motor and your motherboard, and enjoy instant bidire
 ---
 
 > **Maximum ratings**: 12 V nominal, 1 A peak. For higher currents use a MOSFET H‑bridge instead.
-

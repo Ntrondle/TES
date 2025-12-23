@@ -1,3 +1,10 @@
+---
+title: "Prusa HeatBed Tile PCB"
+description: "Heated bed controller with USB-C Power Delivery input and Hall effect sensor for interactive beverage detection."
+modelFile: coaster.glb
+date: "2025-01-05"
+---
+
 # Prusa HeatBed Tile PCB
 
 A compact, ESP32-S3 based control PCB designed for **Prusa-style heated bed tile coasters**. It supports USB-C Power Delivery input and integrates weight detection using a Hall effect sensor for interactive beverage detection.
@@ -41,4 +48,3 @@ This mechanism allows the PCB to detect when a beverage is placed, enabling smar
 - **Prusa Tile Connector** (4-pin Molex)
 - **UART test pads** for flashing
 - **MOSFET output (controlled)**
-
