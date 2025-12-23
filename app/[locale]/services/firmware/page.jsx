@@ -158,7 +158,7 @@ export default function FirmwarePage({ params: { locale } }) {
             From simple sensor readouts to complex IoT systems, we can help you build reliable firmware.
           </p>
           <a
-            href="mailto:hello@tes.swiss?subject=Firmware%20Development%20Inquiry"
+            href="mailto:reach@tes-shop.ch?subject=Firmware%20Development%20Inquiry"
             className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-bold bg-white text-neutral-900 hover:bg-neutral-100 transition-all duration-300 hover:scale-105 shadow-lg"
           >
             Get in touch

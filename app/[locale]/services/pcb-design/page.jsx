@@ -211,7 +211,7 @@ export default function PcbDesignPage({ params: { locale } }) {
             Whether it's a simple single-layer board or a complex multi-layer design, we've got you covered.
           </p>
           <a
-            href="mailto:hello@tes.swiss?subject=PCB%20Design%20Inquiry"
+            href="mailto:reach@tes-shop.ch?subject=PCB%20Design%20Inquiry"
             className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-bold bg-white text-neutral-900 hover:bg-neutral-100 transition-all duration-300 hover:scale-105 shadow-lg"
           >
             Get a quote

@@ -111,7 +111,7 @@ export default function MobileNav({ locale, t, navItems }) {
               {/* Footer */}
               <div className="p-4 border-t border-neutral-200 dark:border-neutral-800">
                 <a
-                  href="mailto:hello@tes.swiss"
+                  href="mailto:reach@tes-shop.ch"
                   onClick={() => setIsOpen(false)}
                   className="flex items-center justify-center gap-2 w-full px-4 py-3 rounded-lg bg-neutral-900 text-white dark:bg-white dark:text-neutral-900 font-medium hover:opacity-90 transition-opacity"
                 >

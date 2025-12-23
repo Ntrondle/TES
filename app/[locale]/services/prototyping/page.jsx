@@ -118,7 +118,7 @@ export default function PrototypingPage({ params: { locale } }) {
             From concept validation to production testing, we can accelerate your development cycle.
           </p>
           <a
-            href="mailto:hello@tes.swiss?subject=Prototyping%20Inquiry"
+            href="mailto:reach@tes-shop.ch?subject=Prototyping%20Inquiry"
             className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-bold bg-white text-neutral-900 hover:bg-neutral-100 transition-all duration-300 hover:scale-105 shadow-lg"
           >
             Get in touch

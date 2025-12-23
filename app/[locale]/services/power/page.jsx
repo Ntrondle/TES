@@ -118,7 +118,7 @@ export default function PowerPage({ params: { locale } }) {
             From low-power IoT devices to high-performance systems, we can optimize your power architecture.
           </p>
           <a
-            href="mailto:hello@tes.swiss?subject=Power%20Design%20Inquiry"
+            href="mailto:reach@tes-shop.ch?subject=Power%20Design%20Inquiry"
             className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-bold bg-white text-neutral-900 hover:bg-neutral-100 transition-all duration-300 hover:scale-105 shadow-lg"
           >
             Get in touch
