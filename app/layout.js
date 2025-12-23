@@ -7,6 +7,11 @@ export const metadata = {
     template: '%s — TES'
   },
   description: 'Embedded systems: PCB design, firmware, and connected products. Swiss embedded design studio led by Nicolas Tröndle in Lausanne, Switzerland.',
+  icons: {
+    icon: '/TES/favicon.ico',
+    shortcut: '/TES/favicon-16x16.png',
+    apple: '/TES/favicon.png',
+  },
   keywords: ['embedded systems', 'PCB design', 'firmware', 'ESP32', 'STM32', 'RP2040', 'IoT', 'electronics design', 'Switzerland', 'Lausanne'],
   authors: [{ name: 'Nicolas Tröndle' }],
   creator: 'Nicolas Tröndle',
