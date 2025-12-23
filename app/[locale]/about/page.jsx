@@ -110,7 +110,7 @@ export default function AboutPage({ params: { locale } }) {
         
         <div className="space-y-4">
           <a 
-            href="mailto:hello@tes.swiss"
+            href="mailto:reach@tes-shop.ch"
             className="flex items-center gap-3 p-4 rounded-xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-950 hover:border-neutral-300 dark:hover:border-neutral-700 transition-colors group"
           >
             <div className="p-2 rounded-lg bg-neutral-100 dark:bg-neutral-800">
@@ -118,7 +118,7 @@ export default function AboutPage({ params: { locale } }) {
             </div>
             <div>
               <div className="text-sm text-neutral-500 dark:text-neutral-400">Email</div>
-              <div className="font-medium text-neutral-900 dark:text-white">hello@tes.swiss</div>
+              <div className="font-medium text-neutral-900 dark:text-white">reach@tes-shop.ch</div>
             </div>
           </a>
 
@@ -174,8 +174,8 @@ export default function AboutPage({ params: { locale } }) {
             <div>
               <div className="font-medium text-neutral-900 dark:text-white mb-1">Contact</div>
               <div className="text-neutral-600 dark:text-neutral-300">
-                <a href="mailto:hello@tes.swiss" className="hover:text-neutral-900 dark:hover:text-white transition-colors">
-                  hello@tes.swiss
+                <a href="mailto:reach@tes-shop.ch" className="hover:text-neutral-900 dark:hover:text-white transition-colors">
+                  reach@tes-shop.ch
                 </a>
               </div>
             </div>
