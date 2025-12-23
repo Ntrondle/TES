@@ -39,7 +39,7 @@ export default function MobileNav({ locale, t, navItems }) {
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-              className="fixed top-0 right-0 h-full w-[80%] max-w-sm bg-white dark:bg-neutral-950 shadow-2xl z-50 flex flex-col"
+              className="fixed top-0 right-0 h-full w-[90%] max-w-md bg-white dark:bg-neutral-950 shadow-2xl z-50 flex flex-col"
             >
               {/* Header */}
               <div className="flex items-center justify-between p-4 border-b border-neutral-200 dark:border-neutral-800">
