@@ -78,7 +78,7 @@ export default function PortfolioClient({ projects, locale }) {
                 <div className="h-48 mb-4 rounded-xl overflow-hidden bg-gradient-to-br from-neutral-100 to-neutral-200 dark:from-neutral-800 dark:to-neutral-900 flex items-center justify-center">
                   {project.hasThumbnail ? (
                     <img 
-                      src={`/portfolio/${project.slug}/thumbnail.png`}
+                      src={`/TES/portfolio/${project.slug}/thumbnail.png`}
                       alt={project.title}
                       className="w-full h-full object-cover"
                     />
@@ -86,7 +86,7 @@ export default function PortfolioClient({ projects, locale }) {
                     <div className="flex items-center justify-center text-neutral-400 dark:text-neutral-600">
                       {project.hasIcon ? (
                         <img 
-                          src={`/portfolio/${project.slug}/icon.svg`}
+                          src={`/TES/portfolio/${project.slug}/icon.svg`}
                           alt={project.title}
                           className="w-16 h-16"
                         />
