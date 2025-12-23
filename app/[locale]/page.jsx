@@ -123,7 +123,7 @@ export default function Page({ params: { locale } }) {
                   "bg-neutral-900 text-white dark:bg-white dark:text-neutral-900",
                   "hover:shadow-lg hover:shadow-neutral-900/20 hover:scale-105"
                 )}
-                href="mailto:hello@tes.swiss"
+                href="mailto:reach@tes-shop.ch"
               >
                 {t.buttons.start}
                 <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
@@ -264,7 +264,7 @@ export default function Page({ params: { locale } }) {
               Let's turn your ideas into reality. Get in touch and let's discuss how we can help you build the perfect embedded system.
             </p>
             <a
-              href="mailto:hello@tes.swiss"
+              href="mailto:reach@tes-shop.ch"
               className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-bold bg-white text-neutral-900 hover:bg-neutral-100 transition-all duration-300 hover:scale-105 shadow-lg"
             >
               Get in touch
