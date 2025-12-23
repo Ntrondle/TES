@@ -15,26 +15,33 @@ export default async function Page({ params }) {
 
   return (
     <article className="max-w-4xl">
-      <p className="mb-4">
-        <Link href={`/${locale}/portfolio`} className="nav-link">
+      <p className="mb-6">
+        <Link href={`/${locale}/portfolio`} className="text-sm text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white transition-colors">
           ← {t.common.backToPortfolio}
         </Link>
       </p>
       
-      <h1 className="text-4xl md:text-5xl font-bold text-neutral-900 dark:text-white mb-4">
-        AT2 3D Printer LED Bed
-      </h1>
-      
-      <p className="text-xl text-neutral-600 dark:text-neutral-300 mb-8">
+      <div className="flex items-center gap-3 mb-4">
+        <div className="p-3 rounded-xl bg-gradient-to-br from-cyan-100 to-blue-100 dark:from-cyan-900/20 dark:to-blue-900/20">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#0891b2" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M9 18h6"/>
+            <path d="M10 22h4"/>
+            <path d="M12 2a1 1 0 0 1 1 1v3l1.616-1.28a1 1 0 0 1 1.24 0L16 6V3a1 1 0 0 1 1-1h-5z"/>
+          </svg>
+        </div>
+        <h1 className="text-4xl md:text-5xl font-bold text-neutral-900 dark:text-white">
+          AT2 3D Printer LED Bed
+        </h1>
+      </div>
+      <p className="text-xl text-neutral-600 dark:text-neutral-300 mt-4">
         Compact 4-layer board driving addressable LEDs with ESP32-C3FH4.
       </p>
 
-      {/*3D PCB Viewer */}
-      <div className="mb-8">
+      <div className="mt-8">
         <PCBViewer stepFile="/models/at2.glb" />
       </div>
 
-      <div className="prose prose-neutral dark:prose-invert max-w-none">
+      <div className="prose prose-neutral dark:prose-invert max-w-none mt-12">
         <h2>Overview</h2>
         <p>A compact, four-layer control board that sits beneath AT2 print bed and drives addressable LEDs for decorative and functional feedback. This project demonstrates high-quality PCB design with dedicated power planes and efficient LED driving.</p>
 
@@ -43,60 +50,58 @@ export default async function Page({ params }) {
 
         <h2>Key Features</h2>
         <ul>
-          <li><strong>ESP32-C3FH4:</strong> MCU with integrated PCB antenna (Wi-Fi + BLE)</li>
-          <li><strong>Independent LED Outputs:</strong> Logo chain and status bar</li>
+          <li><strong>Wireless Connectivity:</strong> ESP32-C3FH4 with integrated PCB antenna (Wi-Fi + BLE)</li>
+          <li><strong>Independent LED Outputs:</strong> Separate chains for logo and status bar</li>
           <li><strong>Level Shifters:</strong> 3.3 V to 5 V level-shifters on each data line</li>
-          <li><strong>Protection:</strong> 3 A Littelfuse on 5 V rail</li>
-          <li><strong>Connectors:</strong> SMD JST-XH for plug-and-play wiring</li>
-          <li><strong>4-Layer Design:</strong> Dedicated VCC and GND planes for low noise</li>
+          <li><strong>Protection:</strong> 3 A Littelfuse on 5 V rail with JST-XH connectors</li>
         </ul>
 
         <h2>Technical Implementation</h2>
         <h3>Board Stack-up</h3>
+        <p>4-layer design with dedicated power planes for optimal signal integrity and noise reduction:</p>
         <ul>
           <li><strong>Top:</strong> Signals and components</li>
-          <li><strong>Inner 1:</strong> Solid VCC plane (LED rail)</li>
+          <li><strong>Inner 1:</strong> Solid VCC plane</li>
           <li><strong>Inner 2:</strong> Solid GND plane</li>
           <li><strong>Bottom:</strong> Signals and components</li>
         </ul>
 
         <h3>Power Architecture</h3>
-        <p>Board operates from existing 5 V supply with robust protection:</p>
+        <p>Board operates from existing 5 V supply with robust protection and current budgeting:</p>
         <ul>
-          <li><strong>Input:</strong> Existing 5 V supply (no on-board buck converter)</li>
-          <li><strong>Protection:</strong> 3 A Littelfuse protects entire board</li>
-          <li><strong>LED Current Budget:</strong> 2.6 A worst-case (44 WS2812B-MINI-V3 at 60 mA each)</li>
+          <li><strong>Input:</strong> 5 V external supply</li>
+          <li><strong>Protection:</strong> 3 A Littelfuse</li>
+          <li><strong>LED Budget:</strong> 2.6 A max</li>
+          <li><strong>LED Type:</strong> WS2812B-MINI-V3</li>
         </ul>
 
         <h3>Connectors and Pin-out</h3>
+        <p>Plug-and-play connectors with easy access for configuration and debugging:</p>
         <ul>
-          <li><strong>VCC:</strong> 2-pin JST-XH, 5 V fused supply input</li>
-          <li><strong>GND:</strong> 2-pin JST-XH, GND input</li>
+          <li><strong>VCC:</strong> 2-pin JST-XH</li>
+          <li><strong>GND:</strong> 2-pin JST-XH</li>
           <li><strong>LED_ACT:</strong> SMD status LED</li>
-          <li><strong>BOOT1:</strong> SMD button, hold BOOT low for ESP32 flash mode</li>
-          <li><strong>RST1:</strong> MD button, manual reset to ground EN pin</li>
+          <li><strong>BOOT/RST:</strong> SMD buttons</li>
         </ul>
 
         <h2>Performance Specifications</h2>
         <ul>
-          <li><strong>Microcontroller:</strong> ESP32-C3FH4 with Wi-Fi + BLE</li>
-          <li><strong>Input Voltage:</strong> 5 V (external supply)</li>
+          <li><strong>Microcontroller:</strong> ESP32-C3FH4</li>
+          <li><strong>Input Voltage:</strong> 5 V (external)</li>
           <li><strong>Fuse Rating:</strong> 3 A Littelfuse</li>
-          <li><strong>LED Type:</strong> WS2812B-MINI-V3 (RGB)</li>
-          <li><strong>LED Count:</strong> 44 (logo chain + status bar)</li>
-          <li><strong>Max LED Current:</strong> 2.6 A worst-case</li>
-          <li><strong>Level Shifting:</strong> 3.3 V to 5 V per data line</li>
-          <li><strong>Board Layers:</strong> 4-layer with power planes</li>
+          <li><strong>LED Type:</strong> WS2812B-MINI-V3</li>
+          <li><strong>LED Count:</strong> 44 (logo + status)</li>
+          <li><strong>Max Current:</strong> 2.6 A</li>
         </ul>
 
         <h2>Applications</h2>
         <p>This LED controller is ideal for:</p>
         <ul>
-          <li><strong>3D Printing:</strong> AT2 printer with decorative and status lighting</li>
-          <li><strong>Progress Indication:</strong> Real-time print progress display</li>
-          <li><strong>Temperature Alerts:</strong> Visual warnings for hot end or bed temperature</li>
-          <li><strong>Custom Animations:</strong> User-defined lighting effects</li>
-          <li><strong>Learning Platform:</strong> ESP32-C3 and addressable LED development</li>
+          <li>3D Printing</li>
+          <li>Progress Indication</li>
+          <li>Temperature Alerts</li>
+          <li>Custom Animations</li>
+          <li>ESP32-C3 Development</li>
         </ul>
 
         <h2>Mounting Guidelines</h2>
@@ -107,13 +112,15 @@ export default async function Page({ params }) {
           <li>Route power cables away from ESP32 area</li>
         </ol>
 
-        <h2>Safety Notes</h2>
-        <ul>
-          <li>Use AWG-22 (or larger) wire for runs greater than 50 cm at 3 A</li>
-          <li>Replace fuse only with same rating</li>
-          <li>Inspect connectors periodically for heat discoloration</li>
-          <li>Ensure proper polarity when connecting LED chains</li>
-        </ul>
+        <div className="my-6 p-6 rounded-2xl border border-red-200 dark:border-red-900 bg-red-50 dark:bg-red-950/20">
+          <h2 className="text-xl font-bold text-red-900 dark:text-red-100">Safety Notes</h2>
+          <ul>
+            <li>Use AWG-22 (or larger) wire for runs greater than 50 cm at 3 A</li>
+            <li>Replace fuse only with same rating</li>
+            <li>Inspect connectors periodically for heat discoloration</li>
+            <li>Ensure proper polarity when connecting LED chains</li>
+          </ul>
+        </div>
 
         <h2>Testing & Validation</h2>
         <ul>
@@ -124,14 +131,16 @@ export default async function Page({ params }) {
           <li><strong>Thermal Testing:</strong> LED chain operation at sustained output</li>
         </ul>
 
-        <h2>Roadmap</h2>
+        <h2>Future Roadmap</h2>
         <ul>
           <li>Example animations for logo and status bar</li>
           <li>WebSocket API for real-time control</li>
           <li>OTA firmware updates</li>
         </ul>
 
-        <p>This project demonstrates how proper PCB design with dedicated power planes can ensure reliable addressable LED operation with ESP32 microcontrollers.</p>
+        <div className="my-6 p-6 rounded-2xl bg-gradient-to-br from-neutral-100 to-neutral-50 dark:from-neutral-900 dark:to-neutral-950 border border-neutral-200 dark:border-neutral-800 text-center">
+          <p>This project demonstrates how proper PCB design with dedicated power planes can ensure reliable addressable LED operation with ESP32 microcontrollers.</p>
+        </div>
       </div>
     </article>
   )

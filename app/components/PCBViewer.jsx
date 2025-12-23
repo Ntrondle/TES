@@ -11,34 +11,27 @@ function Model({ url }) {
   const groupRef = useRef()
   const [loaded, setLoaded] = useState(false)
   const animationProgress = useRef(0)
-  const centerCalculated = useRef(false)
+  const scaled = useRef(false)
   
   useEffect(() => {
-    if (scene && !centerCalculated.current) {
-      // Calculate model center and center it at (0,0,0) (only once)
+    if (scene && !scaled.current) {
+      // Calculate model's bounding box for scaling
       const box = new THREE.Box3().setFromObject(scene)
-      const center = box.getCenter(new THREE.Vector3())
-      
-      // Mark as calculated
-      centerCalculated.current = true
-      
-      // Center and scale the model at origin (0,0,0)
-      scene.position.x = -center.x
-      scene.position.y = -center.y
-      scene.position.z = -center.z
-      
       const size = box.getSize(new THREE.Vector3())
+      
+      // Calculate size for scaling
       const maxDim = Math.max(size.x, size.y, size.z)
       const scale = maxDim > 0 ? 4 / maxDim : 1
       scene.scale.setScalar(scale)
       
+      scaled.current = true
       setLoaded(true)
     }
   }, [scene])
   
   useFrame(() => {
     if (loaded && animationProgress.current < 1) {
-      // Animate from scale 0 to 1
+      // Animate from scale 0 to 1 with 360-degree rotation
       animationProgress.current += 0.03
       if (animationProgress.current > 1) {
         animationProgress.current = 1
@@ -49,13 +42,13 @@ function Model({ url }) {
       
       if (groupRef.current) {
         groupRef.current.scale.setScalar(easeOut)
-        groupRef.current.rotation.y = easeOut * Math.PI * 2 // One full rotation
+        groupRef.current.rotation.y = easeOut * Math.PI * 2 // 360 degrees rotation
       }
     }
   })
   
   return (
-    <group ref={groupRef}>
+    <group ref={groupRef} rotation={[1.35, 0, 0]}>
       <primitive object={scene} />
     </group>
   )
@@ -64,7 +57,7 @@ function Model({ url }) {
 // Placeholder 3D Component (Green PCB)
 function PlaceholderPCB() {
   return (
-    <group>
+    <group rotation={[0.4, 0, 0]}>
       {/* Main PCB body */}
       <mesh>
         <boxGeometry args={[2, 2, 0.2]} />
@@ -107,6 +100,7 @@ function PlaceholderPCB() {
 export default function PCBViewer({ stepFile, className = "" }) {
   const [loadError, setLoadError] = useState(false)
   const [loading, setLoading] = useState(true)
+  const controlsRef = useRef()
 
   useEffect(() => {
     if (!stepFile) {
@@ -129,14 +123,16 @@ export default function PCBViewer({ stepFile, className = "" }) {
 
   return (
     <div className={`relative w-full h-[300px] md:h-[400px] rounded-xl overflow-hidden bg-neutral-100 dark:bg-neutral-900 ${className}`}>
-      <Canvas dpr={[1, 1.5]} performance={{ min: 0.5 }}>
-        <PerspectiveCamera makeDefault position={[0, 3, 5]} />
+      <Canvas dpr={[0, 1.5]} performance={{ min: 0.5 }}>
+        <PerspectiveCamera makeDefault position={[1, 3, 3]} />
         <OrbitControls 
+          ref={controlsRef}
           enableZoom={true}
           enablePan={false}
-          minDistance={2}
-          maxDistance={10}
-          target={[0, 0, 0]} // Orbit around center (0,0,0) where model is centered
+          minDistance={4}
+          maxDistance={7}
+          autoRotate={true}
+          autoRotateSpeed={5}
         />
         <ambientLight intensity={0.6} />
         <directionalLight position={[5, 5, 5]} intensity={1} />
