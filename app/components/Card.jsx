@@ -1,10 +1,11 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import Link from 'next/link'
 import { cn } from '../../lib/utils'
 
 export default function Card({ children, className, href, ...props }) {
-  const Component = href ? 'a' : 'div'
+  const Component = href ? Link : 'div'
 
   return (
     <Component
