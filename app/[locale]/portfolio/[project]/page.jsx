@@ -49,7 +49,7 @@ export default async function Page({ params }) {
       <div className="flex items-center gap-3 mb-4">
         {project.hasIcon && (
           <img 
-            src={`/TES/portfolio/${project.slug}/icon.svg`}
+            src={`/portfolio/${project.slug}/icon.svg`}
             alt={project.title}
             className="w-12 h-12"
           />
@@ -64,7 +64,7 @@ export default async function Page({ params }) {
 
       {project.modelFile && (
         <div className="mt-8">
-          <PCBViewer stepFile={`/TES/portfolio/${project.slug}/${project.modelFile}`} />
+          <PCBViewer stepFile={`/portfolio/${project.slug}/${project.modelFile}`} />
         </div>
       )}
 
