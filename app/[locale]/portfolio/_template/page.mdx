@@ -1,0 +1,113 @@
+import Link from 'next/link'
+import { getDictionary } from '../../../i18n/getDictionary'
+import PCBViewer from '../../../components/PCBViewer'
+
+export async function generateMetadata({ params }) {
+  return {
+    title: 'Project Title — Subtitle',
+    description: 'Short project description for SEO.'
+  }
+}
+
+export default async function Page({ params }) {
+  const locale = params?.locale || 'en'
+  const t = await getDictionary(locale)
+
+  return (
+    <article className="max-w-4xl">
+      <p className="mb-4">
+        <Link href={`/${locale}/portfolio`} className="nav-link">
+          ← {t.common.backToPortfolio}
+        </Link>
+      </p>
+      
+      <h1 className="text-4xl md:text-5xl font-bold text-neutral-900 dark:text-white mb-4">
+        Project Title — Subtitle
+      </h1>
+      
+      <p className="text-xl text-neutral-600 dark:text-neutral-300 mb-8">
+        Short project description (one sentence).
+      </p>
+
+      {/* 3D PCB Viewer - Replace null with actual STEP file path when available */}
+      <div className="mb-8">
+        <PCBViewer stepFile={null} />
+      </div>
+
+      <div className="prose prose-neutral dark:prose-invert max-w-none">
+        <h2>Overview</h2>
+        <p>Brief overview of the project (1-2 paragraphs). What is it? What problem does it solve?</p>
+
+        <h2>Design Philosophy</h2>
+        <p>What principles guided the design decisions? What makes this solution unique?</p>
+
+        <h2>Key Features</h2>
+        <ul>
+          <li><strong>Feature 1:</strong> Description of the feature</li>
+          <li><strong>Feature 2:</strong> Description of the feature</li>
+          <li><strong>Feature 3:</strong> Description of the feature</li>
+          <li><strong>Feature 4:</strong> Description of the feature</li>
+          <li><strong>Feature 5:</strong> Description of the feature</li>
+        </ul>
+
+        <h2>Technical Implementation</h2>
+        <h3>Subsystem 1</h3>
+        <p>Description of the first technical subsystem.</p>
+        <ul>
+          <li><strong>Detail 1:</strong> Technical specification</li>
+          <li><strong>Detail 2:</strong> Technical specification</li>
+          <li><strong>Detail 3:</strong> Technical specification</li>
+          <li><strong>Detail 4:</strong> Technical specification</li>
+        </ul>
+
+        <h3>Subsystem 2</h3>
+        <p>Description of the second technical subsystem.</p>
+        <ul>
+          <li><strong>Detail 1:</strong> Technical specification</li>
+          <li><strong>Detail 2:</strong> Technical specification</li>
+          <li><strong>Detail 3:</strong> Technical specification</li>
+          <li><strong>Detail 4:</strong> Technical specification</li>
+        </ul>
+
+        <h2>Additional Sections</h2>
+        <p>More details as needed for the project.</p>
+        <ul>
+          <li><strong>Point 1:</strong> Information</li>
+          <li><strong>Point 2:</strong> Information</li>
+          <li><strong>Point 3:</strong> Information</li>
+        </ul>
+
+        <h2>Performance Specifications</h2>
+        <ul>
+          <li><strong>Spec 1:</strong> Value</li>
+          <li><strong>Spec 2:</strong> Value</li>
+          <li><strong>Spec 3:</strong> Value</li>
+          <li><strong>Spec 4:</strong> Value</li>
+          <li><strong>Spec 5:</strong> Value</li>
+          <li><strong>Spec 6:</strong> Value</li>
+        </ul>
+
+        <h2>Applications</h2>
+        <p>What applications is this project suitable for?</p>
+        <ul>
+          <li><strong>Application 1:</strong> Description</li>
+          <li><strong>Application 2:</strong> Description</li>
+          <li><strong>Application 3:</strong> Description</li>
+          <li><strong>Application 4:</strong> Description</li>
+        </ul>
+
+        <h2>Testing & Validation</h2>
+        <p>What testing was performed to validate the design?</p>
+        <ul>
+          <li><strong>Test 1:</strong> Description of test and results</li>
+          <li><strong>Test 2:</strong> Description of test and results</li>
+          <li><strong>Test 3:</strong> Description of test and results</li>
+          <li><strong>Test 4:</strong> Description of test and results</li>
+          <li><strong>Test 5:</strong> Description of test and results</li>
+        </ul>
+
+        <p>Closing statement summarizing the project and its achievements.</p>
+      </div>
+    </article>
+  )
+}

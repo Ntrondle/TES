@@ -1,0 +1,140 @@
+import Link from 'next/link'
+import { getDictionary } from '../../../i18n/getDictionary'
+import PCBViewer from '../../../components/PCBViewer'
+
+export async function generateMetadata({ params }) {
+  return {
+    title: 'RC Car Control & BMS Board',
+    description: 'Battery management, dual motor drive, CAN/USB comms, protected power path.'
+  }
+}
+
+export default async function Page({ params }) {
+  const locale = params?.locale || 'en'
+  const t = await getDictionary(locale)
+
+  return (
+    <article className="max-w-4xl">
+      <p className="mb-4">
+        <Link href={`/${locale}/portfolio`} className="nav-link">
+          ← {t.common.backToPortfolio}
+        </Link>
+      </p>
+      
+      <h1 className="text-4xl md:text-5xl font-bold text-neutral-900 dark:text-white mb-4">
+        RC Car Control & BMS Board
+      </h1>
+      
+      <p className="text-xl text-neutral-600 dark:text-neutral-300 mb-8">
+        Battery management, dual motor drive, CAN/USB comms, protected power path.
+      </p>
+
+      {/* 3D PCB Viewer */}
+      <div className="mb-8">
+        <PCBViewer stepFile={null} />
+      </div>
+
+      <div className="prose prose-neutral dark:prose-invert max-w-none">
+        <h2>Overview</h2>
+        <p>A comprehensive control board for high-performance RC vehicles, integrating battery management, dual motor control, and communication interfaces. This project demonstrates advanced power electronics design and robust control systems for demanding applications.</p>
+
+        <h2>Design Philosophy</h2>
+        <p>Reliability and performance drive every design decision. By integrating multiple subsystems onto a single board, we reduced complexity, improved thermal management, and created a robust solution capable of withstanding the harsh conditions of RC racing.</p>
+
+        <h2>Key Features</h2>
+        <ul>
+          <li><strong>Advanced BMS:</strong> 6S lithium battery monitoring with cell balancing</li>
+          <li><strong>Dual Motor Control:</strong> Independent FET drivers for two brushless motors</li>
+          <li><strong>CAN Bus Interface:</strong> High-speed CAN for telemetry and control</li>
+          <li><strong>USB-C Connectivity:</strong> Programming and configuration via USB</li>
+          <li><strong>Protected Power Path:</strong> Reverse polarity and overcurrent protection</li>
+        </ul>
+
+        <h2>Technical Implementation</h2>
+        <h3>Battery Management System</h3>
+        <p>Comprehensive battery monitoring ensures safe and efficient operation:</p>
+        <ul>
+          <li><strong>Cell Monitoring:</strong> 6S LiPo/Li-ion voltage monitoring (±5mV accuracy)</li>
+          <li><strong>Current Sensing:</strong> Bidirectional current measurement via Hall sensor</li>
+          <li><strong>Temperature Monitoring:</strong> 3 temperature sensors for battery and board</li>
+          <li><strong>Active Balancing:</strong> 100mA per-cell balancing current</li>
+          <li><strong>SOC Estimation:</strong> Coulomb counting with voltage-based calibration</li>
+        </ul>
+
+        <h3>Motor Control</h3>
+        <p>Dual motor drivers enable complex vehicle configurations:</p>
+        <ul>
+          <li><strong>MOSFET Drivers:</strong> High-current gate drivers for each motor</li>
+          <li><strong>PWM Generation:</strong> Hardware PWM for smooth motor control</li>
+          <li><strong>Braking Control:</strong> Regenerative braking with adjustable intensity</li>
+          <li><strong>Current Limiting:</strong> Per-motor current limiting for safety</li>
+          <li><strong>Direction Control:</strong> Forward/reverse with soft switching</li>
+        </ul>
+
+        <h2>Communication Interfaces</h2>
+        <h3>CAN Bus</h3>
+        <p>High-speed CAN enables robust vehicle communication:</p>
+        <ul>
+          <li><strong>CAN 2.0B:</strong> Standard CAN protocol support</li>
+          <li><strong>Flexible Data Rate:</strong> Optional CAN-FD support</li>
+          <li><strong>Multiple Messages:</strong> Support for up to 32 CAN IDs</li>
+          <li><strong>Telemetry:</strong> Battery status, motor data, sensor readings</li>
+          <li><strong>Remote Control:</strong> Motor commands and mode switching</li>
+        </ul>
+
+        <h3>USB Interface</h3>
+        <p>USB-C provides easy programming and configuration:</p>
+        <ul>
+          <li><strong>USB-C Connector:</strong> Modern, reversible connector</li>
+          <li><strong>USB 2.0 Device:</strong> Programming and data transfer</li>
+          <li><strong>Virtual COM Port:</strong> Serial console for debugging</li>
+          <li><strong>Configuration Tool:</strong> GUI for parameter adjustment</li>
+          <li><strong>Firmware Updates:</strong> Bootloader for OTA updates</li>
+        </ul>
+
+        <h2>Power Management</h2>
+        <h3>Protection Circuits</h3>
+        <p>Multiple protection mechanisms ensure safe operation:</p>
+        <ul>
+          <li><strong>Reverse Polarity:</strong> FET-based reverse polarity protection</li>
+          <li><strong>Overcurrent:</strong> Hardware current limiting with fuse backup</li>
+          <li><strong>Undervoltage:</strong> Cell-level undervoltage cutoff</li>
+          <li><strong>Overvoltage:</strong> Overvoltage protection during charging</li>
+          <li><strong>Overtemperature:</strong> Thermal shutdown with hysteresis</li>
+        </ul>
+
+        <h2>Performance Specifications</h2>
+        <ul>
+          <li><strong>Battery:</strong> 6S LiPo (22.2V nominal, 25.2V max)</li>
+          <li><strong>Continuous Current:</strong> 80A per motor</li>
+          <li><strong>Burst Current:</strong> 120A per motor (10s max)</li>
+          <li><strong>BMS Accuracy:</strong> ±5mV voltage, ±0.5% current</li>
+          <li><strong>Balancing Current:</strong> 100mA per cell</li>
+          <li><strong>Operating Temp:</strong> -20°C to +60°C</li>
+        </ul>
+
+        <h2>Applications</h2>
+        <p>This control board is ideal for high-performance RC applications:</p>
+        <ul>
+          <li><strong>RC Racing:</strong> Professional-grade racing vehicles</li>
+          <li><strong>Autonomous Vehicles:</strong> Robotics and autonomous platforms</li>
+          <li><strong>Drones:</strong> Multi-rotor aircraft with advanced control</li>
+          <li><strong>Testing Platforms:</strong> Battery and motor testing rigs</li>
+          <li><strong>Educational:</strong> Learning platform for power electronics</li>
+        </ul>
+
+        <h2>Testing & Validation</h2>
+        <p>Extensive testing ensures reliable operation:</p>
+        <ul>
+          <li><strong>Endurance Testing:</strong> 100+ hours of continuous operation</li>
+          <li><strong>Vibration Testing:</strong> Survives 10G random vibration</li>
+          <li><strong>Thermal Cycling:</strong> -20°C to +60°C cycling (50+ cycles)</li>
+          <li><strong>Electrical Stress:</strong> Short-circuit and overcurrent testing</li>
+          <li><strong>EMC Testing:</strong> EMI/EMC compliance for RC regulations</li>
+        </ul>
+
+        <p>This project demonstrates how careful engineering can produce a robust, high-performance control system for demanding applications.</p>
+      </div>
+    </article>
+  )
+}

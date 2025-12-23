@@ -1,10 +1,11 @@
 {
   "nav": {
     "home": "Startseite",
-    "about": "Über uns",
+    "about": "Über",
     "portfolio": "Portfolio",
     "contact": "Kontakt",
-    "lang": "Sprache"
+    "lang": "Sprache",
+    "imprint": "Impressum"
   },
   "hero": {
     "titleLine1": "Embedded‑Systeme,",

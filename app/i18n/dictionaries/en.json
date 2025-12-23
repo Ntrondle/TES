@@ -4,7 +4,8 @@
     "about": "About",
     "portfolio": "Portfolio",
     "contact": "Contact",
-    "lang": "Language"
+    "lang": "Language",
+    "imprint": "Imprint"
   },
   "hero": {
     "titleLine1": "Embedded systems,",
