@@ -23,8 +23,39 @@
   },
   "about": {
     "title": "Über TES",
-    "p1": "TES (Tröndle Embedded System) ist ein Schweizer Embedded‑Design‑Studio unter der Leitung von Nicolas Tröndle. Wir verwandeln Ideen in zuverlässige Hardware – mit PCB‑Design, Firmware und praxisnahen Tests.",
-    "p2": "Erfahrung mit ESP32, RP2040 und STM32; CAN, USB und Wi‑Fi; sowie leistungs‑/thermikorientierten Designs. Wir legen Wert auf saubere Schaltpläne, fertigungsgerechtes Layout und robuste Software."
+    "backToHome": "← Zurück zur Startseite",
+    "intro": {
+      "p1": "<strong class=\"text-neutral-900 dark:text-white\">TES (Tröndle Embedded System)</strong> ist ein kleines Schweizer Embedded-Designstudio, das von Nicolas Tröndle geleitet wird. Wir helfen, Ideen in solide, funktionierende Hardware zu verwandeln, indem wir alles von der PCB-Entwicklung bis zur Firmware und realen Tests handhaben.",
+      "p2": "Wir haben mit den Plattformen ESP32, RP2040 und STM32 gearbeitet, über CAN-, USB- und Wi-Fi-Projekte, mit starkem Fokus auf Leistungs- und thermische Einschränkungen. Unser Ansatz ist praktisch und detailliert: saubere Schaltpläne, Layouts, die leicht herzustellen sind, und Software, die zuverlässig außerhalb des Labors funktioniert."
+    },
+    "valuesTitle": "Unsere Werte",
+    "values": {
+      "quality": {
+        "title": "Qualität zuerst",
+        "description": "Jedes Design wird gründlich getestet und dokumentiert, um Zuverlässigkeit zu gewährleisten."
+      },
+      "client": {
+        "title": "Kundenorientiert",
+        "description": "Wir arbeiten eng mit Ihnen zusammen, um Ihre Bedürfnisse zu verstehen und Lösungen zu liefern, die funktionieren."
+      },
+      "open": {
+        "title": "Offen & Transparent",
+        "description": "Wir glauben an klare Kommunikation und teilen unser Wissen mit der Community."
+      }
+    },
+    "contactTitle": "Kontakt",
+    "contact": {
+      "email": "E-Mail",
+      "github": "GitHub",
+      "location": "Standort"
+    },
+    "imprint": {
+      "title": "Impressum",
+      "responsible": "Verantwortlich",
+      "contact": "Kontakt",
+      "location": "Standort",
+      "copyright": "Diese Website wird auf GitHub Pages gehostet. Der Inhalt dieser Website ist urheberrechtlich geschützt. Alle Rechte vorbehalten."
+    }
   },
   "portfolio": {
     "title": "Portfolio",
@@ -51,6 +82,152 @@
   "common": {
     "backToPortfolio": "← Zurück zum Portfolio"
   },
+  "servicePages": {
+    "prototyping": {
+      "title": "Prototyping & Tests",
+      "subtitle": "Rapid prototyping und umfassendes Testen zur schnellen und sicheren Validierung Ihrer Designs. Von ersten Prototypen bis zur produktionsreifen Validierung.",
+      "servicesTitle": "Services",
+      "ctaTitle": "Brauchen Sie Prototyping-Hilfe?",
+      "ctaSubtitle": "Von der Konzeptvalidierung bis zur Produktionstests können wir Ihren Entwicklungszyklus beschleunigen.",
+      "ctaButton": "Kontaktieren Sie uns",
+      "services": {
+        "boardBringup": {
+          "title": "Board Bring-up",
+          "description": "Einschaltverifikation, Oszillator-Tests und Validierung der Basisfunktionen"
+        },
+        "debugging": {
+          "title": "Debugging & Tests",
+          "description": "Systematische Fehlersuche mit Oszilloskopen, Logikanalysatoren und benutzerdefinierten Testgeräten"
+        },
+        "testJigs": {
+          "title": "Testvorrichtungen & Fixtures",
+          "description": "Benutzerdefinierte Testgeräte und automatisierte Testlösungen für die Produktionsvalidierung"
+        },
+        "validation": {
+          "title": "Validierung & Verifikation",
+          "description": "Umfassende Tests gegen Spezifikationen und Anforderungen"
+        }
+      }
+    },
+    "power": {
+      "title": "Power & Thermik",
+      "subtitle": "Effizientes Energiemanagement und thermisches Design für zuverlässige Embedded-Systeme. Von batteriebetriebenen Geräten bis zu Hochleistungsanwendungen.",
+      "featuresTitle": "Funktionen",
+      "ctaTitle": "Brauchen Sie Power-Design-Expertise?",
+      "ctaSubtitle": "Von Low-Power-IoT-Geräten bis zu Hochleistungssystemen können wir Ihre Stromarchitektur optimieren.",
+      "ctaButton": "Kontaktieren Sie uns",
+      "features": {
+        "powerConversion": {
+          "title": "Stromwandlung",
+          "description": "Buck-, Boost- und Flyback-Wandler optimiert für Effizienz und thermische Leistung"
+        },
+        "batteryManagement": {
+          "title": "Batteriemanagement",
+          "description": "Li-ion/LiPo-Ladung, Schutz und Batteriepegel-Implementierungen"
+        },
+        "thermalDesign": {
+          "title": "Thermisches Design",
+          "description": "Kühlkörperauswahl, thermische Vias und Temperaturüberwachungssysteme"
+        },
+        "protection": {
+          "title": "Schutzschaltungen",
+          "description": "Überstrom-, Überspannungs- und Verpolungsschutz"
+        }
+      }
+    },
+    "pcbDesign": {
+      "title": "Individuelles PCB-Design",
+      "subtitle": "Professionelle PCB-Design-Services vom Konzept bis zu fertigungsbereiten Ausgaben. Wir liefern hochwertige Platinen optimiert für Leistung, Zuverlässigkeit und Kosten.",
+      "featuresTitle": "Funktionen",
+      "processTitle": "Unser Prozess",
+      "technologiesTitle": "Technologien",
+      "ctaTitle": "Benötigen Sie ein individuelles PCB?",
+      "ctaSubtitle": "Ob es sich um eine einfache Einlagenplatine oder ein komplexes Multilayer-Design handelt, wir haben Sie abgedeckt.",
+      "ctaButton": "Angebot anfordern",
+      "features": {
+        "multiLayer": {
+          "title": "Multilayer-Platinen",
+          "description": "Experten-Design für 2-8-Layer-PCBs mit optimiertem Stack-up für Signalintegrität und EMI-Kontrolle"
+        },
+        "powerIntegrity": {
+          "title": "Power Integrity",
+          "description": "Sorgfältiges Power-Plane-Design und Entkopplungsstrategien für stabile Spannungsverteilung"
+        },
+        "signalIntegrity": {
+          "title": "Signalintegrität",
+          "description": "Routing mit kontrollierter Impedanz, Differentialpaare und ordnungsgemäße Abschlussstrategien"
+        },
+        "manufacturingReady": {
+          "title": "Fertigungsbereit",
+          "description": "Vollständige Design-for-Manufacturability-(DFM)-Überlegungen und Gerber-Ausgaben"
+        }
+      },
+      "process": {
+        "requirements": {
+          "title": "Anforderungsanalyse",
+          "description": "Verstehen Sie Ihre elektrischen, mechanischen und umweltbezogenen Anforderungen"
+        },
+        "schematic": {
+          "title": "Schaltplanerfassung",
+          "description": "Erstellung detaillierter Schaltpläne mit korrekter Bauteilerauswahl und Dokumentation"
+        },
+        "layout": {
+          "title": "PCB-Layout",
+          "description": "Optimiertes Layout mit sorgfältiger Beachtung von Routing, Platzierung und thermischen Überlegungen"
+        },
+        "review": {
+          "title": "Design-Review",
+          "description": "Umfassende DRC/DRC-Prüfungen und Design-Reviews vor der Fertigung"
+        }
+      },
+      "technologies": ["Altium Designer", "KiCad", "Eagle", "OrCAD", "EasyEDA"]
+    },
+    "firmware": {
+      "title": "Firmware & Konnektivität",
+      "subtitle": "Entwicklung maßgeschneiderter Firmware mit Fokus auf Zuverlässigkeit, Effizienz und Wartbarkeit. Von Bare-Metal-Treibern bis zu komplexen RTOS-Anwendungen.",
+      "featuresTitle": "Funktionen",
+      "platformsTitle": "Plattformen",
+      "ctaTitle": "Brauchen Sie maßgeschneiderte Firmware?",
+      "ctaSubtitle": "Von einfachen Sensorablesungen bis zu komplexen IoT-Systemen können wir Ihnen helfen, zuverlässige Firmware zu entwickeln.",
+      "ctaButton": "Kontaktieren Sie uns",
+      "features": {
+        "embeddedCpp": {
+          "title": "Embedded C/C++",
+          "description": "Bare-Metal- und RTOS-Entwicklung für ARM Cortex-M-, ESP32- und RP2040-Plattformen"
+        },
+        "wireless": {
+          "title": "Drahtlose Konnektivität",
+          "description": "BLE, Wi-Fi und andere drahtlose Protokolle mit robuster Fehlerbehandlung"
+        },
+        "storage": {
+          "title": "Speicher & Dateisysteme",
+          "description": "Flash-Speicher, SD-Karten und effiziente Datenverwaltung"
+        },
+        "protocols": {
+          "title": "Kommunikationsprotokolle",
+          "description": "UART, SPI, I2C, CAN, USB und benutzerdefinierte Protokollimplementierungen"
+        }
+      },
+      "platforms": {
+        "esp32": {
+          "name": "ESP32",
+          "description": "ESP-IDF & Arduino"
+        },
+        "rp2040": {
+          "name": "RP2040",
+          "description": "C/C++ SDK"
+        },
+        "stm32": {
+          "name": "STM32",
+          "description": "HAL & LL Treiber"
+        },
+        "nordic": {
+          "name": "Nordic nRF",
+          "description": "nRF Connect SDK"
+        }
+      }
+    }
+  },
   "projects": {
     "heated": {
       "title": "Beheizter Untersetzer — smart & sicher",
@@ -64,5 +241,10 @@
       "title": "RC‑Steuerung & BMS‑Platine",
       "desc": "Batteriemanagement, Doppel‑Motorsteuerung, CAN/USB‑Kommunikation, geschützter Leistungsweg."
     }
+  },
+  "cta": {
+    "title": "Bereit, Ihr Projekt zu starten?",
+    "subtitle": "Lassen Sie uns Ihre Ideen in die Realität verwandeln. Kontaktieren Sie uns und lassen Sie uns besprechen, wie wir Ihnen helfen können, das perfekte Embedded-System zu bauen.",
+    "button": "Kontaktieren Sie uns"
   }
 }

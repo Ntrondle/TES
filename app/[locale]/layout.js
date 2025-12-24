@@ -9,6 +9,35 @@ export async function generateStaticParams() {
   return [{ locale: 'en' }, { locale: 'fr' }, { locale: 'de' }]
 }
 
+export async function generateMetadata({ params: { locale } }) {
+  const t = await getDictionary(locale)
+  
+  const titles = {
+    en: 'TES — Tröndle Embedded System',
+    fr: 'TES — Tröndle Embedded System',
+    de: 'TES — Tröndle Embedded System'
+  }
+  
+  const descriptions = {
+    en: 'Embedded systems: PCB design, firmware, and connected products. Swiss embedded design studio led by Nicolas Tröndle in Lausanne, Switzerland.',
+    fr: 'Systèmes embarqués : conception de PCB, micrologiciel et produits connectés. Studio de conception suisse dirigé par Nicolas Tröndle à Lausanne, Suisse.',
+    de: 'Embedded-Systeme: PCB-Design, Firmware und vernetzte Produkte. Schweizer Embedded-Designstudio unter der Leitung von Nicolas Tröndle in Lausanne, Schweiz.'
+  }
+  
+  return {
+    title: {
+      default: titles[locale] || titles.en,
+      template: `%s — TES`
+    },
+    description: descriptions[locale] || descriptions.en,
+    openGraph: {
+      locale: locale === 'en' ? 'en_US' : locale === 'fr' ? 'fr_FR' : 'de_DE',
+      title: titles[locale] || titles.en,
+      description: descriptions[locale] || descriptions.en
+    }
+  }
+}
+
 export default async function LocaleLayout({ children, params: { locale } }) {
   const t = await getDictionary(locale)
   const year = new Date().getFullYear()

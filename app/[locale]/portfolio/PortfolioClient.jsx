@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 import Link from 'next/link'
 import Card from '../../components/Card'
 
-export default function PortfolioClient({ projects, locale }) {
+export default function PortfolioClient({ projects, t, locale }) {
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -26,9 +26,8 @@ export default function PortfolioClient({ projects, locale }) {
         <Link 
           href={`/${locale}`}
           className="text-sm text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white transition-colors"
-        >
-          Back to home
-        </Link>
+          dangerouslySetInnerHTML={{ __html: t?.common?.backToPortfolio ?? '← Back to portfolio' }}
+        />
       </motion.div>
 
       {/* Header */}
@@ -38,10 +37,10 @@ export default function PortfolioClient({ projects, locale }) {
         transition={{ duration: 0.5 }}
       >
         <h1 className="text-4xl md:text-5xl font-bold text-neutral-900 dark:text-white mb-4">
-          Portfolio
+          {t?.portfolio?.title ?? 'Portfolio'}
         </h1>
         <p className="text-xl text-neutral-600 dark:text-neutral-300">
-          A few projects we've built recently.
+          {t?.portfolio?.subtitle ?? 'A few projects we\'ve built recently.'}
         </p>
       </motion.div>
 

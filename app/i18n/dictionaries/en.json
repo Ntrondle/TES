@@ -23,8 +23,39 @@
   },
   "about": {
     "title": "About TES",
-    "p1": "TES (Tröndle Embedded System) is a Swiss embedded design studio led by Nicolas Tröndle. We turn ideas into reliable hardware — combining PCB design, firmware, and practical testing.",
-    "p2": "We’ve worked across ESP32, RP2040, and STM32 platforms; CAN, USB, and Wi‑Fi; and thermal/power‑aware designs. We care about clean schematics, manufacturable layouts, and robust software."
+    "backToHome": "← Back to home",
+    "intro": {
+      "p1": "<strong class=\"text-neutral-900 dark:text-white\">TES (Tröndle Embedded System)</strong> is a small Swiss embedded design studio run by Nicolas Tröndle. We help turn ideas into solid, working hardware by handling everything from PCB design to firmware and real-world testing.",
+      "p2": "We've worked with ESP32, RP2040, and STM32 platforms, across CAN, USB, and Wi-Fi projects, with a strong focus on power and thermal constraints. Our approach is practical and detail-oriented: clean schematics, layouts that are easy to manufacture, and software that behaves reliably outside the lab."
+    },
+    "valuesTitle": "Our Values",
+    "values": {
+      "quality": {
+        "title": "Quality First",
+        "description": "Every design is thoroughly tested and documented to ensure reliability."
+      },
+      "client": {
+        "title": "Client Focused",
+        "description": "We work closely with you to understand your needs and deliver solutions that work."
+      },
+      "open": {
+        "title": "Open & Transparent",
+        "description": "We believe in clear communication and sharing our knowledge with the community."
+      }
+    },
+    "contactTitle": "Contact",
+    "contact": {
+      "email": "Email",
+      "github": "GitHub",
+      "location": "Location"
+    },
+    "imprint": {
+      "title": "Imprint",
+      "responsible": "Responsible",
+      "contact": "Contact",
+      "location": "Location",
+      "copyright": "This website is hosted on GitHub Pages. The content of this website is protected by copyright. All rights reserved."
+    }
   },
   "portfolio": {
     "title": "Portfolio",
@@ -51,6 +82,152 @@
   "common": {
     "backToPortfolio": "← Back to portfolio"
   },
+  "servicePages": {
+    "prototyping": {
+      "title": "Prototyping & Test",
+      "subtitle": "Rapid prototyping and comprehensive testing to validate your designs quickly and confidently. From first prototypes to production-ready validation.",
+      "servicesTitle": "Services",
+      "ctaTitle": "Need prototyping help?",
+      "ctaSubtitle": "From concept validation to production testing, we can accelerate your development cycle.",
+      "ctaButton": "Get in touch",
+      "services": {
+        "boardBringup": {
+          "title": "Board Bring-up",
+          "description": "Power-on verification, oscillator testing, and basic functionality validation"
+        },
+        "debugging": {
+          "title": "Debugging & Testing",
+          "description": "Systematic troubleshooting with oscilloscopes, logic analyzers, and custom test equipment"
+        },
+        "testJigs": {
+          "title": "Test Jigs & Fixtures",
+          "description": "Custom test equipment and automated testing solutions for production validation"
+        },
+        "validation": {
+          "title": "Validation & Verification",
+          "description": "Comprehensive testing against specifications and requirements"
+        }
+      }
+    },
+    "power": {
+      "title": "Power & Thermal Design",
+      "subtitle": "Efficient power management and thermal design for reliable embedded systems. From battery-powered devices to high-power applications.",
+      "featuresTitle": "Features",
+      "ctaTitle": "Need power design expertise?",
+      "ctaSubtitle": "From low-power IoT devices to high-performance systems, we can optimize your power architecture.",
+      "ctaButton": "Get in touch",
+      "features": {
+        "powerConversion": {
+          "title": "Power Conversion",
+          "description": "Buck, boost, and flyback converters optimized for efficiency and thermal performance"
+        },
+        "batteryManagement": {
+          "title": "Battery Management",
+          "description": "Li-ion/LiPo charging, protection, and fuel gauge implementations"
+        },
+        "thermalDesign": {
+          "title": "Thermal Design",
+          "description": "Heat sink selection, thermal vias, and temperature monitoring systems"
+        },
+        "protection": {
+          "title": "Protection Circuits",
+          "description": "Overcurrent, overvoltage, and reverse polarity protection"
+        }
+      }
+    },
+    "pcbDesign": {
+      "title": "Custom PCB Design",
+      "subtitle": "Professional PCB design services from concept to manufacturing-ready outputs. We deliver high-quality boards optimized for performance, reliability, and cost.",
+      "featuresTitle": "Features",
+      "processTitle": "Our Process",
+      "technologiesTitle": "Technologies",
+      "ctaTitle": "Need a custom PCB?",
+      "ctaSubtitle": "Whether it's a simple single-layer board or a complex multi-layer design, we've got you covered.",
+      "ctaButton": "Get a quote",
+      "features": {
+        "multiLayer": {
+          "title": "Multi-layer Boards",
+          "description": "Expert design for 2-8 layer PCBs with optimal stack-up for signal integrity and EMI control"
+        },
+        "powerIntegrity": {
+          "title": "Power Integrity",
+          "description": "Careful power plane design and decoupling strategies for stable voltage distribution"
+        },
+        "signalIntegrity": {
+          "title": "Signal Integrity",
+          "description": "Controlled impedance routing, differential pairs, and proper termination strategies"
+        },
+        "manufacturingReady": {
+          "title": "Manufacturing Ready",
+          "description": "Complete design for manufacturability (DFM) considerations and Gerber outputs"
+        }
+      },
+      "process": {
+        "requirements": {
+          "title": "Requirements Analysis",
+          "description": "Understand your electrical, mechanical, and environmental requirements"
+        },
+        "schematic": {
+          "title": "Schematic Capture",
+          "description": "Create detailed schematics with proper component selection and documentation"
+        },
+        "layout": {
+          "title": "PCB Layout",
+          "description": "Optimized layout with careful attention to routing, placement, and thermal considerations"
+        },
+        "review": {
+          "title": "Design Review",
+          "description": "Comprehensive DRC/DRC checks and design reviews before manufacturing"
+        }
+      },
+      "technologies": ["Altium Designer", "KiCad", "Eagle", "OrCAD", "EasyEDA"]
+    },
+    "firmware": {
+      "title": "Firmware & Connectivity",
+      "subtitle": "Custom firmware development with a focus on reliability, efficiency, and maintainability. From bare-metal drivers to complex RTOS applications.",
+      "featuresTitle": "Features",
+      "platformsTitle": "Platforms",
+      "ctaTitle": "Need custom firmware?",
+      "ctaSubtitle": "From simple sensor readouts to complex IoT systems, we can help you build reliable firmware.",
+      "ctaButton": "Get in touch",
+      "features": {
+        "embeddedCpp": {
+          "title": "Embedded C/C++",
+          "description": "Bare-metal and RTOS development for ARM Cortex-M, ESP32, and RP2040 platforms"
+        },
+        "wireless": {
+          "title": "Wireless Connectivity",
+          "description": "BLE, Wi-Fi, and other wireless protocols with robust error handling"
+        },
+        "storage": {
+          "title": "Storage & File Systems",
+          "description": "Flash storage, SD cards, and efficient data management"
+        },
+        "protocols": {
+          "title": "Communication Protocols",
+          "description": "UART, SPI, I2C, CAN, USB, and custom protocol implementations"
+        }
+      },
+      "platforms": {
+        "esp32": {
+          "name": "ESP32",
+          "description": "ESP-IDF & Arduino"
+        },
+        "rp2040": {
+          "name": "RP2040",
+          "description": "C/C++ SDK"
+        },
+        "stm32": {
+          "name": "STM32",
+          "description": "HAL & LL drivers"
+        },
+        "nordic": {
+          "name": "Nordic nRF",
+          "description": "nRF Connect SDK"
+        }
+      }
+    }
+  },
   "projects": {
     "heated": {
       "title": "Heated Coaster — Smart & Safe",
@@ -64,5 +241,10 @@
       "title": "RC Car Control & BMS Board",
       "desc": "Battery management, dual motor drive, CAN/USB comms, protected power path."
     }
+  },
+  "cta": {
+    "title": "Ready to start your project?",
+    "subtitle": "Let's turn your ideas into reality. Get in touch and let's discuss how we can help you build the perfect embedded system.",
+    "button": "Get in touch"
   }
 }

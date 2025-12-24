@@ -7,7 +7,7 @@ import PortfolioContent from '../../../components/PortfolioContent'
 import ThemeAwareLogo from '../../../components/ThemeAwareLogo'
 
 export async function generateMetadata({ params }) {
-  const project = await getPortfolioProject(params.project)
+  const project = await getPortfolioProject(params.project, params.locale)
   
   if (!project) {
     return {
@@ -33,7 +33,7 @@ export async function generateStaticParams() {
 export default async function Page({ params }) {
   const locale = params?.locale || 'en'
   const t = await getDictionary(locale)
-  const project = await getPortfolioProject(params.project)
+  const project = await getPortfolioProject(params.project, locale)
 
   if (!project) {
     notFound()

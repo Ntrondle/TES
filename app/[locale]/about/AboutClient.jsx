@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { Mail, MapPin, Github, User, Zap } from 'lucide-react'
 
-export default function AboutPage({ params: { locale } }) {
+export default function AboutClient({ t, locale }) {
   return (
     <div className="max-w-4xl mx-auto">
       {/* Breadcrumb */}
@@ -16,9 +16,8 @@ export default function AboutPage({ params: { locale } }) {
         <Link 
           href={`/${locale}`}
           className="text-sm text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white transition-colors"
-        >
-          ← Back to home
-        </Link>
+          dangerouslySetInnerHTML={{ __html: t?.about?.backToHome }}
+        />
       </motion.div>
 
       {/* Header */}
@@ -28,23 +27,22 @@ export default function AboutPage({ params: { locale } }) {
         transition={{ duration: 0.5 }}
       >
         <h1 className="text-4xl md:text-5xl font-bold text-neutral-900 dark:text-white mb-6">
-          About TES
+          {t?.about?.title}
         </h1>
       </motion.div>
 
       {/* Main Content */}
       <motion.section 
-        className="prose prose-neutral dark:prose-invert max-w-none mt-8"
+        className="mt-8"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.2, duration: 0.5 }}
       >
-        <p className="text-lg">
-          <strong className="text-neutral-900 dark:text-white">TES (Tröndle Embedded System)</strong> is a Swiss embedded design studio led by Nicolas Tröndle. We turn ideas into reliable hardware — combining PCB design, firmware, and practical testing.
-        </p>
-        <p>
-          We've worked across ESP32, RP2040, and STM32 platforms; CAN, USB, and Wi‑Fi; and thermal/power‑aware designs. We care about clean schematics, manufacturable layouts, and robust software.
-        </p>
+        <p 
+          className="text-lg text-neutral-600 dark:text-neutral-300 leading-relaxed"
+          dangerouslySetInnerHTML={{ __html: t?.about?.intro?.p1 }}
+        />
+        <p className="text-lg text-neutral-600 dark:text-neutral-300 leading-relaxed mt-4" dangerouslySetInnerHTML={{ __html: t?.about?.intro?.p2 }} />
       </motion.section>
 
       {/* Values */}
@@ -55,7 +53,7 @@ export default function AboutPage({ params: { locale } }) {
         transition={{ delay: 0.3, duration: 0.5 }}
       >
         <h2 className="text-2xl font-bold text-neutral-900 dark:text-white mb-6">
-          Our Values
+          {t?.about?.valuesTitle}
         </h2>
         
         <div className="grid md:grid-cols-3 gap-4">
@@ -64,10 +62,10 @@ export default function AboutPage({ params: { locale } }) {
               <Zap className="w-5 h-5 text-neutral-900 dark:text-white" />
             </div>
             <h3 className="font-semibold text-neutral-900 dark:text-white mb-2">
-              Quality First
+              {t?.about?.values?.quality?.title}
             </h3>
             <p className="text-sm text-neutral-600 dark:text-neutral-300">
-              Every design is thoroughly tested and documented to ensure reliability.
+              {t?.about?.values?.quality?.description}
             </p>
           </div>
 
@@ -76,10 +74,10 @@ export default function AboutPage({ params: { locale } }) {
               <User className="w-5 h-5 text-neutral-900 dark:text-white" />
             </div>
             <h3 className="font-semibold text-neutral-900 dark:text-white mb-2">
-              Client Focused
+              {t?.about?.values?.client?.title}
             </h3>
             <p className="text-sm text-neutral-600 dark:text-neutral-300">
-              We work closely with you to understand your needs and deliver solutions that work.
+              {t?.about?.values?.client?.description}
             </p>
           </div>
 
@@ -88,10 +86,10 @@ export default function AboutPage({ params: { locale } }) {
               <Github className="w-5 h-5 text-neutral-900 dark:text-white" />
             </div>
             <h3 className="font-semibold text-neutral-900 dark:text-white mb-2">
-              Open & Transparent
+              {t?.about?.values?.open?.title}
             </h3>
             <p className="text-sm text-neutral-600 dark:text-neutral-300">
-              We believe in clear communication and sharing our knowledge with the community.
+              {t?.about?.values?.open?.description}
             </p>
           </div>
         </div>
@@ -105,20 +103,20 @@ export default function AboutPage({ params: { locale } }) {
         transition={{ delay: 0.4, duration: 0.5 }}
       >
         <h2 className="text-2xl font-bold text-neutral-900 dark:text-white mb-6">
-          Contact
+          {t?.about?.contactTitle}
         </h2>
         
         <div className="space-y-4">
           <a 
-            href="mailto:hello@tes.swiss"
+            href="mailto:reach@tes-shop.ch"
             className="flex items-center gap-3 p-4 rounded-xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-950 hover:border-neutral-300 dark:hover:border-neutral-700 transition-colors group"
           >
             <div className="p-2 rounded-lg bg-neutral-100 dark:bg-neutral-800">
               <Mail className="w-5 h-5 text-neutral-900 dark:text-white group-hover:scale-110 transition-transform" />
             </div>
             <div>
-              <div className="text-sm text-neutral-500 dark:text-neutral-400">Email</div>
-              <div className="font-medium text-neutral-900 dark:text-white">hello@tes.swiss</div>
+              <div className="text-sm text-neutral-500 dark:text-neutral-400">{t?.about?.contact?.email}</div>
+              <div className="font-medium text-neutral-900 dark:text-white">reach@tes-shop.ch</div>
             </div>
           </a>
 
@@ -132,7 +130,7 @@ export default function AboutPage({ params: { locale } }) {
               <Github className="w-5 h-5 text-neutral-900 dark:text-white group-hover:scale-110 transition-transform" />
             </div>
             <div>
-              <div className="text-sm text-neutral-500 dark:text-neutral-400">GitHub</div>
+              <div className="text-sm text-neutral-500 dark:text-neutral-400">{t?.about?.contact?.github}</div>
               <div className="font-medium text-neutral-900 dark:text-white">Trondle-Embedded-Systems</div>
             </div>
           </a>
@@ -142,7 +140,7 @@ export default function AboutPage({ params: { locale } }) {
               <MapPin className="w-5 h-5 text-neutral-900 dark:text-white" />
             </div>
             <div>
-              <div className="text-sm text-neutral-500 dark:text-neutral-400">Location</div>
+              <div className="text-sm text-neutral-500 dark:text-neutral-400">{t?.about?.contact?.location}</div>
               <div className="font-medium text-neutral-900 dark:text-white">Lausanne, Switzerland</div>
             </div>
           </div>
@@ -158,13 +156,13 @@ export default function AboutPage({ params: { locale } }) {
         transition={{ delay: 0.5, duration: 0.5 }}
       >
         <h2 className="text-2xl font-bold text-neutral-900 dark:text-white mb-6">
-          Imprint
+          {t?.about?.imprint?.title}
         </h2>
         
         <div className="p-6 rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-900">
           <div className="space-y-4 text-sm">
             <div>
-              <div className="font-medium text-neutral-900 dark:text-white mb-1">Responsible</div>
+              <div className="font-medium text-neutral-900 dark:text-white mb-1">{t?.about?.imprint?.responsible}</div>
               <div className="text-neutral-600 dark:text-neutral-300">
                 Nicolas Tröndle<br />
                 TES — Tröndle Embedded System
@@ -172,16 +170,16 @@ export default function AboutPage({ params: { locale } }) {
             </div>
 
             <div>
-              <div className="font-medium text-neutral-900 dark:text-white mb-1">Contact</div>
+              <div className="font-medium text-neutral-900 dark:text-white mb-1">{t?.about?.imprint?.contact}</div>
               <div className="text-neutral-600 dark:text-neutral-300">
-                <a href="mailto:hello@tes.swiss" className="hover:text-neutral-900 dark:hover:text-white transition-colors">
-                  hello@tes.swiss
+                <a href="mailto:reach@tes-shop.ch" className="hover:text-neutral-900 dark:hover:text-white transition-colors">
+                  reach@tes-shop.ch
                 </a>
               </div>
             </div>
 
             <div>
-              <div className="font-medium text-neutral-900 dark:text-white mb-1">Location</div>
+              <div className="font-medium text-neutral-900 dark:text-white mb-1">{t?.about?.imprint?.location}</div>
               <div className="text-neutral-600 dark:text-neutral-300">
                 Lausanne<br />
                 Switzerland
@@ -190,7 +188,7 @@ export default function AboutPage({ params: { locale } }) {
 
             <div className="pt-4 border-t border-neutral-200 dark:border-neutral-800">
               <div className="text-xs text-neutral-500 dark:text-neutral-400">
-                This website is hosted on GitHub Pages. The content of this website is protected by copyright. All rights reserved.
+                {t?.about?.imprint?.copyright}
               </div>
             </div>
           </div>

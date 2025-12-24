@@ -6,18 +6,46 @@ import path from 'path'
 import matter from 'gray-matter'
 
 /**
+ * Get the localized README filename based on locale
+ * Falls back to README.md if localized version doesn't exist
+ */
+function getLocalizedReadmeFilename(locale) {
+  const localizedFiles = {
+    'fr': 'readmeFR.md',
+    'de': 'readmeDE.md',
+    'en': 'README.md'
+  }
+  return localizedFiles[locale] || 'README.md'
+}
+
+/**
  * PortfolioContent Component
  * 
- * Reads a README.md file and renders it with GitHub-style formatting
+ * Reads a localized README file and renders it with GitHub-style formatting
  * Supports: headers, lists, tables, code blocks, images
+ * 
+ * README file naming:
+ * - README.md (English - default/fallback)
+ * - readmeFR.md (French)
+ * - readmeDE.md (German)
  */
 export default async function PortfolioContent({ readmePath, locale = 'en' }) {
-  const fullPath = path.join(process.cwd(), readmePath)
+  // Get the directory from the readmePath
+  const dirPath = path.dirname(path.join(process.cwd(), readmePath))
+  
+  // Determine which README file to use based on locale
+  const localizedFilename = getLocalizedReadmeFilename(locale)
+  let fullPath = path.join(dirPath, localizedFilename)
+  
+  // Fallback to English README if localized version doesn't exist
+  if (!fs.existsSync(fullPath) && locale !== 'en') {
+    fullPath = path.join(dirPath, 'README.md')
+  }
   
   let readmeContent = ''
   try {
     const fileContent = fs.readFileSync(fullPath, 'utf8')
-    // Strip frontmatter using gray-matter
+    // Strip frontmatter using gray-matter (metadata is in README.md)
     const { content } = matter(fileContent)
     readmeContent = content
   } catch (error) {

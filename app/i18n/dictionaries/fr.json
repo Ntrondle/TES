@@ -23,8 +23,39 @@
   },
   "about": {
     "title": "À propos de TES",
-    "p1": "TES (Tröndle Embedded System) est un studio suisse de conception embarquée dirigé par Nicolas Tröndle. Nous transformons les idées en matériel fiable — en combinant conception de PCB, firmware et tests pratiques.",
-    "p2": "Nous avons travaillé sur les plateformes ESP32, RP2040 et STM32 ; CAN, USB et Wi‑Fi ; et des conceptions axées puissance/thermique. Nous privilégions des schémas propres, des routages industrialisables et des logiciels robustes."
+    "backToHome": "← Retour à l'accueil",
+    "intro": {
+      "p1": "<strong class=\"text-neutral-900 dark:text-white\">TES (Tröndle Embedded System)</strong> est un petit studio suisse de conception de systèmes embarqués dirigé par Nicolas Tröndle. Nous aidons à transformer les idées en matériel solide et fonctionnel en gérant tout, de la conception de PCB au micrologiciel et aux tests en conditions réelles.",
+      "p2": "Nous avons travaillé avec les plateformes ESP32, RP2040 et STM32, sur des projets CAN, USB et Wi-Fi, avec une forte concentration sur les contraintes de puissance et thermiques. Notre approche est pratique et orientée vers les détails : des schémas propres, des conceptions faciles à fabriquer et des logiciels qui fonctionnent de manière fiable en dehors du laboratoire."
+    },
+    "valuesTitle": "Nos Valeurs",
+    "values": {
+      "quality": {
+        "title": "Qualité d'abord",
+        "description": "Chaque conception est testée et documentée de manière approfondie pour assurer la fiabilité."
+      },
+      "client": {
+        "title": "Orienté Client",
+        "description": "Nous travaillons en étroite collaboration avec vous pour comprendre vos besoins et fournir des solutions qui fonctionnent."
+      },
+      "open": {
+        "title": "Ouvert & Transparent",
+        "description": "Nous croyons en une communication claire et au partage de nos connaissances avec la communauté."
+      }
+    },
+    "contactTitle": "Contact",
+    "contact": {
+      "email": "Email",
+      "github": "GitHub",
+      "location": "Lieu"
+    },
+    "imprint": {
+      "title": "Mentions Légales",
+      "responsible": "Responsable",
+      "contact": "Contact",
+      "location": "Lieu",
+      "copyright": "Ce site web est hébergé sur GitHub Pages. Le contenu de ce site web est protégé par le droit d'auteur. Tous droits réservés."
+    }
   },
   "portfolio": {
     "title": "Portfolio",
@@ -51,10 +82,156 @@
   "common": {
     "backToPortfolio": "← Retour au portfolio"
   },
+  "servicePages": {
+    "prototyping": {
+      "title": "Prototypage & Tests",
+      "subtitle": "Prototypage rapide et tests complets pour valider vos conceptions rapidement et en toute confiance. Des premiers prototypes à la validation prête pour la production.",
+      "servicesTitle": "Services",
+      "ctaTitle": "Besoin d'aide pour le prototypage ?",
+      "ctaSubtitle": "De la validation de concept aux tests de production, nous pouvons accélérer votre cycle de développement.",
+      "ctaButton": "Contactez-nous",
+      "services": {
+        "boardBringup": {
+          "title": "Mise en service de cartes",
+          "description": "Vérification à l'allumage, test des oscillateurs et validation des fonctionnalités de base"
+        },
+        "debugging": {
+          "title": "Débogage & Tests",
+          "description": "Dépannage systématique avec oscilloscopes, analyseurs logiques et équipements de test personnalisés"
+        },
+        "testJigs": {
+          "title": "Bancs de test & Fixtures",
+          "description": "Équipements de test personnalisés et solutions de test automatisées pour la validation de production"
+        },
+        "validation": {
+          "title": "Validation & Vérification",
+          "description": "Tests complets selon les spécifications et exigences"
+        }
+      }
+    },
+    "power": {
+      "title": "Alimentation & Thermique",
+      "subtitle": "Gestion de l'alimentation et conception thermique efficaces pour des systèmes embarqués fiables. Des appareils alimentés par batterie aux applications haute puissance.",
+      "featuresTitle": "Fonctionnalités",
+      "ctaTitle": "Besoin d'expertise en alimentation ?",
+      "ctaSubtitle": "Des appareils IoT basse consommation aux systèmes haute performance, nous pouvons optimiser votre architecture d'alimentation.",
+      "ctaButton": "Contactez-nous",
+      "features": {
+        "powerConversion": {
+          "title": "Conversion d'alimentation",
+          "description": "Convertisseurs buck, boost et flyback optimisés pour l'efficacité et les performances thermiques"
+        },
+        "batteryManagement": {
+          "title": "Gestion de batterie",
+          "description": "Charge Li-ion/LiPo, protection et implémentations de jauge de batterie"
+        },
+        "thermalDesign": {
+          "title": "Conception thermique",
+          "description": "Sélection de dissipateurs thermiques, vias thermiques et systèmes de surveillance de température"
+        },
+        "protection": {
+          "title": "Circuits de protection",
+          "description": "Protection contre les surintensités, surtensions et inversion de polarité"
+        }
+      }
+    },
+    "pcbDesign": {
+      "title": "Conception de PCB sur mesure",
+      "subtitle": "Services professionnels de conception de PCB du concept aux sorties prêtes pour la fabrication. Nous livrons des cartes de haute qualité optimisées pour les performances, la fiabilité et le coût.",
+      "featuresTitle": "Fonctionnalités",
+      "processTitle": "Notre processus",
+      "technologiesTitle": "Technologies",
+      "ctaTitle": "Besoin d'un PCB sur mesure ?",
+      "ctaSubtitle": "Qu'il s'agisse d'une carte simple monocouche ou d'une conception multicouche complexe, nous avons ce qu'il vous faut.",
+      "ctaButton": "Obtenir un devis",
+      "features": {
+        "multiLayer": {
+          "title": "Cartes multicouches",
+          "description": "Conception experte pour PCB 2-8 couches avec empilement optimal pour l'intégrité des signaux et le contrôle EMI"
+        },
+        "powerIntegrity": {
+          "title": "Intégrité d'alimentation",
+          "description": "Conception soignée des plans d'alimentation et stratégies de découplage pour une distribution de tension stable"
+        },
+        "signalIntegrity": {
+          "title": "Intégrité des signaux",
+          "description": "Routage à impédance contrôlée, paires différentielles et stratégies de terminaison appropriées"
+        },
+        "manufacturingReady": {
+          "title": "Prêt pour la fabrication",
+          "description": "Considérations complètes de conception pour la fabricabilité (DFM) et sorties Gerber"
+        }
+      },
+      "process": {
+        "requirements": {
+          "title": "Analyse des exigences",
+          "description": "Comprendre vos exigences électriques, mécaniques et environnementales"
+        },
+        "schematic": {
+          "title": "Capture de schéma",
+          "description": "Créer des schémas détaillés avec sélection et documentation appropriées des composants"
+        },
+        "layout": {
+          "title": "Routage PCB",
+          "description": "Layout optimisé avec une attention particulière au routage, placement et considérations thermiques"
+        },
+        "review": {
+          "title": "Revue de conception",
+          "description": "Vérifications complètes DRC/DRC et revues de conception avant fabrication"
+        }
+      },
+      "technologies": ["Altium Designer", "KiCad", "Eagle", "OrCAD", "EasyEDA"]
+    },
+    "firmware": {
+      "title": "Firmware & Connectivité",
+      "subtitle": "Développement de firmware personnalisé axé sur la fiabilité, l'efficacité et la maintenabilité. Des pilotes bas niveau aux applications RTOS complexes.",
+      "featuresTitle": "Fonctionnalités",
+      "platformsTitle": "Plateformes",
+      "ctaTitle": "Besoin d'un firmware personnalisé ?",
+      "ctaSubtitle": "Des simples lectures de capteurs aux systèmes IoT complexes, nous pouvons vous aider à construire un firmware fiable.",
+      "ctaButton": "Contactez-nous",
+      "features": {
+        "embeddedCpp": {
+          "title": "C/C++ Embarqué",
+          "description": "Développement bas niveau et RTOS pour les plateformes ARM Cortex-M, ESP32 et RP2040"
+        },
+        "wireless": {
+          "title": "Connectivité sans fil",
+          "description": "BLE, Wi-Fi et autres protocoles sans fil avec gestion robuste des erreurs"
+        },
+        "storage": {
+          "title": "Stockage & Systèmes de fichiers",
+          "description": "Stockage flash, cartes SD et gestion efficace des données"
+        },
+        "protocols": {
+          "title": "Protocoles de communication",
+          "description": "UART, SPI, I2C, CAN, USB et implémentations de protocoles personnalisés"
+        }
+      },
+      "platforms": {
+        "esp32": {
+          "name": "ESP32",
+          "description": "ESP-IDF & Arduino"
+        },
+        "rp2040": {
+          "name": "RP2040",
+          "description": "SDK C/C++"
+        },
+        "stm32": {
+          "name": "STM32",
+          "description": "Pilotes HAL & LL"
+        },
+        "nordic": {
+          "name": "Nordic nRF",
+          "description": "SDK nRF Connect"
+        }
+      }
+    }
+  },
   "projects": {
     "heated": {
       "title": "Dessous de tasse chauffant — sûr et intelligent",
-      "desc": "USB‑PD jusqu’à 24 V avec négociation sûre, contrôle thermique et sécurités."
+      "desc": "USB‑PD jusqu'à 24 V avec négociation sûre, contrôle thermique et sécurités."
     },
     "ledbed": {
       "title": "ESP32‑S3 LED Bed — contrôleur de matrice",
@@ -62,7 +239,12 @@
     },
     "rcbms": {
       "title": "Carte de contrôle RC & BMS",
-      "desc": "Gestion de batterie, double pilotage moteur, CAN/USB, chemin d’alimentation protégé."
+      "desc": "Gestion de batterie, double pilotage moteur, CAN/USB, chemin d'alimentation protégé."
     }
+  },
+  "cta": {
+    "title": "Prêt à démarrer votre projet ?",
+    "subtitle": "Transformons vos idées en réalité. Contactez-nous et discutons de la façon dont nous pouvons vous aider à créer le système embarqué parfait.",
+    "button": "Contactez-nous"
   }
 }
