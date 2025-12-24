@@ -3,6 +3,7 @@
     "home": "Startseite",
     "about": "Über",
     "portfolio": "Portfolio",
+    "manual": "Handbuch",
     "contact": "Kontakt",
     "lang": "Sprache",
     "imprint": "Impressum"
@@ -80,7 +81,9 @@
     }
   },
   "common": {
-    "backToPortfolio": "← Zurück zum Portfolio"
+    "backToPortfolio": "← Zurück zum Portfolio",
+    "viewOnGithub": "Auf GitHub ansehen",
+    "buyOnTesShop": "Auf TES-shop kaufen"
   },
   "servicePages": {
     "prototyping": {

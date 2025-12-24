@@ -1,0 +1,222 @@
+site_name: Armored Turtle Documentation
+site_description: "Armored Turtle Project Documentation"
+site_url: https://armoredturtle.xyz/docs/
+repo_url: https://github.com/ArmoredTurtle/AT-Documentation
+edit_uri: 'blob/main/docs/'
+repo_name: ArmoredTurtle/AT-Documentation
+use_directory_urls: False
+
+nav:
+  - Home:
+      - index.md
+      - AFC-Klipper-Add-On: afc-klipper-add-on/index.md
+      - BoxTurtle: boxturtle/index.md
+      - AFC-Accessories: afc-accessories/index.md
+      - Troubleshooting: troubleshooting/troubleshooting.md
+  - AFC-Klipper-Add-On:
+      - Overview: afc-klipper-add-on/index.md
+      - Features: afc-klipper-add-on/features.md
+      - GUI Support: afc-klipper-add-on/gui.md
+      - Installation:
+          - Getting Started: afc-klipper-add-on/installation/getting-started.md
+          - Runtime Options: afc-klipper-add-on/installation/runtime-options.md
+          - Installation Menus:
+              - Main Menu: afc-klipper-add-on/installation/main-menu.md
+              - Install Menu: afc-klipper-add-on/installation/install-menu.md
+              - Utilities Menu: afc-klipper-add-on/installation/utilities-menu.md
+              - Update Menu: afc-klipper-add-on/installation/update-menu.md
+          - Uninstall Process: afc-klipper-add-on/installation/uninstall-process.md
+          - Buffer Overview: afc-klipper-add-on/installation/buffer-overview.md
+          - Buffer Ram Sensor: afc-klipper-add-on/installation/buffer-ram-sensor.md
+          - Slicer / PRINT_START Setup: afc-klipper-add-on/installation/slicer-setup.md
+      - Updating:
+          - Updating AFC-Klipper-Add-On: afc-klipper-add-on/updates/updates.md
+      - Configuration:
+          - Configuration Overview: afc-klipper-add-on/configuration/configuration_overview.md
+          - Configuration Files:
+              - AFC.cfg: afc-klipper-add-on/configuration/AFC.cfg.md
+              - AFC_Hardware.cfg: afc-klipper-add-on/configuration/AFC_Hardware.cfg.md
+              - AFC_UnitType_1.cfg: afc-klipper-add-on/configuration/AFC_UnitType_1.cfg.md
+              - AFC_Macro_Vars.cfg: afc-klipper-add-on/configuration/AFC_Macro_Vars.cfg.md
+      - Klipper Commands:
+          - Command Overview: afc-klipper-add-on/klipper/commands.md
+          - Internal Commands:
+              - Spool Commands: afc-klipper-add-on/klipper/internal/spool.md
+              - Calibration Commands: afc-klipper-add-on/klipper/internal/calibration.md
+              - Tip Forming Commands: afc-klipper-add-on/klipper/internal/tip_forming.md
+              - Buffer Commands: afc-klipper-add-on/klipper/internal/buffer.md
+              - Lane / Movement Commands: afc-klipper-add-on/klipper/internal/lane.md
+              - Misc. Commands: afc-klipper-add-on/klipper/internal/misc.md
+              - TD-1 Commands: afc-klipper-add-on/klipper/internal/td1.md
+          - External Macros: afc-klipper-add-on/klipper/external/macros.md
+      - Configuration Examples: afc-klipper-add-on/configuration/configuration_examples.md
+      - Calibration Process: afc-klipper-add-on/installation/calibration.md
+      - Tuning Guide:
+          - Toolhead Variable Calculation: afc-klipper-add-on/toolhead/calculation.md
+          - Purge Setup: afc-klipper-add-on/toolhead/purge_setup.md
+      - TD-1: afc-klipper-add-on/td1.md
+  - BoxTurtle:
+      - Overview: boxturtle/index.md
+      - Printed Parts: boxturtle/printed-parts.md
+      - Wiring Guide: boxturtle/wiring-guide.md
+      - LDO Kit Errata: boxturtle/errata.md
+      - BOM: boxturtle/bom.md
+      - Initial Startup:
+          - Overview: boxturtle/initial_startup/01-overview.md
+          - Flashing: boxturtle/initial_startup/02-flashing.md
+          - Plugin Install: boxturtle/initial_startup/03-install-plugin.md
+          - Self Test: boxturtle/initial_startup/04-self-test.md
+          - Additional Tests: boxturtle/initial_startup/05-additional-tests.md
+          - Hotend Values: boxturtle/initial_startup/06-hotend-values.md
+          - Macro Variables: boxturtle/initial_startup/07-macro-variables.md
+          - Calibration: boxturtle/initial_startup/08-calibration.md
+          - Slicer Config: boxturtle/initial_startup/09-slicer-config.md
+          - Print Start Macro: boxturtle/initial_startup/10-print-start-macro.md
+          - Troubleshooting: boxturtle/initial_startup/11-troubleshooting.md
+      - Vendors: boxturtle/vendors.md
+  - AFC-Accessories:
+      - Overview: afc-accessories/index.md
+  - Troubleshooting:
+      - Troubleshooting: troubleshooting/troubleshooting.md
+      - FAQ: troubleshooting/faq.md
+  - Assembly Manual: https://armoredturtle.xyz
+  - Latest Release: https://github.com/ArmoredTurtle/AFC-Klipper-Add-On/releases
+draft_docs: |
+  _unpublished.md 
+
+theme:
+  icon:
+    repo: fontawesome/brands/github
+  name: material
+  logo: assets/logo.png
+  custom_dir: overrides
+  favicon: assets/favicon-32x32.png
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/theme-light-dark
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/theme-light-dark
+        name: Switch to light mode
+  primary: custom
+
+  features:
+    - content.code.copy
+    - content.action.edit
+    - content.action.view
+    - search.suggest # Show suggestions when searching
+    - search.highlight # Highlight search results
+    - search.share # Share search results
+    - navigation.top # Adds a back to top button when scrolling long pages
+    - navigation.instant # XHR loading instead of full page reload
+    - navigation.instant.prefetch # start loading page if user hovers a link
+    - navigation.instant.progress # show progress bar when loading a page on slow connections
+    - navigation.tabs # Adds tabbed navigation to top bar when screen > 1220px
+    - navigation.tabs.sticky # Keep the tabbed navigation bar at the top of the screen when scrolling
+    - navigation.tracking # Track the current page in the navigation bar
+    #- navigation.expand # Start with all sections expanded
+    - navigation.path # Show the path to the current page at the top of the page
+    - navigation.footer # adds next and previous buttons to the bottom of the page
+    - toc.follow # Follow the table of contents when scrolling
+    - optimize
+
+plugins:
+  - mkdocs-video
+  - search:
+      lang: en
+  - mkdocs-simple-hooks:
+      hooks:
+        on_post_page: "mkdoc_hooks:post_page"
+        #on_serve: "mkdocs_hooks:force_reload"
+  - mkdocstrings:
+      default_handler: python
+      handlers:
+        python:
+          options:
+            show_source: false
+          paths: [./AFC-Klipper-Add-On/extras/]
+  - include-markdown
+
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - pymdownx.blocks.caption
+  - pymdownx.details
+  - pymdownx.tilde
+  - pymdownx.keys
+  - pymdownx.critic
+  - pymdownx.mark
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+      options:
+        custom_icons:
+          - overrides/.icons
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - codehilite
+  - toc:
+      permalink: true
+
+extra_css:
+  - stylesheets/extra.css
+
+extra_javascript:
+  - javascripts/feedback.js
+
+extra:
+  analytics:
+    provider: google
+    property: G-RW0ETKRRYB
+    feedback:
+      title: Was this page helpful?
+      ratings:
+        - icon: happyturtle
+          name: This page was helpful
+          data: 1
+          note: >-
+            Thanks for your feedback!
+        - icon: angryturtle
+          name: This page could be improved
+          data: 0
+          note: >-
+            Thanks for your feedback! Help us improve this page by
+            using our <a href="https://github.com/ArmoredTurtle/AT-Documentation/issues/new/?title=[Feedback]+{title}+-+{url}" target="_blank" rel="noopener">feedback form</a>.
+  social:
+    - icon: fontawesome/brands/discord
+      link: https://discord.gg/armoredturtle
+      name: Join us on Discord!
+    - icon: fontawesome/brands/github
+      link: https://github.com/ArmoredTurtle
+      name: All out projects!
+    - icon: fontawesome/brands/youtube
+      link: https://www.youtube.com/@Armored_Turtle-RK
+      name: Check out our YouTube channel!
+  consent:
+    title: Cookie consent
+    description: >-
+      We use cookies to recognize your repeated visits and preferences, as well
+      as to measure the effectiveness of our documentation and whether users
+      find what they're searching for. With your consent, you're helping us to
+      make our documentation better.
+
+copyright: >
+  Copyright &copy; 2024 - 2025 Armored Turtle –
+  <a href="#__consent">Change cookie settings</a>

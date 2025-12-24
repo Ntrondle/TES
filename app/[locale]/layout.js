@@ -47,6 +47,7 @@ export default async function LocaleLayout({ children, params: { locale } }) {
     { href: `/${locale}/portfolio`, label: t?.nav?.portfolio ?? 'Portfolio' },
     { href: `/${locale}/services/pcb-design`, label: 'Services' },
     { href: `/${locale}/about`, label: t?.nav?.about ?? 'About' },
+    { href: `/${locale}/manual`, label: t?.nav?.manual ?? 'Manual' },
   ]
 
   return (
@@ -59,7 +60,7 @@ export default async function LocaleLayout({ children, params: { locale } }) {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-6">
-            {navItems.slice(0, 4).map((item) => (
+            {navItems.slice(0, 5).map((item) => (
               <Link
                 key={item.href}
                 href={item.href}

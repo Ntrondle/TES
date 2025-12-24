@@ -76,7 +76,7 @@ export default async function Page({ params }) {
               type="github"
               className="w-5 h-5"
             />
-            View on GitHub
+            {t.common.viewOnGithub}
           </a>
         )}
         {project.shopLink && (
@@ -90,7 +90,7 @@ export default async function Page({ params }) {
               type="tes-shop"
               className="w-5 h-5"
             />
-            Buy on TES-shop
+            {t.common.buyOnTesShop}
           </a>
         )}
       </div>
