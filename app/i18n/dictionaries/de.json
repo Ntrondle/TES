@@ -245,9 +245,30 @@
       "desc": "Batteriemanagement, Doppel‑Motorsteuerung, CAN/USB‑Kommunikation, geschützter Leistungsweg."
     }
   },
+  "manuals": {
+    "title": "Handbücher",
+    "subtitle": "Schritt-für-Schritt-Anleitungen zum Flashen und Einrichten Ihrer PCB-Platinen",
+    "backToHome": "← Zurück zur Startseite",
+    "backToManuals": "← Zurück zu Handbüchern",
+    "noManuals": {
+      "title": "Keine Handbücher verfügbar",
+      "description": "Handbücher werden bald hier hinzugefügt. Schauen Sie später wieder vorbei!"
+    },
+    "step": {
+      "of": "von",
+      "previous": "Zurück",
+      "next": "Weiter",
+      "complete": "Abgeschlossen",
+      "completeMessage": "Sie haben das Handbuch abgeschlossen!"
+    },
+    "terminal": {
+      "copy": "Kopieren",
+      "copied": "Kopiert!"
+    }
+  },
   "cta": {
     "title": "Bereit, Ihr Projekt zu starten?",
-    "subtitle": "Lassen Sie uns Ihre Ideen in die Realität verwandeln. Kontaktieren Sie uns und lassen Sie uns besprechen, wie wir Ihnen helfen können, das perfekte Embedded-System zu bauen.",
+    "subtitle": "Lassen Sie uns Ihre Ideen in Realität verwandeln. Kontaktieren Sie uns und lassen Sie uns besprechen, wie wir Ihnen helfen können, das perfekte eingebettete System zu bauen.",
     "button": "Kontaktieren Sie uns"
   }
 }

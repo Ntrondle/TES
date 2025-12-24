@@ -245,9 +245,30 @@
       "desc": "Battery management, dual motor drive, CAN/USB comms, protected power path."
     }
   },
+  "manuals": {
+    "title": "Manuals",
+    "subtitle": "Step-by-step guides for flashing and setting up your PCB boards",
+    "backToHome": "← Back to Home",
+    "backToManuals": "← Back to Manuals",
+    "noManuals": {
+      "title": "No Manuals Available",
+      "description": "Manuals will be added here soon. Check back later!"
+    },
+    "step": {
+      "of": "of",
+      "previous": "Previous",
+      "next": "Next",
+      "complete": "Complete",
+      "completeMessage": "You've finished the manual!"
+    },
+    "terminal": {
+      "copy": "Copy",
+      "copied": "Copied!"
+    }
+  },
   "cta": {
     "title": "Ready to start your project?",
-    "subtitle": "Let's turn your ideas into reality. Get in touch and let's discuss how we can help you build the perfect embedded system.",
+    "subtitle": "Let's turn your ideas into reality. Get in touch and let's discuss how we can help you build on perfect embedded system.",
     "button": "Get in touch"
   }
 }

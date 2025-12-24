@@ -245,9 +245,30 @@
       "desc": "Gestion de batterie, double pilotage moteur, CAN/USB, chemin d'alimentation protégé."
     }
   },
+  "manuals": {
+    "title": "Manuels",
+    "subtitle": "Guides étape par étape pour le flashage et la configuration de vos cartes PCB",
+    "backToHome": "← Retour à l'accueil",
+    "backToManuals": "← Retour aux manuels",
+    "noManuals": {
+      "title": "Aucun manuel disponible",
+      "description": "Les manuels seront ajoutés ici bientôt. Revenez plus tard !"
+    },
+    "step": {
+      "of": "sur",
+      "previous": "Précédent",
+      "next": "Suivant",
+      "complete": "Terminé",
+      "completeMessage": "Vous avez terminé le manuel !"
+    },
+    "terminal": {
+      "copy": "Copier",
+      "copied": "Copié !"
+    }
+  },
   "cta": {
     "title": "Prêt à démarrer votre projet ?",
-    "subtitle": "Transformons vos idées en réalité. Contactez-nous et discutons de la façon dont nous pouvons vous aider à créer le système embarqué parfait.",
+    "subtitle": "Transformons vos idées en réalité. Contactez-nous et discutons de la façon dont nous pouvons vous aider à construire le système embarqué parfait.",
     "button": "Contactez-nous"
   }
 }
