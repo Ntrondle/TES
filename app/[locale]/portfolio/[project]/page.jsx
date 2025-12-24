@@ -4,6 +4,7 @@ import { getDictionary } from '../../../i18n/getDictionary'
 import { getPortfolioProject } from '../../../../lib/portfolio'
 import PCBViewer from '../../../components/PCBViewer'
 import PortfolioContent from '../../../components/PortfolioContent'
+import ThemeAwareLogo from '../../../components/ThemeAwareLogo'
 
 export async function generateMetadata({ params }) {
   const project = await getPortfolioProject(params.project)
@@ -71,10 +72,9 @@ export default async function Page({ params }) {
             rel="noreferrer"
             className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-medium transition-all duration-300 border border-neutral-300 dark:border-neutral-700 text-neutral-900 dark:text-white hover:border-neutral-400 dark:hover:border-neutral-600 hover:bg-neutral-50 dark:hover:bg-neutral-800/50 hover:shadow-md"
           >
-            <img 
-              src="/TES/github.svg" 
-              alt="GitHub" 
-              className="w-5 h-5 text-neutral-900 dark:text-white"
+            <ThemeAwareLogo 
+              type="github"
+              className="w-5 h-5"
             />
             View on GitHub
           </a>
@@ -86,10 +86,9 @@ export default async function Page({ params }) {
             rel="noreferrer"
             className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-medium transition-all duration-300 bg-gradient-to-r from-neutral-900 to-neutral-800 text-white dark:from-white dark:to-neutral-100 dark:text-neutral-900 hover:shadow-lg hover:scale-105"
           >
-            <img 
-              src="/TES/tes-shop.svg" 
-              alt="TES-shop" 
-              className="w-5 h-5 text-white dark:text-neutral-900"
+            <ThemeAwareLogo 
+              type="tes-shop"
+              className="w-5 h-5"
             />
             Buy on TES-shop
           </a>
