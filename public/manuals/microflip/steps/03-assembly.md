@@ -10,7 +10,7 @@ In this step, we'll solder the MicroFlip PCB to your N20 motor and prepare it fo
 
 ### Preparing the N20 Motor
 
-1. Inspect your N20     motor leads. Ensure they are clean and free of debris or oxidation.
+1. Inspect your N20 motor leads. Ensure they are clean and free of debris or oxidation.
 2. If necessary, lightly tin the motor leads with a small amount of solder to improve adhesion.
 3. Identify the positive (+) and negative (−) terminals on your motor.
 
@@ -35,6 +35,10 @@ After soldering, verify the following:
 - **Mechanical stability:** Gently wiggle the PCB to ensure the solder joints are secure. Do not apply excessive force.
 - **Continuity:** If you have a multimeter, check for electrical continuity between the motor leads and the PCB pads.
 - **No shorts:** Confirm there are no solder bridges or stray solder connecting unintended pads.
+
+you can find below what an optimal microflip assembly should look like :
+
+<div className="manual-3d-container" data-model="/manuals/microflip/solderedmf.glb" data-annotations='[{"position": {"x": -1.637, "y": -0.071, "z": 1.399}, "offset": 2.0, "direction": "up", "label": "Solder Pad", "color": "#FF0000", "labelSize": 2}]' data-camera='{"x": -9.61, "y": 0.99, "z": 10.44}' data-position="up"></div>
 
 ### Troubleshooting
 

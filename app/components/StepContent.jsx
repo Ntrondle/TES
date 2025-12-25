@@ -20,6 +20,7 @@ export default function StepContent({ content, modelPath, t }) {
             model={props['data-model']}
             annotations={props['data-annotations']}
             cameraPosition={props['data-camera']}
+            position={props['data-position']}
           />
         )
       }

@@ -5,7 +5,7 @@ import { Canvas, useFrame } from '@react-three/fiber'
 import { OrbitControls, useGLTF, Environment } from '@react-three/drei'
 import * as THREE from 'three'
 
-const Model = memo(function Model({ url, annotations, cameraPosition, onObjectClick, setModelGroup, setModelReady }) {
+const Model = memo(function Model({ url, annotations, cameraPosition, position = 'flat', onObjectClick, setModelGroup, setModelReady }) {
   const group = useRef()
   const { scene, error } = useGLTF(url)
   const hasLoaded = useRef(false)
@@ -32,8 +32,40 @@ const Model = memo(function Model({ url, annotations, cameraPosition, onObjectCl
       clonedScene.position.y += (clonedScene.position.y - center.y)
       clonedScene.position.z += (clonedScene.position.z - center.z)
       
-      // Rotate model to lay flat facing camera
-      clonedScene.rotation.x = Math.PI / 2
+      // Apply rotation based on position preset
+      switch (position) {
+        case 'up':
+          // Model facing upward (no rotation on x-axis)
+          clonedScene.rotation.x = 0
+          clonedScene.rotation.y = 0
+          clonedScene.rotation.z = 0
+          break
+        case 'down':
+          // Model facing downward
+          clonedScene.rotation.x = Math.PI
+          clonedScene.rotation.y = 0
+          clonedScene.rotation.z = 0
+          break
+        case 'left':
+          // Model rotated 90 degrees to the left
+          clonedScene.rotation.x = Math.PI / 2
+          clonedScene.rotation.y = 0
+          clonedScene.rotation.z = Math.PI / 2
+          break
+        case 'right':
+          // Model rotated 90 degrees to the right
+          clonedScene.rotation.x = Math.PI / 2
+          clonedScene.rotation.y = 0
+          clonedScene.rotation.z = -Math.PI / 2
+          break
+        case 'flat':
+        default:
+          // Default: lay flat facing camera
+          clonedScene.rotation.x = Math.PI / 2
+          clonedScene.rotation.y = 0
+          clonedScene.rotation.z = 0
+          break
+      }
       
       // Scale to fit in view (max dimension = 20 units)
       const maxDim = Math.max(size.x, size.y, size.z)
@@ -62,7 +94,7 @@ const Model = memo(function Model({ url, annotations, cameraPosition, onObjectCl
         setModelReady(true)
       }
     }
-  }, [scene, setModelGroup, setModelReady, url])
+  }, [scene, setModelGroup, setModelReady, url, position])
 
   // Handle click to get object info
   const handlePointerDown = (event) => {
@@ -87,7 +119,13 @@ const Model = memo(function Model({ url, annotations, cameraPosition, onObjectCl
       z: point.z.toFixed(3)
     })
     console.log('='.repeat(60))
-    console.log('\nCopy this for your annotation:')
+    console.log('\nOPTION 1: Use direct position (recommended for precise placement)')
+    console.log(`{"position": ${JSON.stringify({
+      x: parseFloat(point.x.toFixed(3)),
+      y: parseFloat(point.y.toFixed(3)),
+      z: parseFloat(point.z.toFixed(3))
+    })}, "offset": 2.0, "direction": "up", "label": "YOUR_LABEL", "color": "#FF5733", "labelSize": 1.0}`)
+    console.log('\nOPTION 2: Use object name (may not be accurate for complex objects)')
     console.log(`{"targetObject": "${objectName}", "offset": 2.0, "direction": "up", "label": "YOUR_LABEL", "color": "#FF5733", "arrowOffset": {"x": 0, "y": 0, "z": 0}, "labelSize": 1.0}`)
     console.log()
     
@@ -161,16 +199,53 @@ const AnnotationMarker = memo(function AnnotationMarker({ modelGroup, annotation
     setLabelTexture(texture)
   }, [annotation.label, annotation.color])
 
-  // Get arrow position based on object - only calculate once
+  // Get arrow position based on object - calculate whenever dependencies change
   useEffect(() => {
     const actualGroup = modelGroup.current?.current
     
+    // Check if direct position is provided (preferred over targetObject)
+    if (annotation.position && typeof annotation.position === 'object') {
+      const pos = annotation.position
+      const direction = getDirectionVector(annotation.direction || 'up')
+      const offset = annotation.offset || 2.0
+      const directionVector = direction.clone().normalize()
+      
+      const arrowPosition = new THREE.Vector3(pos.x || 0, pos.y || 0, pos.z || 0)
+        .add(directionVector.multiplyScalar(offset))
+      
+      const arrowOffset = annotation.arrowOffset || { x: 0, y: 0, z: 0 }
+      arrowPosition.x += arrowOffset.x || 0
+      arrowPosition.y += arrowOffset.y || 0
+      arrowPosition.z += arrowOffset.z || 0
+      
+      console.log('[AnnotationMarker] Using direct position:', pos)
+      console.log('[AnnotationMarker] Final arrow position:', {
+        x: arrowPosition.x.toFixed(2),
+        y: arrowPosition.y.toFixed(2),
+        z: arrowPosition.z.toFixed(2)
+      })
+      
+      arrowPositionRef.current = arrowPosition
+      return
+    }
+    
+    // Fall back to targetObject lookup
     if (annotation.targetObject && actualGroup) {
       const targetObject = findObjectByName(actualGroup, annotation.targetObject)
       
       if (targetObject) {
+        // Force update world matrix hierarchy
+        targetObject.updateMatrixWorld(true)
+        
         const objectPosition = new THREE.Vector3()
         targetObject.getWorldPosition(objectPosition)
+        
+        console.log('[AnnotationMarker] Using targetObject lookup:', annotation.targetObject)
+        console.log('[AnnotationMarker] Object center position:', {
+          x: objectPosition.x.toFixed(2),
+          y: objectPosition.y.toFixed(2),
+          z: objectPosition.z.toFixed(2)
+        })
         
         const direction = getDirectionVector(annotation.direction || 'up')
         const offset = annotation.offset || 2.0
@@ -183,10 +258,16 @@ const AnnotationMarker = memo(function AnnotationMarker({ modelGroup, annotation
         arrowPosition.y += arrowOffset.y || 0
         arrowPosition.z += arrowOffset.z || 0
         
+        console.log('[AnnotationMarker] Final arrow position:', {
+          x: arrowPosition.x.toFixed(2),
+          y: arrowPosition.y.toFixed(2),
+          z: arrowPosition.z.toFixed(2)
+        })
+        
         arrowPositionRef.current = arrowPosition
       }
     }
-  }, [annotation.targetObject, annotation.offset, annotation.direction, annotation.arrowOffset, modelGroup])
+  }, [annotation.targetObject, annotation.offset, annotation.direction, annotation.arrowOffset, annotation.position, modelGroup])
 
   useFrame(({ camera }) => {
     if (labelRef.current && meshRef.current) {
@@ -289,7 +370,7 @@ function CameraCapture({ cameraRef, controlsRef }) {
   return null
 }
 
-export default function Model3DAnnotation({ model, annotations, cameraPosition }) {
+export default function Model3DAnnotation({ model, annotations, cameraPosition, position = 'flat' }) {
   const [parsedAnnotations, setParsedAnnotations] = React.useState([])
   const [parsedCamera, setParsedCamera] = React.useState({ x: 0, y: 0, z: 50 })
   const [modelReady, setModelReady] = React.useState(false)
@@ -444,6 +525,7 @@ export default function Model3DAnnotation({ model, annotations, cameraPosition }
           url={model} 
           annotations={parsedAnnotations} 
           cameraPosition={parsedCamera}
+          position={position}
           setModelGroup={modelGroupRef}
           setModelReady={setModelReady}
         />
