@@ -26,7 +26,7 @@ export default function PortfolioClient({ projects, t, locale }) {
         <Link 
           href={`/${locale}`}
           className="text-sm text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white transition-colors"
-          dangerouslySetInnerHTML={{ __html: t?.common?.backToPortfolio ?? '← Back to portfolio' }}
+          dangerouslySetInnerHTML={{ __html: t?.common?.backToHome ?? '← Back to home' }}
         />
       </motion.div>
 
@@ -58,7 +58,7 @@ export default function PortfolioClient({ projects, t, locale }) {
             animate={{ opacity: 1 }}
           >
             <p className="text-neutral-600 dark:text-neutral-400">
-              No projects found. Add projects to public/portfolio/
+              {t?.portfolio?.noProjects ?? 'No projects found.'}
             </p>
           </motion.div>
         ) : (

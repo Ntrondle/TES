@@ -8,20 +8,6 @@ export default function ManualClient({ t, locale, manuals }) {
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      {/* Breadcrumb */}
-      <motion.div 
-        className="mb-6"
-        initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: 1, y: 0 }}
-      >
-        <Link 
-          href={`/${locale}`}
-          className="text-sm text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white transition-colors"
-        >
-          &larr; {t?.manuals?.backToHome}
-        </Link>
-      </motion.div>
-
       {/* Header */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}

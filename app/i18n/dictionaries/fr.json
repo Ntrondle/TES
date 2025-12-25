@@ -24,7 +24,6 @@
   },
   "about": {
     "title": "À propos de TES",
-    "backToHome": "← Retour à l'accueil",
     "intro": {
       "p1": "<strong class=\"text-neutral-900 dark:text-white\">TES (Tröndle Embedded System)</strong> est un petit studio suisse de conception de systèmes embarqués dirigé par Nicolas Tröndle. Nous aidons à transformer les idées en matériel solide et fonctionnel en gérant tout, de la conception de PCB au micrologiciel et aux tests en conditions réelles.",
       "p2": "Nous avons travaillé avec les plateformes ESP32, RP2040 et STM32, sur des projets CAN, USB et Wi-Fi, avec une forte concentration sur les contraintes de puissance et thermiques. Notre approche est pratique et orientée vers les détails : des schémas propres, des conceptions faciles à fabriquer et des logiciels qui fonctionnent de manière fiable en dehors du laboratoire."
@@ -60,7 +59,8 @@
   },
   "portfolio": {
     "title": "Portfolio",
-    "subtitle": "Quelques projets réalisés récemment."
+    "subtitle": "Quelques projets que nous avons construits récemment.",
+    "noProjects": "Aucun projet trouvé."
   },
   "services": {
     "pcb": {
@@ -81,6 +81,7 @@
     }
   },
   "common": {
+    "backToHome": "← Retour à l'accueil",
     "backToPortfolio": "← Retour au portfolio",
     "viewOnGithub": "Voir sur GitHub",
     "buyOnTesShop": "Acheter sur TES-shop"
@@ -183,7 +184,7 @@
           "description": "Vérifications complètes DRC/DRC et revues de conception avant fabrication"
         }
       },
-      "technologies": ["Altium Designer", "KiCad", "Eagle", "OrCAD", "EasyEDA"]
+      "technologies": ["Altium Designer", "KiCad", "Eagle", "OrCAD", "Fusion 360", "EasyEDA"]
     },
     "firmware": {
       "title": "Firmware & Connectivité",

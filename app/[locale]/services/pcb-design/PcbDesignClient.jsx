@@ -8,20 +8,6 @@ import { cn } from '../../../../lib/utils'
 export default function PcbDesignClient({ features, process, technologies, t, locale }) {
   return (
     <div className="max-w-4xl mx-auto">
-      {/* Breadcrumb */}
-      <motion.div 
-        className="mb-6"
-        initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: 1, y: 0 }}
-      >
-        <Link 
-          href={`/${locale}`}
-          className="text-sm text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white transition-colors"
-        >
-          ← {t.common.backToPortfolio}
-        </Link>
-      </motion.div>
-
       {/* Header */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -153,20 +139,24 @@ export default function PcbDesignClient({ features, process, technologies, t, lo
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
       >
-        <div className="rounded-3xl bg-gradient-to-br from-neutral-900 to-neutral-800 dark:from-neutral-800 dark:to-neutral-900 p-8 md:p-12 text-center">
-          <h2 className="text-3xl font-bold text-white mb-4">
-            {t.servicePages.pcbDesign.ctaTitle}
-          </h2>
-          <p className="text-neutral-300 mb-6 max-w-2xl mx-auto">
-            {t.servicePages.pcbDesign.ctaSubtitle}
-          </p>
-          <a
-            href="mailto:reach@tes-shop.ch?subject=PCB%20Design%20Inquiry"
-            className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-bold bg-white text-neutral-900 hover:bg-neutral-100 transition-all duration-300 hover:scale-105 shadow-lg"
-          >
-            {t.servicePages.pcbDesign.ctaButton}
-            <ArrowRight className="w-5 h-5" />
-          </a>
+        <div className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-neutral-900 to-neutral-800 dark:from-neutral-800 dark:to-neutral-900 p-8 md:p-12 text-center">
+          <div className="absolute inset-0 bg-gradient-to-r from-[#e30613]/10 to-[#3ca9e2]/10" />
+          
+          <div className="relative">
+            <h2 className="text-3xl font-bold text-white mb-4">
+              {t.servicePages.pcbDesign.ctaTitle}
+            </h2>
+            <p className="text-neutral-300 mb-6 max-w-2xl mx-auto">
+              {t.servicePages.pcbDesign.ctaSubtitle}
+            </p>
+            <a
+              href="mailto:reach@tes-shop.ch?subject=PCB%20Design%20Inquiry"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-bold bg-white text-neutral-900 hover:bg-neutral-100 transition-all duration-300 hover:scale-105 shadow-lg"
+            >
+              {t.servicePages.pcbDesign.ctaButton}
+              <ArrowRight className="w-5 h-5" />
+            </a>
+          </div>
         </div>
       </motion.section>
     </div>

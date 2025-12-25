@@ -10,7 +10,7 @@ export default function NotFound() {
       <div className="text-center max-w-2xl px-4">
         <motion.div
           initial={{ scale: 0.8, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
+          animate={{ scale:1, opacity:1 }}
           transition={{ duration: 0.5 }}
         >
           <div className="inline-flex items-center justify-center w-24 h-24 rounded-full bg-neutral-100 dark:bg-neutral-800 mb-6">
