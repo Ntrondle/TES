@@ -2,11 +2,103 @@
 
 import { motion } from 'framer-motion'
 import Link from 'next/link'
+import { useEffect, useState, useRef } from 'react'
 
 export default function StepNavigation({ manualSlug, step, steps, locale, t }) {
+  const [hasTriggeredConfetti, setHasTriggeredConfetti] = useState(false)
+  const hasTriggeredConfettiRef = useRef(false)
+  const completionRef = useRef(null)
   const currentIndex = steps.findIndex(s => s.slug === step.slug)
   const prevStep = currentIndex > 0 ? steps[currentIndex - 1] : null
   const nextStep = currentIndex < steps.length - 1 ? steps[currentIndex + 1] : null
+
+  // Confetti effect function
+  const triggerConfetti = () => {
+    if (hasTriggeredConfettiRef.current) return
+
+    const confetti = {
+      particleCount: 150,
+      spread: 70,
+      origin: { y: 0.6 },
+      colors: ['#e30613', '#3ca9e2', '#10b981', '#f59e0b', '#8b5cf6'],
+      disableForReducedMotion: true,
+      zIndex: 1000,
+    }
+
+    // Create confetti elements
+    const createConfettiParticle = () => {
+      const particle = document.createElement('div')
+      particle.style.position = 'fixed'
+      particle.style.width = '10px'
+      particle.style.height = '10px'
+      particle.style.borderRadius = '50%'
+      particle.style.pointerEvents = 'none'
+      particle.style.zIndex = '1000'
+      particle.style.backgroundColor = confetti.colors[Math.floor(Math.random() * confetti.colors.length)]
+      
+      // Random starting position
+      const startX = Math.random() * window.innerWidth
+      const startY = -20
+      particle.style.left = `${startX}px`
+      particle.style.top = `${startY}px`
+
+      // Random animation duration
+      const duration = 2 + Math.random() * 2
+      particle.style.transition = `all ${duration}s ease-out`
+
+      document.body.appendChild(particle)
+
+      // Animate
+      requestAnimationFrame(() => {
+        particle.style.transform = `translate(${(Math.random() - 0.5) * 200}px, ${window.innerHeight + 100}px) rotate(${Math.random() * 720}deg)`
+        particle.style.opacity = '0'
+      })
+
+      // Cleanup
+      setTimeout(() => {
+        particle.remove()
+      }, duration * 1000)
+    }
+
+    // Create multiple particles
+    const delay = 50
+    for (let i = 0; i < confetti.particleCount; i++) {
+      setTimeout(() => {
+        createConfettiParticle()
+      }, i * delay)
+    }
+
+    hasTriggeredConfettiRef.current = true
+    setHasTriggeredConfetti(true)
+  }
+
+  // Intersection Observer to trigger confetti when completion message comes into view
+  useEffect(() => {
+    const currentIndex = steps.findIndex(s => s.slug === step.slug)
+    const isLastStep = currentIndex === steps.length - 1
+
+    if (!isLastStep || !completionRef.current) return
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !hasTriggeredConfettiRef.current) {
+            triggerConfetti()
+          }
+        })
+      },
+      {
+        threshold: 0.5, // Trigger when 50% of element is visible
+        rootMargin: '0px'
+      }
+    )
+
+    observer.observe(completionRef.current)
+
+    return () => {
+      observer.disconnect()
+    }
+  }, [step.slug, steps])
 
   return (
     <motion.div
@@ -94,7 +186,7 @@ export default function StepNavigation({ manualSlug, step, steps, locale, t }) {
             </motion.div>
           </Link>
         ) : (
-          <div className="flex-1 flex justify-end">
+          <div className="flex-1 flex justify-end" ref={completionRef}>
             <motion.div
               className="p-4 rounded-lg border border-green-500 bg-green-50 dark:bg-green-900/20"
               initial={{ opacity: 0, scale: 0.95 }}
