@@ -192,7 +192,7 @@ export default async function PortfolioContent({ readmePath, locale = 'en' }) {
               const pathParts = readmePath.split('/')
               const projectFolder = pathParts[pathParts.length - 2]
               const imageName = src.replace(/^\.?\/images\//, '')
-              webPath = `/TES/portfolio/${projectFolder}/images/${imageName}`
+              webPath = `/portfolio/${projectFolder}/images/${imageName}`
             }
             
             return (

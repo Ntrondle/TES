@@ -1,7 +1,8 @@
 ---
 title: "AT2 WLED PCB"
-description: "Complete guide to flash and setup the AT2 WLED ESP32-based LED controller"
+description: "Complete guide to flash and setup`@` AT2 WLED ESP32-based LED controller"
 date: 2025-12-25
+author: "Trondle Embedded System"
 modelFile: "model.glb"
 ---
 

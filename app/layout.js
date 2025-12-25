@@ -1,16 +1,16 @@
 import './globals.css'
 
 export const metadata = {
-  metadataBase: new URL('https://ntrondle.github.io/TES'),
+  metadataBase: new URL('https://ntrondle.github.io'),
   title: {
     default: 'TES — Tröndle Embedded System',
     template: '%s — TES'
   },
   description: 'Embedded systems: PCB design, firmware, and connected products. Swiss embedded design studio led by Nicolas Tröndle in Lausanne, Switzerland.',
   icons: {
-    icon: '/TES/favicon.ico',
-    shortcut: '/TES/favicon-16x16.png',
-    apple: '/TES/favicon.png',
+    icon: '/favicon.ico',
+    shortcut: '/favicon-16x16.png',
+    apple: '/favicon.png',
   },
   keywords: ['embedded systems', 'PCB design', 'firmware', 'ESP32', 'STM32', 'RP2040', 'IoT', 'electronics design', 'Switzerland', 'Lausanne'],
   authors: [{ name: 'Nicolas Tröndle' }],

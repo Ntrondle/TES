@@ -1,33 +1,10 @@
 'use client'
 
-import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 
-export default function ManualClient({ t, locale }) {
-  const [manuals, setManuals] = useState([])
-  const [loading, setLoading] = useState(true)
-
-  // Fetch manuals by scanning the file system (static export compatible)
-  useEffect(() => {
-    async function fetchManuals() {
-      try {
-        // List all manual directories
-        const response = await fetch('/TES/manuals/index.json')
-        if (!response.ok) {
-          throw new Error('Failed to fetch manuals')
-        }
-        const data = await response.json()
-        setManuals(data)
-      } catch (error) {
-        console.error('Error fetching manuals:', error)
-        setManuals([])
-      } finally {
-        setLoading(false)
-      }
-    }
-    fetchManuals()
-  }, [locale])
+export default function ManualClient({ t, locale, manuals }) {
+  // Data is passed as prop from server component, no fetching needed
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -66,11 +43,7 @@ export default function ManualClient({ t, locale }) {
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.2, duration: 0.5 }}
       >
-        {loading ? (
-          <div className="text-center py-12">
-            <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-neutral-900 dark:border-white"></div>
-          </div>
-        ) : manuals.length === 0 ? (
+        {manuals.length === 0 ? (
           <div className="p-12 rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-900 text-center">
             <svg className="w-16 h-16 mx-auto mb-4 text-neutral-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332-.477 4.5-1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
@@ -111,6 +84,28 @@ export default function ManualClient({ t, locale }) {
                     <p className="text-neutral-600 dark:text-neutral-400 text-sm mb-4 line-clamp-2">
                       {manual.description}
                     </p>
+
+                    {/* Metadata: Author and Date */}
+                    <div className="flex items-center gap-4 text-xs text-neutral-500 dark:text-neutral-400 mb-4">
+                      {/* Author */}
+                      {manual.author && (
+                        <div className="flex items-center gap-1">
+                          <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                          </svg>
+                          <span className="truncate max-w-[120px]">{manual.author}</span>
+                        </div>
+                      )}
+                      {/* Date */}
+                      {manual.date && (
+                        <div className="flex items-center gap-1">
+                          <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                          </svg>
+                          <span>{new Date(manual.date).toLocaleDateString()}</span>
+                        </div>
+                      )}
+                    </div>
 
                     {/* Step Count */}
                     <div className="flex items-center gap-2 text-sm text-neutral-500 dark:text-neutral-400">

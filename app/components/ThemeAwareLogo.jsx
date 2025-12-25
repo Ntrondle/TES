@@ -4,11 +4,11 @@ export default function ThemeAwareLogo({ type, className = 'w-5 h-5' }) {
   // Determine which SVGs to use based on type
   let lightSrc, darkSrc
   if (type === 'github') {
-    lightSrc = '/TES/github.svg'
-    darkSrc = '/TES/github-white.svg'
+    lightSrc = '/github.svg'
+    darkSrc = '/github-white.svg'
   } else if (type === 'tes-shop') {
-    lightSrc = '/TES/tes-shop-white.svg'
-    darkSrc = '/TES/tes-shop.svg'
+    lightSrc = '/tes-shop-white.svg'
+    darkSrc = '/tes-shop.svg'
   } else {
     console.error(`Invalid logo type: ${type}`)
     return null

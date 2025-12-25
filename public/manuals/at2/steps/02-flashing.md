@@ -14,7 +14,7 @@ First, you need to identify the BOOT/RESET button on the AT2 board. This button 
 
 The flash button is located on the bottom side of the board, reference to the 3d model below.
 
-<div className="manual-3d-container" data-model="/TES/manuals/at2/model.glb" data-annotations='[{"targetObject": "SW-SMD_L39-W30-P445~SW-SMD_L39-W29-H20-LS48~B49X", "offset": 2.0, "direction": "up", "label": "BOOT Button", "color": "#FF0000", "arrowOffset": {"x": 0, "y": 0, "z": -0.5}, "labelSize": 1.5}]' data-camera='{"x": -0.24, "y": 3.55, "z": -15.31}'></div>
+<div className="manual-3d-container" data-model="/manuals/at2/model.glb" data-annotations='[{"targetObject": "SW-SMD_L39-W30-P445~SW-SMD_L39-W29-H20-LS48~B49X", "offset": 2.0, "direction": "up", "label": "BOOT Button", "color": "#FF0000", "arrowOffset": {"x": 0, "y": 0, "z": -0.5}, "labelSize": 1.5}]' data-camera='{"x": -0.24, "y": 3.55, "z": -15.31}'></div>
 
 ### Method 1: Using esptool.py (Recommended)
 
@@ -42,13 +42,13 @@ The board is now in flashing mode.
 
 Navigate to the directory where you downloaded the firmware and run the following command:
 
-<terminal command="esptool.py --chip esp32 --port COM3 --baud 460800 write_flash -z 0x1000 microflip-firmware.bin" />
+<terminal command="esptool.py --chip esp32 --port COM3 --baud 460800 write_flash -z 0x1000 AT2-firmware.bin" />
 
 For Linux/macOS, use:
 
-<terminal command="esptool.py --chip esp32 --port /dev/ttyUSB0 --baud 460800 write_flash -z 0x1000 microflip-firmware.bin" />
+<terminal command="esptool.py --chip esp32 --port /dev/ttyUSB0 --baud 460800 write_flash -z 0x1000 at2-firmware.bin" />
 
-Replace `COM3` or `/dev/ttyUSB0` with your actual serial port, and `microflip-firmware.bin` with your firmware filename.
+Replace `COM3` or `/dev/ttyUSB0` with your actual serial port, and `at2-firmware.bin` with your firmware filename.
 
 **Step 5: Verify Flash**
 
