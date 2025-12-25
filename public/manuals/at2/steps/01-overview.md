@@ -5,11 +5,11 @@ nextStep: "02-flashing"
 
 ## Step 1: Overview and Prerequisites
 
-Welcome to the Microflip setup guide! This manual will walk you through the complete process of setting up your Microflip ESP32-based LED controller.
+Welcome to the AT2 setup guide! This manual will walk you through the complete process of setting up your AT2 ESP32-based LED controller.
 
-### What is Microflip?
+### What is AT2?
 
-The Microflip is a compact, ESP32-powered LED controller designed specifically for 3D printers. It provides precise control over LED lighting, enabling features like:
+The AT2 is a compact, ESP32-powered LED controller designed specifically for 3D printers. It provides precise control over LED lighting, enabling features like:
 - Adjustable brightness and color
 - Pre-programmed lighting modes
 - WiFi control and automation
@@ -20,7 +20,7 @@ The Microflip is a compact, ESP32-powered LED controller designed specifically f
 Before we begin, make sure you have:
 
 **Hardware:**
-- Microflip PCB board
+- AT2 PCB board
 - USB-C cable (for power and data)
 - 5V power supply or USB port
 - LED strips compatible with your setup
@@ -51,7 +51,7 @@ You should see version information displayed.
 ### What's Next
 
 In the next step, we'll walk through the flashing process, including:
-- Connecting the Microflip to your computer
+- Connecting the AT2 PCB to your computer
 - Putting the board into boot mode
 - Flashing the firmware using esptool
 - Alternative web-based flashing method

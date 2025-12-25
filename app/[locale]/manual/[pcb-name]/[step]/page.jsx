@@ -3,16 +3,21 @@ import { getManual, getLocalizedManualStep } from '../../../../../lib/manuals'
 import ManualViewer from '../../../../components/ManualViewer'
 
 export async function generateStaticParams() {
-  const { getManuals } = await import('../../../../../lib/manuals')
+  const { getManual, getManuals } = await import('../../../../../lib/manuals')
   const manuals = await getManuals()
   
   const params = []
   for (const manual of manuals) {
-    for (const step of manual.steps) {
-      params.push({
-        'pcb-name': manual.slug,
-        step: step.slug
-      })
+    // Get the full manual with steps
+    const fullManual = await getManual(manual.slug)
+    
+    if (fullManual && fullManual.steps) {
+      for (const step of fullManual.steps) {
+        params.push({
+          'pcb-name': manual.slug,
+          step: step.slug
+        })
+      }
     }
   }
   

@@ -10,15 +10,15 @@ Now that the firmware is flashed, let's configure the WiFi connection and LED se
 
 ### Connect to the WiFi Access Point
 
-After flashing, the Microflip creates a WiFi access point that you can connect to for initial configuration.
+After flashing, the AT2 PCB creates a WiFi access point that you can connect to for initial configuration.
 
-1. On your device (phone/computer), look for a WiFi network named `Microflip-Setup`
+1. On your device (phone/computer), look for a WiFi network named `AT2-PCB-Setup`
 2. Connect to it (no password required)
 3. Open your web browser and navigate to `http://192.168.4.1`
 
 ### Configure WiFi Settings
 
-You should see the Microflip configuration page. Fill in the following:
+You should see the AT2 configuration page. Fill in the following:
 
 **Network Settings:**
 - **WiFi SSID**: Your home WiFi network name
@@ -38,8 +38,8 @@ Click "Save & Reboot" to apply the settings.
 The board will restart and connect to your WiFi network. Wait about 30 seconds, then:
 
 1. Reconnect your device to your home WiFi
-2. Find the Microflip's IP address (check your router's connected devices list)
-3. Navigate to the Microflip web interface at its IP address
+2. Find the AT2's IP address (check your router's connected devices list)
+3. Navigate to the AT2 web interface at its IP address
 
 ### Configure Advanced Settings (Optional)
 
@@ -64,9 +64,9 @@ From the web interface, you can configure:
 
 It's a good practice to backup your configuration:
 
-<terminal command="curl http://MICROFLIP_IP/api/config > microflip-config.json" />
+<terminal command="curl http://AT2/api/config > AT2-config.json" />
 
-Replace `MICROFLIP_IP` with your actual IP address.
+Replace `AT2_IP` with your actual IP address.
 
 ### What's Next
 

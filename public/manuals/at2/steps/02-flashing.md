@@ -14,13 +14,13 @@ First, you need to identify the BOOT/RESET button on the AT2 board. This button 
 
 The flash button is located on the bottom side of the board, reference to the 3d model below.
 
-<div className="manual-3d-container" data-model="/TES/manuals/microflip/model.glb" data-annotations='[{"targetObject": "SW-SMD_L39-W30-P445~SW-SMD_L39-W29-H20-LS48~B49X", "offset": 2.0, "direction": "up", "label": "BOOT Button", "color": "#FF0000", "arrowOffset": {"x": 0, "y": 0, "z": -0.5}, "labelSize": 1.5}]' data-camera='{"x": -0.24, "y": 3.55, "z": -15.31}'></div>
+<div className="manual-3d-container" data-model="/TES/manuals/at2/model.glb" data-annotations='[{"targetObject": "SW-SMD_L39-W30-P445~SW-SMD_L39-W29-H20-LS48~B49X", "offset": 2.0, "direction": "up", "label": "BOOT Button", "color": "#FF0000", "arrowOffset": {"x": 0, "y": 0, "z": -0.5}, "labelSize": 1.5}]' data-camera='{"x": -0.24, "y": 3.55, "z": -15.31}'></div>
 
 ### Method 1: Using esptool.py (Recommended)
 
 **Step 1: Connect Board**
 
-Connect your Microflip to your computer using a USB-C cable.
+Connect your AT2 board to your computer using a USB-C cable.
 
 **Step 2: Identify Serial Port**
 
