@@ -6,6 +6,7 @@ import remarkGfm from 'remark-gfm'
 import rehypeRaw from 'rehype-raw'
 import TerminalBlock from './TerminalBlock'
 import Model3DAnnotation from './3dModelAnnotation'
+import WarningCallout from './WarningCallout'
 
 export default function StepContent({ content, modelPath, t }) {
   // Custom components for markdown rendering
@@ -34,6 +35,11 @@ export default function StepContent({ content, modelPath, t }) {
     // Custom terminal component
     terminal: ({ node, ...props }) => {
       return <TerminalBlock {...props} t={t} />
+    },
+    
+    // Custom warning callout component
+    warning: ({ node, children, type = 'warning', ...props }) => {
+      return <WarningCallout type={type}>{children}</WarningCallout>
     },
     
     // Override code blocks (not terminal) for syntax highlighting
@@ -116,19 +122,19 @@ export default function StepContent({ content, modelPath, t }) {
     
     // Override lists
     ul: ({ children }) => (
-      <ul className="list-disc list-inside text-neutral-700 dark:text-neutral-300 my-3 space-y-1">
+      <ul className="list-disc list-outside pl-6 text-neutral-700 dark:text-neutral-300 my-3 space-y-2">
         {children}
       </ul>
     ),
     
     ol: ({ children }) => (
-      <ol className="list-decimal list-inside text-neutral-700 dark:text-neutral-300 my-3 space-y-1">
+      <ol className="list-decimal list-outside pl-6 text-neutral-700 dark:text-neutral-300 my-3 space-y-2">
         {children}
       </ol>
     ),
     
     li: ({ children }) => (
-      <li className="ml-4">{children}</li>
+      <li className="pl-2">{children}</li>
     ),
     
     // Override links
@@ -160,6 +166,45 @@ export default function StepContent({ content, modelPath, t }) {
     // Override em/italic
     em: ({ children }) => (
       <em className="italic">{children}</em>
+    ),
+    
+    // Override tables
+    table: ({ children }) => (
+      <div className="my-6 overflow-x-auto">
+        <table className="min-w-full divide-y divide-neutral-200 dark:divide-neutral-700 border border-neutral-200 dark:border-neutral-700">
+          {children}
+        </table>
+      </div>
+    ),
+    
+    thead: ({ children }) => (
+      <thead className="bg-neutral-100 dark:bg-neutral-800">
+        {children}
+      </thead>
+    ),
+    
+    tbody: ({ children }) => (
+      <tbody className="divide-y divide-neutral-200 dark:divide-neutral-700">
+        {children}
+      </tbody>
+    ),
+    
+    tr: ({ children }) => (
+      <tr className="hover:bg-neutral-50 dark:hover:bg-neutral-800/50 transition-colors">
+        {children}
+      </tr>
+    ),
+    
+    th: ({ children }) => (
+      <th className="px-4 py-3 text-left text-xs font-medium text-neutral-900 dark:text-white uppercase tracking-wider">
+        {children}
+      </th>
+    ),
+    
+    td: ({ children }) => (
+      <td className="px-4 py-3 text-sm text-neutral-700 dark:text-neutral-300">
+        {children}
+      </td>
     ),
   }
 

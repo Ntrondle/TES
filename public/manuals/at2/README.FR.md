@@ -23,7 +23,16 @@ Commencez par la première étape et suivez les instructions dans l'ordre.
 ## Outils nécessaires
 
 - Fer à souder
-- Fil d'étain
-- Pince à dénuder
+- Fil à souder
+- Pince coupante
 - Tournevis Phillips
 - Multimètre (optionnel)
+
+## Dépannage
+
+| Problème | Cause | Solution |
+|---------|-------|----------|
+| Appareil non trouvé dans l'outil de flash | Pilote non installé | Installer le pilote USB CP2102 |
+| Échec du flash | Fichier firmware incorrect | Télécharger la version correcte du firmware |
+| WiFi ne se connecte pas | Identifiants incorrects | Vérifier le SSID et le mot de passe |
+| Les LEDs ne répondent pas | Nombre de LEDs incorrect | Configurer le nombre correct de LEDs dans WLED |

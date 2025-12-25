@@ -26,4 +26,13 @@ This manual contains the following steps:
 3. **Configuration** - Setting up the WiFi and LED configuration
 4. **Testing** - Verifying the installation works correctly
 
+## Troubleshooting
+
+| Problem | Cause | Solution |
+|---------|-------|----------|
+| Device not found in flashing tool | Driver not installed | Install CP2102 USB driver |
+| Flashing fails | Wrong firmware file | Download correct firmware version |
+| WiFi not connecting | Incorrect credentials | Check SSID and password |
+| LEDs not responding | Wrong LED count | Configure correct LED count in WLED |
+
 Let's get started!

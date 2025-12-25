@@ -84,11 +84,31 @@ export default function HomeClient({ t, locale }) {
                   "group relative inline-flex items-center gap-2 px-6 py-3 rounded-xl font-medium transition-all duration-300",
                   "border border-neutral-300 dark:border-neutral-700",
                   "text-neutral-900 dark:text-white",
-                  "hover:bg-neutral-100 dark:hover:bg-neutral-800 hover:border-neutral-400 dark:hover:border-neutral-600"
+                  "overflow-hidden"
                 )}
                 href={`/${locale}/portfolio`}
               >
-                {t?.buttons?.seeWork}
+                {/* Animated gradient border */}
+                <div className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div
+                    className="absolute inset-0 rounded-xl"
+                    style={{
+                      background: 'conic-gradient(from 0deg, #e30613, #3ca9e2, #e30613)',
+                      filter: 'blur(40px)',
+                      opacity: '0.15'
+                    }}
+                  />
+                </div>
+
+                {/* Subtle inner glow on hover */}
+                <motion.div
+                  className="absolute inset-0 rounded-xl bg-gradient-to-br from-white/50 to-transparent dark:from-white/5 dark:to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  whileHover={{ scale: 1.02 }}
+                  transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+                />
+
+                {/* Content */}
+                <span className="relative z-10">{t?.buttons?.seeWork}</span>
               </Link>
               
               <Link 
@@ -96,11 +116,31 @@ export default function HomeClient({ t, locale }) {
                   "group relative inline-flex items-center gap-2 px-6 py-3 rounded-xl font-medium transition-all duration-300",
                   "border border-neutral-300 dark:border-neutral-700",
                   "text-neutral-900 dark:text-white",
-                  "hover:bg-neutral-100 dark:hover:bg-neutral-800 hover:border-neutral-400 dark:hover:border-neutral-600"
+                  "overflow-hidden"
                 )}
                 href="#what-we-do"
               >
-                {t?.buttons?.whatWeDo}
+                {/* Animated gradient border */}
+                <div className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div
+                    className="absolute inset-0 rounded-xl"
+                    style={{
+                      background: 'conic-gradient(from 0deg, #e30613, #3ca9e2, #e30613)',
+                      filter: 'blur(40px)',
+                      opacity: '0.15'
+                    }}
+                  />
+                </div>
+
+                {/* Subtle inner glow on hover */}
+                <motion.div
+                  className="absolute inset-0 rounded-xl bg-gradient-to-br from-white/50 to-transparent dark:from-white/5 dark:to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  whileHover={{ scale: 1.02 }}
+                  transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+                />
+
+                {/* Content */}
+                <span className="relative z-10">{t?.buttons?.whatWeDo}</span>
               </Link>
             </motion.div>
           </motion.div>

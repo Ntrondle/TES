@@ -1,55 +1,40 @@
 ---
 title: "Overview"
-nextStep: "02-flashing"
+nextStep: "02-Safety"
 ---
 
 ## Step 1: Overview and Prerequisites
 
-Welcome to the AT2 setup guide! This manual will walk you through the complete process of setting up your AT2 ESP32-based LED controller.
+Welcome to the MicroFlip setup guide! This manual will walk you through the complete process of setting up your MicroFlip PCB.
 
-### What is AT2?
+### What is MicroFlip?
 
-TESTSETESTEST
+MicroFlip is a compact PCB designed to simplify the use of N20 motors in any project. While it works with a variety of applications, it was specifically designed for the [Goose Belt Purge project](https://github.com/Graylag-PD/Goose-Belt-Purger/tree/main?tab=readme-ov-file).
 
 ### Prerequisites
 
-Before we begin, make sure you have:
+Before you begin, make sure you have the following:
 
 **Hardware:**
-- AT2 PCB board
-- USB-C cable (for power and data)
-- 5V power supply or USB port
-- LED strips compatible with your setup
+- MicroFlip PCB(s)
+- N20 motor(s)
+- JST-PH crimps
+- JST-PH housing
+- 24 AWG wire
 
-**Software:**
-- Python 3.7 or higher installed
-- `esptool` installed on your system
-- ESP32 firmware file (download from the repository)
-
-**System Requirements:**
-- Windows 10/11, macOS, or Linux
-- Internet connection for initial setup
-
-### Installing esptool
-
-`esptool` is the utility we'll use to flash the ESP32. Install it using pip:
-
-<terminal command="pip install esptool" />
-
-### Verify Your Setup
-
-To verify everything is ready, check your esptool version:
-
-<terminal command="esptool.py version" />
-
-You should see version information displayed.
+**Tools:**
+- Soldering iron
+- Solder
+- Crimping tool
+- Wire strippers
 
 ### What's Next
 
-In the next step, we'll walk through the flashing process, including:
-- Connecting the AT2 PCB to your computer
-- Putting the board into boot mode
-- Flashing the firmware using esptool
-- Alternative web-based flashing method
+In the next steps, we'll cover:
+
+- Safety precautions
+- Soldering the MicroFlip PCB to your N20 motors
+- Connecting the MicroFlip PCB to the printer motherboard
+- Ensuring reliable operation of the N20 motor
 
 When you're ready, proceed to the next step!

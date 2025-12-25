@@ -27,3 +27,12 @@ Beginnen Sie mit dem ersten Schritt und folgen Sie den Anweisungen in der Reihen
 - Drahtschneider
 - Phillips-Schraubendreher
 - Multimeter (optional)
+
+## Fehlerbehebung
+
+| Problem | Ursache | Lösung |
+|---------|---------|--------|
+| Gerät wird nicht im Flash-Tool gefunden | Treiber nicht installiert | CP2102 USB-Treiber installieren |
+| Flashen schlägt fehl | Falsche Firmware-Datei | Korrekte Firmware-Version herunterladen |
+| WiFi verbindet sich nicht | Falsche Zugangsdaten | SSID und Passwort überprüfen |
+| LEDs reagieren nicht | Falsche LED-Anzahl | Korrekte LED-Anzahl in WLED konfigurieren |
