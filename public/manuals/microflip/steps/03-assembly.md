@@ -36,7 +36,7 @@ After soldering, verify the following:
 - **Continuity:** If you have a multimeter, check for electrical continuity between the motor leads and the PCB pads.
 - **No shorts:** Confirm there are no solder bridges or stray solder connecting unintended pads.
 
-you can find below what an optimal microflip assembly should look like :
+Below you can find what an optimal microflip assembly should look like:
 
 <div className="manual-3d-container" data-model="/manuals/microflip/solderedmf.glb" data-annotations='[{"position": {"x": -1.637, "y": -0.071, "z": 1.399}, "offset": 2.0, "direction": "up", "label": "Solder Pad", "color": "#FF0000", "labelSize": 2}]' data-camera='{"x": -9.61, "y": 0.99, "z": 10.44}' data-position="up"></div>
 

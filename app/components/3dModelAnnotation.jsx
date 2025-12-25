@@ -501,14 +501,6 @@ export default function Model3DAnnotation({ model, annotations, cameraPosition, 
         </svg>
       </button>
       
-      {/* Click hint */}
-      <div className="absolute bottom-4 left-4 z-10 px-3 py-2 rounded-lg bg-black/80 dark:bg-white/80 backdrop-blur-sm border border-neutral-600 dark:border-neutral-400">
-        <p className="text-xs text-white dark:text-black font-medium">
-          Click on model to identify object (F12 console)<br/>
-          Press 'C' to capture camera position (F12 console)
-        </p>
-      </div>
-      
       <Canvas
         camera={{ position: [parsedCamera.x, parsedCamera.y, parsedCamera.z], fov: 50 }}
         gl={{ antialias: true }}
