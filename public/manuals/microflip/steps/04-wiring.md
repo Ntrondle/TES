@@ -42,7 +42,7 @@ In this step, we'll prepare the wiring and crimp the JST-PH connectors to connec
 Make sure to gently insert the JST-PH plug. The same applies when removing the plug. You might want to hold the PCB to prevent it from being ripped away from the motor lead.
 </warning>
 
-<div className="manual-3d-container" data-model="/manuals/microflip/n20+mf+wire_compressed.glb" data-camera='{"x": -14.54, "y": -3.25, "z": 18.98}' data-position="up"></div>
+<div className="manual-3d-container" data-model="/manuals/microflip/n20+mf+wire_compressed.glb" data-camera='{"x": -14.54, "y": -3.25, "z": 22.98}' data-position="up"></div>
 
 
 ### Pinout Reference
@@ -70,7 +70,3 @@ Before final installation, verify your wiring:
 | Wire pulls out of crimp | Insufficient crimp pressure | Re-crimp with a new terminal |
 | No continuity | Bad solder joint or crimp | Inspect and redo the faulty connection |
 | Motor runs backward | Reversed polarity | Swap the two wires at either end |
-
-### What's Next
-
-With your wiring complete, we'll move on to installing the MicroFlip assembly into your printer and connecting it to the motherboard.
