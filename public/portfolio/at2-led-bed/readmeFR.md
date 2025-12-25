@@ -3,7 +3,7 @@ title: "AT2 WLED PCB"
 description: "Carte de contrôle quatre couches pilotant des LEDs adressables pour des retours décoratifs et fonctionnels."
 modelFile: "at2.glb"
 githubLink: "https://github.com/Trondle-Embedded-Systems"
-shopLink: "https://tes-shop.ch"
+shopLink: "https://www.tes-shop.ch"
 date: "TBA"
 ---
 
@@ -44,9 +44,5 @@ Une carte de contrôle compacte à quatre couches qui se place sous le lit d'imp
 - **Fusible LittleFuse 3 A** protège toute la carte
 
 ---
-
-## Licence
-
-Publié sous **licence MIT** – voir [`LICENSE`](LICENSE).
 
 ![AT2 PCB](./images/at2.png)

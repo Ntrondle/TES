@@ -95,9 +95,6 @@ export default async function LocaleLayout({ children, params: { locale } }) {
           <div className="grid md:grid-cols-2 gap-8">
             {/* Left Side */}
             <div>
-              <Link href={`/${locale}`} className="inline-block mb-4">
-                <Logo className="w-[100px] h-auto text-neutral-900 dark:text-white" />
-              </Link>
               <p className="text-sm text-neutral-600 dark:text-neutral-400 max-w-md">
                 {t?.hero?.subtitle || 'We design and ship custom electronics: PCB design, firmware, and connected products.'}
               </p>
@@ -105,10 +102,7 @@ export default async function LocaleLayout({ children, params: { locale } }) {
 
             {/* Right Side */}
             <div className="flex flex-col items-start md:items-end gap-4 text-sm">
-              <div className="text-neutral-900 dark:text-white font-medium">
-                © {year} TES — Tröndle Embedded System
-              </div>
-              <div className="flex flex-wrap gap-3 text-neutral-600 dark:text-neutral-400">
+              <div className="flex flex-wrap gap-3 text-neutral-600 dark:text-neutral-400 items-center">
                 <a href="mailto:reach@tes-shop.ch" className="hover:text-neutral-900 dark:hover:text-white transition-colors">
                   reach@tes-shop.ch
                 </a>
@@ -120,6 +114,16 @@ export default async function LocaleLayout({ children, params: { locale } }) {
                   className="hover:text-neutral-900 dark:hover:text-white transition-colors"
                 >
                   GitHub
+                </a>
+                <span className="text-neutral-300 dark:text-neutral-700">·</span>
+                <a
+                  href="https://discord.gg/K5EF3VzV7E"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="hover:text-neutral-900 dark:hover:text-white transition-colors flex items-center gap-1"
+                  title="Join our Discord"
+                >
+                  Discord
                 </a>
                 <span className="text-neutral-300 dark:text-neutral-700">·</span>
                 <Link href={`/${locale}/about#imprint`} className="hover:text-neutral-900 dark:hover:text-white transition-colors">

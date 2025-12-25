@@ -3,7 +3,7 @@ title: "AT2 WLED PCB"
 description: "Four-layer control board driving addressable LEDs for decorative and functional feedback."
 modelFile: "at2.glb"
 githubLink: "https://github.com/Trondle-Embedded-Systems"
-shopLink: "https://tes-shop.ch"
+shopLink: "https://www.tes-shop.ch"
 date: "TBA"
 ---
 
@@ -44,9 +44,5 @@ A compact, four‑layer control board that sits beneath the AT2 print bed and dr
 - **3 A  LittleFuse** protects the entire board
 
 ---
-
-## License
-
-Released under the **MIT License** – see [`LICENSE`](LICENSE).
 
 ![AT2 PCB](./images/at2.png)

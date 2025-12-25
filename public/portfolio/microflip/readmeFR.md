@@ -3,6 +3,8 @@ title: "MicroFlip"
 description: "Carte ultra-compacte d'inversion de polarité pour moteurs à engrenages CC à balais de taille N20."
 modelFile: microflip.glb
 date: "2025-06-30"
+githubLink: "https://github.com/Trondle-Embedded-Systems"
+shopLink: "https://www.tes-shop.ch"
 ---
 
 # MicroFlip

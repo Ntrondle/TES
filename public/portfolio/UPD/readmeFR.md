@@ -3,7 +3,7 @@ title: "AT2 WLED PCB"
 description: "Carte de contrôle quatre couches pilotant des LEDs adressables pour des retours décoratifs et fonctionnels."
 modelFile: "at2.glb"
 githubLink: "https://github.com/Trondle-Embedded-Systems"
-shopLink: "https://tes-shop.ch"
+shopLink: "https://www.tes-shop.ch"
 date: "TBA"
 ---
 

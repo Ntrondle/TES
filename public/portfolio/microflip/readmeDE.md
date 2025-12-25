@@ -3,6 +3,8 @@ title: "MicroFlip"
 description: "Ultra-kompakte Polarisations-Umkehrplatine für N20-bürstenbehaftete DC-Getriebemotoren."
 modelFile: microflip.glb
 date: "2025-06-30"
+githubLink: "https://github.com/Trondle-Embedded-Systems"
+shopLink: "https://www.tes-shop.ch"
 ---
 
 # MicroFlip

@@ -3,7 +3,7 @@ title: "AT2 WLED PCB"
 description: "Vierlagige Steuerungsplatine zum Ansteuern adressierbarer LEDs für dekorative und funktionale Rückmeldungen."
 modelFile: "at2.glb"
 githubLink: "https://github.com/Trondle-Embedded-Systems"
-shopLink: "https://tes-shop.ch"
+shopLink: "https://www.tes-shop.ch"
 date: "TBA"
 ---
 
@@ -44,9 +44,5 @@ Eine kompakte, vierlagige Steuerungsplatine, die unter dem AT2-Druckbett sitzt u
 - **3 A LittleFuse** schützt die gesamte Platine
 
 ---
-
-## Lizenz
-
-Veröffentlicht unter der **MIT-Lizenz** – siehe [`LICENSE`](LICENSE).
 
 ![AT2 PCB](./images/at2.png)
