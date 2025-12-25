@@ -1,16 +1,17 @@
 'use client'
 
-import React, { useRef, useEffect, useState } from 'react'
+import React, { useRef, useEffect, useState, memo } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
 import { OrbitControls, useGLTF, Environment } from '@react-three/drei'
 import * as THREE from 'three'
 
-function Model({ url, annotations, cameraPosition, onObjectClick, setModelGroup, setModelReady }) {
+const Model = memo(function Model({ url, annotations, cameraPosition, onObjectClick, setModelGroup, setModelReady }) {
   const group = useRef()
   const { scene, error } = useGLTF(url)
+  const hasLoaded = useRef(false)
   
   useEffect(() => {
-    if (group.current && scene) {
+    if (group.current && scene && !hasLoaded.current) {
       console.log('Loading model:', url)
       
       // Clear previous content
@@ -26,30 +27,24 @@ function Model({ url, annotations, cameraPosition, onObjectClick, setModelGroup,
       const center = box.getCenter(new THREE.Vector3())
       const size = box.getSize(new THREE.Vector3())
       
-      console.log('Model size:', size)
-      console.log('Model center:', center)
-      
       // Center model
       clonedScene.position.x += (clonedScene.position.x - center.x)
       clonedScene.position.y += (clonedScene.position.y - center.y)
       clonedScene.position.z += (clonedScene.position.z - center.z)
       
       // Rotate model to lay flat facing camera
-      clonedScene.rotation.x = Math.PI / 2 // Rotate 90 degrees on X-axis
+      clonedScene.rotation.x = Math.PI / 2
       
       // Scale to fit in view (max dimension = 20 units)
       const maxDim = Math.max(size.x, size.y, size.z)
       const scale = maxDim > 0 ? 20 / maxDim : 1
       clonedScene.scale.setScalar(scale)
       
-      console.log('Model scale:', scale)
-      
       group.current.add(clonedScene)
       
       // Store reference in ref
       if (setModelGroup) {
         setModelGroup.current = group
-        console.log('Model group stored in ref')
         
         // List all objects with names
         const namedObjects = []
@@ -61,13 +56,13 @@ function Model({ url, annotations, cameraPosition, onObjectClick, setModelGroup,
         console.log('Named objects in model:', namedObjects)
       }
       
-      // Mark model as ready
+      // Mark as loaded and ready
+      hasLoaded.current = true
       if (setModelReady) {
         setModelReady(true)
-        console.log('Model ready, can now render annotations')
       }
     }
-  }, [scene, setModelGroup])
+  }, [scene, setModelGroup, setModelReady, url])
 
   // Handle click to get object info
   const handlePointerDown = (event) => {
@@ -113,7 +108,7 @@ function Model({ url, annotations, cameraPosition, onObjectClick, setModelGroup,
   }
 
   return <group ref={group} onPointerDown={handlePointerDown} />
-}
+})
 
 function getDirectionVector(direction) {
   const vectors = {
@@ -139,110 +134,59 @@ function getDirectionVector(direction) {
 }
 
 function findObjectByName(scene, name) {
-  console.log(`Looking for object: "${name}"`)
-  
   if (!scene || typeof scene.traverse !== 'function') {
-    console.log('Invalid scene object')
     return null
   }
   
   let foundObject = null
   
   scene.traverse((object) => {
-    if (object.name === name) {
+    if (object.name === name && !foundObject) {
       foundObject = object
-      console.log(`Found object: "${name}"`, object)
     }
   })
-  
-  if (!foundObject) {
-    console.log(`Object not found: "${name}"`)
-  }
   
   return foundObject
 }
 
-function AnnotationMarker({ modelGroup, annotation }) {
+const AnnotationMarker = memo(function AnnotationMarker({ modelGroup, annotation }) {
   const meshRef = useRef()
   const labelRef = useRef()
   const [labelTexture, setLabelTexture] = React.useState(null)
+  const arrowPositionRef = useRef(null)
   
   // Create texture once when component mounts
   useEffect(() => {
-    console.log('Creating label texture for:', annotation.label)
     const texture = createLabelTexture(annotation.label, annotation.color)
     setLabelTexture(texture)
   }, [annotation.label, annotation.color])
 
-  // Get arrow position based on object
-  const getArrowPosition = () => {
-    console.log(`Processing annotation: ${annotation.label}`)
-    console.log('Annotation data:', annotation)
-    
-    // Get the actual group from the ref
+  // Get arrow position based on object - only calculate once
+  useEffect(() => {
     const actualGroup = modelGroup.current?.current
-    console.log('modelGroup.current:', modelGroup.current)
-    console.log('actualGroup:', actualGroup)
     
-    // Check if using object-based or coordinate-based annotation
     if (annotation.targetObject && actualGroup) {
       const targetObject = findObjectByName(actualGroup, annotation.targetObject)
       
       if (targetObject) {
-        // Get world position of object
         const objectPosition = new THREE.Vector3()
         targetObject.getWorldPosition(objectPosition)
         
-        console.log('Object world position:', objectPosition)
-        
-        // Calculate arrow position
         const direction = getDirectionVector(annotation.direction || 'up')
         const offset = annotation.offset || 2.0
         const directionVector = direction.clone().normalize()
         
         const arrowPosition = objectPosition.clone().add(directionVector.multiplyScalar(offset))
-        console.log('Calculated arrow position:', arrowPosition)
         
-        // Apply custom arrow offset (allows offsetting arrow relative to object)
         const arrowOffset = annotation.arrowOffset || { x: 0, y: 0, z: 0 }
         arrowPosition.x += arrowOffset.x || 0
         arrowPosition.y += arrowOffset.y || 0
         arrowPosition.z += arrowOffset.z || 0
         
-        console.log('Applied arrow offset:', arrowOffset)
-        console.log('Final arrow position:', arrowPosition)
-        
-        return arrowPosition
+        arrowPositionRef.current = arrowPosition
       }
-      
-      // Object not found, don't render
-      console.log('Object not found, skipping arrow')
-      return null
     }
-    
-    if (!actualGroup) {
-      console.log('modelGroup not available yet')
-    }
-    
-    // Coordinate-based annotation (fallback)
-    if (annotation.position) {
-      console.log('Using coordinate-based annotation')
-      const coordPosition = new THREE.Vector3(annotation.position.x, annotation.position.y, annotation.position.z)
-      
-      // Apply custom arrow offset to coordinate-based annotations too
-      const arrowOffset = annotation.arrowOffset || { x: 0, y: 0, z: 0 }
-      coordPosition.x += arrowOffset.x || 0
-      coordPosition.y += arrowOffset.y || 0
-      coordPosition.z += arrowOffset.z || 0
-      
-      console.log('Applied arrow offset to coordinates:', arrowOffset)
-      
-      return coordPosition
-    }
-    
-    console.log('No valid annotation data, skipping')
-    return null
-  }
+  }, [annotation.targetObject, annotation.offset, annotation.direction, annotation.arrowOffset, modelGroup])
 
   useFrame(({ camera }) => {
     if (labelRef.current && meshRef.current) {
@@ -251,22 +195,18 @@ function AnnotationMarker({ modelGroup, annotation }) {
       
       // Scale text based on distance from camera - with custom label size multiplier
       const distance = camera.position.distanceTo(meshRef.current.position)
-      const labelSize = annotation.labelSize || 1.0  // Default to 1.0 (100% size)
+      const labelSize = annotation.labelSize || 1.0
       const scale = Math.max(0.15, distance * 0.008) * labelSize
       labelRef.current.scale.setScalar(scale)
     }
   })
 
-  const arrowPosition = getArrowPosition()
+  const arrowPosition = arrowPositionRef.current
   
   if (!arrowPosition) return null
 
-  console.log(`Rendering arrow for: ${annotation.label} at`, arrowPosition)
-
-  // Calculate label position with custom offset - further from arrow tip
+  // Calculate label position with custom offset
   const labelOffset = annotation.labelOffset || { x: 0, y: 0, z: 0 }
-  // Arrow points down (rotated 180deg), tip is at y=-1.8
-  // Label sits further away from the tip for better spacing
   const labelY = annotation.labelPosition === 'below' ? -0.5 : 1
   const labelPosition = [
     labelOffset.x || 0,
@@ -276,7 +216,7 @@ function AnnotationMarker({ modelGroup, annotation }) {
 
   return (
     <group position={[arrowPosition.x, arrowPosition.y, arrowPosition.z]}>
-      {/* Arrow pointing down toward the button */}
+      {/* Arrow pointing down toward to button */}
       <group rotation={[0, 0, Math.PI]}>
         {/* Arrow shaft */}
         <mesh ref={meshRef}>
@@ -308,7 +248,7 @@ function AnnotationMarker({ modelGroup, annotation }) {
       )}
     </group>
   )
-}
+})
 
 function createLabelTexture(text, color) {
   const canvas = document.createElement('canvas')
@@ -386,23 +326,19 @@ export default function Model3DAnnotation({ model, annotations, cameraPosition }
     }
   }, [])
 
-  React.useEffect(() => {
+  useEffect(() => {
     try {
       if (annotations) {
         const parsed = JSON.parse(annotations)
-        console.log('Parsed annotations:', parsed)
         setParsedAnnotations(parsed)
       } else {
-        console.log('No annotations provided')
         setParsedAnnotations([])
       }
       
       if (cameraPosition) {
         const parsed = JSON.parse(cameraPosition)
-        console.log('Parsed camera:', parsed)
         setParsedCamera(parsed)
       } else {
-        console.log('No camera position provided, using default')
         setParsedCamera({ x: 0, y: 0, z: 50 })
       }
     } catch (error) {
@@ -413,9 +349,8 @@ export default function Model3DAnnotation({ model, annotations, cameraPosition }
   }, [annotations, cameraPosition])
 
   // Handle keyboard events for camera capture
-  React.useEffect(() => {
+  useEffect(() => {
     const handleKeyPress = (event) => {
-      // Press 'c' or 'C' to capture camera position
       if (event.key === 'c' || event.key === 'C') {
         if (cameraRef.current) {
           const pos = cameraRef.current.position
@@ -443,26 +378,18 @@ export default function Model3DAnnotation({ model, annotations, cameraPosition }
     }
   }, [])
 
-  console.log('='.repeat(60))
-  console.log('Model3DAnnotation component initialized')
-  console.log('Model URL:', model)
-  console.log('Annotations:', parsedAnnotations)
-  console.log('Camera position:', parsedCamera)
-  console.log('='.repeat(60))
-
   const handleReset = () => {
     if (!cameraRef.current) return
     
     const targetPosition = new THREE.Vector3(parsedCamera.x, parsedCamera.y, parsedCamera.z)
     const startPosition = cameraRef.current.position.clone()
-    const duration = 500 // 500ms animation
+    const duration = 500
     const startTime = Date.now()
     
     function animate() {
       const elapsed = Date.now() - startTime
       const progress = Math.min(elapsed / duration, 1)
       
-      // Ease out cubic
       const ease = 1 - Math.pow(1 - progress, 3)
       
       cameraRef.current.position.lerpVectors(startPosition, targetPosition, ease)
@@ -523,7 +450,7 @@ export default function Model3DAnnotation({ model, annotations, cameraPosition }
         
         {modelReady && parsedAnnotations.map((annotation, index) => (
           <AnnotationMarker
-            key={index}
+            key={`${annotation.targetObject}-${index}`}
             modelGroup={modelGroupRef}
             annotation={annotation}
           />
