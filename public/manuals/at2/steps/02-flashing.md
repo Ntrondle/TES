@@ -6,15 +6,15 @@ nextStep: "03-configuration"
 
 ## Step 2: Flashing Firmware
 
-Now we'll flash ESP32 firmware onto your Microflip board. Follow these steps carefully.
+Now we'll flash the WLED firmware onto your AT2 board. Follow these steps carefully.
 
 ### Locate Flash Button
 
-First, you need to identify the BOOT/RESET button on the Microflip board. This button is used to put the ESP32 into flashing mode.
+First, you need to identify the BOOT/RESET button on the AT2 board. This button is used to put the ESP32 into flashing mode.
 
-The flash button is located on the top side of the board, near the USB-C connector.
+The flash button is located on the bottom side of the board, reference to the 3d model below.
 
-<div className="manual-3d-container" data-model="/TES/manuals/microflip/model.glb" data-annotations='[{"targetObject": "SW-SMD_L39-W30-P445~SW-SMD_L39-W29-H20-LS48~B49X", "offset": 2.0, "direction": "up", "label": "BOOT Button", "color": "#FF0000"}]' data-camera='{"x": 0, "y": 0, "z": 50}'></div>
+<div className="manual-3d-container" data-model="/TES/manuals/microflip/model.glb" data-annotations='[{"targetObject": "SW-SMD_L39-W30-P445~SW-SMD_L39-W29-H20-LS48~B49X", "offset": 2.0, "direction": "up", "label": "BOOT Button", "color": "#FF0000", "arrowOffset": {"x": 0, "y": 0, "z": -0.5}, "labelSize": 1.5}]' data-camera='{"x": -0.24, "y": 3.55, "z": -15.31}'></div>
 
 ### Method 1: Using esptool.py (Recommended)
 

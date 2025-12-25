@@ -8,13 +8,12 @@ export default function ManualClient({ t, locale }) {
   const [manuals, setManuals] = useState([])
   const [loading, setLoading] = useState(true)
 
-  // Since we use static export, we need to fetch manuals directly
+  // Fetch manuals by scanning the file system (static export compatible)
   useEffect(() => {
     async function fetchManuals() {
       try {
-        // Fetch locale-specific manuals data from public directory
-        const localeFile = locale === 'en' ? '_manuals.json' : `_manuals.${locale}.json`
-        const response = await fetch(`/TES/manuals/${localeFile}`)
+        // List all manual directories
+        const response = await fetch('/TES/manuals/index.json')
         if (!response.ok) {
           throw new Error('Failed to fetch manuals')
         }

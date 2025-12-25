@@ -1,8 +1,8 @@
 'use client'
 
-import React, { useRef, useEffect } from 'react'
+import React, { useRef, useEffect, useState } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
-import { OrbitControls, useGLTF } from '@react-three/drei'
+import { OrbitControls, useGLTF, Environment } from '@react-three/drei'
 import * as THREE from 'three'
 
 function Model({ url, annotations, cameraPosition, onObjectClick, setModelGroup, setModelReady }) {
@@ -93,7 +93,7 @@ function Model({ url, annotations, cameraPosition, onObjectClick, setModelGroup,
     })
     console.log('='.repeat(60))
     console.log('\nCopy this for your annotation:')
-    console.log(`{"targetObject": "${objectName}", "offset": 2.0, "direction": "up", "label": "YOUR_LABEL", "color": "#FF5733"}`)
+    console.log(`{"targetObject": "${objectName}", "offset": 2.0, "direction": "up", "label": "YOUR_LABEL", "color": "#FF5733", "arrowOffset": {"x": 0, "y": 0, "z": 0}, "labelSize": 1.0}`)
     console.log()
     
     if (onObjectClick) {
@@ -203,6 +203,15 @@ function AnnotationMarker({ modelGroup, annotation }) {
         const arrowPosition = objectPosition.clone().add(directionVector.multiplyScalar(offset))
         console.log('Calculated arrow position:', arrowPosition)
         
+        // Apply custom arrow offset (allows offsetting arrow relative to object)
+        const arrowOffset = annotation.arrowOffset || { x: 0, y: 0, z: 0 }
+        arrowPosition.x += arrowOffset.x || 0
+        arrowPosition.y += arrowOffset.y || 0
+        arrowPosition.z += arrowOffset.z || 0
+        
+        console.log('Applied arrow offset:', arrowOffset)
+        console.log('Final arrow position:', arrowPosition)
+        
         return arrowPosition
       }
       
@@ -218,7 +227,17 @@ function AnnotationMarker({ modelGroup, annotation }) {
     // Coordinate-based annotation (fallback)
     if (annotation.position) {
       console.log('Using coordinate-based annotation')
-      return new THREE.Vector3(annotation.position.x, annotation.position.y, annotation.position.z)
+      const coordPosition = new THREE.Vector3(annotation.position.x, annotation.position.y, annotation.position.z)
+      
+      // Apply custom arrow offset to coordinate-based annotations too
+      const arrowOffset = annotation.arrowOffset || { x: 0, y: 0, z: 0 }
+      coordPosition.x += arrowOffset.x || 0
+      coordPosition.y += arrowOffset.y || 0
+      coordPosition.z += arrowOffset.z || 0
+      
+      console.log('Applied arrow offset to coordinates:', arrowOffset)
+      
+      return coordPosition
     }
     
     console.log('No valid annotation data, skipping')
@@ -230,9 +249,10 @@ function AnnotationMarker({ modelGroup, annotation }) {
       // Make text always face camera
       labelRef.current.quaternion.copy(camera.quaternion)
       
-      // Scale text based on distance from camera - balanced size
+      // Scale text based on distance from camera - with custom label size multiplier
       const distance = camera.position.distanceTo(meshRef.current.position)
-      const scale = Math.max(0.15, distance * 0.008)
+      const labelSize = annotation.labelSize || 1.0  // Default to 1.0 (100% size)
+      const scale = Math.max(0.15, distance * 0.008) * labelSize
       labelRef.current.scale.setScalar(scale)
     }
   })
@@ -243,11 +263,11 @@ function AnnotationMarker({ modelGroup, annotation }) {
 
   console.log(`Rendering arrow for: ${annotation.label} at`, arrowPosition)
 
-  // Calculate label position with custom offset - right after arrow tip
+  // Calculate label position with custom offset - further from arrow tip
   const labelOffset = annotation.labelOffset || { x: 0, y: 0, z: 0 }
-  // Arrow points down (rotated 180deg), tip is at y=-1.5
-  // Label sits right after the tip
-  const labelY = annotation.labelPosition === 'below' ? -1.6 : -1.4
+  // Arrow points down (rotated 180deg), tip is at y=-1.8
+  // Label sits further away from the tip for better spacing
+  const labelY = annotation.labelPosition === 'below' ? -0.5 : 1
   const labelPosition = [
     labelOffset.x || 0,
     labelY + (labelOffset.y || 0),
@@ -333,9 +353,38 @@ export default function Model3DAnnotation({ model, annotations, cameraPosition }
   const [parsedAnnotations, setParsedAnnotations] = React.useState([])
   const [parsedCamera, setParsedCamera] = React.useState({ x: 0, y: 0, z: 50 })
   const [modelReady, setModelReady] = React.useState(false)
+  const [isDarkMode, setIsDarkMode] = useState(true)
   const cameraRef = useRef()
   const controlsRef = useRef()
   const modelGroupRef = useRef()
+
+  // Detect theme changes
+  useEffect(() => {
+    const checkTheme = () => {
+      const isDark = document.documentElement.classList.contains('dark') || 
+                       window.matchMedia('(prefers-color-scheme: dark)').matches
+      setIsDarkMode(isDark)
+    }
+
+    // Initial check
+    checkTheme()
+
+    // Listen for theme changes
+    const observer = new MutationObserver(checkTheme)
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['class']
+    })
+
+    // Listen for system theme changes
+    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
+    mediaQuery.addEventListener('change', checkTheme)
+
+    return () => {
+      observer.disconnect()
+      mediaQuery.removeEventListener('change', checkTheme)
+    }
+  }, [])
 
   React.useEffect(() => {
     try {
@@ -362,6 +411,37 @@ export default function Model3DAnnotation({ model, annotations, cameraPosition }
       setParsedCamera({ x: 0, y: 0, z: 50 })
     }
   }, [annotations, cameraPosition])
+
+  // Handle keyboard events for camera capture
+  React.useEffect(() => {
+    const handleKeyPress = (event) => {
+      // Press 'c' or 'C' to capture camera position
+      if (event.key === 'c' || event.key === 'C') {
+        if (cameraRef.current) {
+          const pos = cameraRef.current.position
+          const cameraPos = {
+            x: parseFloat(pos.x.toFixed(2)),
+            y: parseFloat(pos.y.toFixed(2)),
+            z: parseFloat(pos.z.toFixed(2))
+          }
+          
+          console.log('='.repeat(60))
+          console.log('Current Camera Position captured!')
+          console.log('Camera Position:', cameraPos)
+          console.log('='.repeat(60))
+          console.log('\nCopy this for your data-camera attribute:')
+          console.log(`{"x": ${cameraPos.x}, "y": ${cameraPos.y}, "z": ${cameraPos.z}}`)
+          console.log()
+        }
+      }
+    }
+
+    window.addEventListener('keydown', handleKeyPress)
+    
+    return () => {
+      window.removeEventListener('keydown', handleKeyPress)
+    }
+  }, [])
 
   console.log('='.repeat(60))
   console.log('Model3DAnnotation component initialized')
@@ -416,21 +496,20 @@ export default function Model3DAnnotation({ model, annotations, cameraPosition }
       {/* Click hint */}
       <div className="absolute bottom-4 left-4 z-10 px-3 py-2 rounded-lg bg-black/80 dark:bg-white/80 backdrop-blur-sm border border-neutral-600 dark:border-neutral-400">
         <p className="text-xs text-white dark:text-black font-medium">
-          Click on model to identify object (F12 console)
+          Click on model to identify object (F12 console)<br/>
+          Press 'C' to capture camera position (F12 console)
         </p>
       </div>
       
       <Canvas
         camera={{ position: [parsedCamera.x, parsedCamera.y, parsedCamera.z], fov: 50 }}
         gl={{ antialias: true }}
-        style={{ background: '#1a1a1a' }}
+        style={{ background: isDarkMode ? '#1a1a1a' : '#f5f5f5' }}
       >
-        {/* Enhanced lighting */}
-        <ambientLight intensity={1.5} />
-        <directionalLight position={[10, 10, 10]} intensity={2} />
-        <directionalLight position={[-10, -10, -10]} intensity={1.5} />
-        <directionalLight position={[0, 10, 0]} intensity={1} />
-        <pointLight position={[0, 0, 0]} intensity={0.5} />
+        {/* Lighting setup matching PCBViewer */}
+        <directionalLight position={[5, 5, 5]} intensity={1} />
+        <directionalLight position={[-5, 5, -5]} intensity={0.5} />
+        <Environment preset="city" backgroundIntensity={0.2} />
         
         <CameraCapture cameraRef={cameraRef} controlsRef={controlsRef} />
         
