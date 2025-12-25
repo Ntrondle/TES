@@ -7,7 +7,7 @@ import rehypeRaw from 'rehype-raw'
 import TerminalBlock from './TerminalBlock'
 import Model3DAnnotation from './3dModelAnnotation'
 
-export default function StepContent({ content, modelPath }) {
+export default function StepContent({ content, modelPath, t }) {
   // Custom components for markdown rendering
   const components = {
     // Handle div elements for 3D model
@@ -33,12 +33,19 @@ export default function StepContent({ content, modelPath }) {
     
     // Custom terminal component
     terminal: ({ node, ...props }) => {
-      return <TerminalBlock {...props} />
+      return <TerminalBlock {...props} t={t} />
     },
     
     // Override code blocks (not terminal) for syntax highlighting
     code: ({ node, inline, className, children, ...props }) => {
-      if (inline) {
+      // Check if this should be inline based on parent or content
+      const isInline = inline || (
+        React.Children.toArray(children).length === 1 &&
+        typeof React.Children.toArray(children)[0] === 'string' &&
+        !React.Children.toArray(children)[0].includes('\n')
+      )
+      
+      if (isInline) {
         return (
           <code className="px-1.5 py-0.5 rounded bg-neutral-200 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200 text-sm font-mono">
             {children}
@@ -46,14 +53,13 @@ export default function StepContent({ content, modelPath }) {
         )
       }
       
+      // Block code - return pre directly without div wrapper to avoid HTML validation issues
       return (
-        <div className="my-4 rounded-lg overflow-hidden border border-neutral-300 dark:border-neutral-700">
-          <pre className="p-4 bg-neutral-100 dark:bg-neutral-900 overflow-x-auto">
-            <code className={className} {...props}>
-              {children}
-            </code>
-          </pre>
-        </div>
+        <pre className="my-4 p-4 rounded-lg overflow-hidden border border-neutral-300 dark:border-neutral-700 bg-neutral-100 dark:bg-neutral-900 overflow-x-auto">
+          <code className={className} {...props}>
+            {children}
+          </code>
+        </pre>
       )
     },
     

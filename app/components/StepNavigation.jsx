@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 
-export default function StepNavigation({ manualSlug, step, steps, locale }) {
+export default function StepNavigation({ manualSlug, step, steps, locale, t }) {
   const currentIndex = steps.findIndex(s => s.slug === step.slug)
   const prevStep = currentIndex > 0 ? steps[currentIndex - 1] : null
   const nextStep = currentIndex < steps.length - 1 ? steps[currentIndex + 1] : null
@@ -34,7 +34,7 @@ export default function StepNavigation({ manualSlug, step, steps, locale }) {
                   </svg>
                 </div>
                 <div className="flex-1">
-                  <p className="text-xs text-neutral-500 dark:text-neutral-400 mb-1">Previous</p>
+                  <p className="text-xs text-neutral-500 dark:text-neutral-400 mb-1">{t?.manuals?.step?.previous}</p>
                   <p className="font-medium text-neutral-900 dark:text-white">
                     {prevStep.title}
                   </p>
@@ -49,7 +49,7 @@ export default function StepNavigation({ manualSlug, step, steps, locale }) {
         {/* Step Progress */}
         <div className="px-4 text-center">
           <p className="text-sm text-neutral-500 dark:text-neutral-400">
-            Step {currentIndex + 1} of {steps.length}
+            {t?.manuals?.step?.prefix} {currentIndex + 1} {t?.manuals?.step?.of} {steps.length}
           </p>
           <div className="flex gap-1 mt-2 justify-center">
             {steps.map((s, index) => (
@@ -80,7 +80,7 @@ export default function StepNavigation({ manualSlug, step, steps, locale }) {
             >
               <div className="flex items-center gap-3 justify-end">
                 <div className="flex-1">
-                  <p className="text-xs text-neutral-500 dark:text-neutral-400 mb-1">Next</p>
+                  <p className="text-xs text-neutral-500 dark:text-neutral-400 mb-1">{t?.manuals?.step?.next}</p>
                   <p className="font-medium text-neutral-900 dark:text-white">
                     {nextStep.title}
                   </p>
@@ -108,9 +108,9 @@ export default function StepNavigation({ manualSlug, step, steps, locale }) {
                   </svg>
                 </div>
                 <div>
-                  <p className="text-xs text-green-600 dark:text-green-400 mb-1">Complete</p>
+                  <p className="text-xs text-green-600 dark:text-green-400 mb-1">{t?.manuals?.step?.complete}</p>
                   <p className="font-medium text-green-700 dark:text-green-300">
-                    You've finished the manual!
+                    {t?.manuals?.step?.completeMessage}
                   </p>
                 </div>
               </div>

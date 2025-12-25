@@ -250,11 +250,15 @@
     "subtitle": "Schritt-für-Schritt-Anleitungen zum Flashen und Einrichten Ihrer PCB-Platinen",
     "backToHome": "← Zurück zur Startseite",
     "backToManuals": "← Zurück zu Handbüchern",
+    "backToAllManuals": "Zurück zu allen Handbüchern",
     "noManuals": {
       "title": "Keine Handbücher verfügbar",
       "description": "Handbücher werden bald hier hinzugefügt. Schauen Sie später wieder vorbei!"
     },
     "step": {
+      "singular": "Schritt",
+      "plural": "Schritte",
+      "prefix": "Schritt",
       "of": "von",
       "previous": "Zurück",
       "next": "Weiter",

@@ -250,11 +250,15 @@
     "subtitle": "Step-by-step guides for flashing and setting up your PCB boards",
     "backToHome": "← Back to Home",
     "backToManuals": "← Back to Manuals",
+    "backToAllManuals": "Back to All Manuals",
     "noManuals": {
       "title": "No Manuals Available",
       "description": "Manuals will be added here soon. Check back later!"
     },
     "step": {
+      "singular": "step",
+      "plural": "steps",
+      "prefix": "Step",
       "of": "of",
       "previous": "Previous",
       "next": "Next",

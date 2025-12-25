@@ -250,11 +250,15 @@
     "subtitle": "Guides étape par étape pour le flashage et la configuration de vos cartes PCB",
     "backToHome": "← Retour à l'accueil",
     "backToManuals": "← Retour aux manuels",
+    "backToAllManuals": "Retour à tous les manuels",
     "noManuals": {
       "title": "Aucun manuel disponible",
       "description": "Les manuels seront ajoutés ici bientôt. Revenez plus tard !"
     },
     "step": {
+      "singular": "étape",
+      "plural": "étapes",
+      "prefix": "Étape",
       "of": "sur",
       "previous": "Précédent",
       "next": "Suivant",

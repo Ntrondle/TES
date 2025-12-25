@@ -5,7 +5,7 @@ import Link from 'next/link'
 import StepContent from './StepContent'
 import StepNavigation from './StepNavigation'
 
-export default function ManualViewer({ manual, step, locale }) {
+export default function ManualViewer({ manual, step, locale, t }) {
   const modelPath = `/manuals/${manual.slug}/${manual.modelFile}`
 
   return (
@@ -20,7 +20,7 @@ export default function ManualViewer({ manual, step, locale }) {
           href={`/${locale}/manual`}
           className="text-sm text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white transition-colors"
         >
-          ← Back to Manuals
+          ← {t?.manuals?.backToManuals}
         </Link>
       </motion.div>
 
@@ -52,12 +52,12 @@ export default function ManualViewer({ manual, step, locale }) {
               {step.title}
             </h2>
             <p className="text-sm text-neutral-500 dark:text-neutral-400">
-              Step {manual.steps.findIndex(s => s.slug === step.slug) + 1} of {manual.stepCount}
+              {t?.manuals?.step?.prefix} {manual.steps.findIndex(s => s.slug === step.slug) + 1} {t?.manuals?.step?.of} {manual.stepCount}
             </p>
           </div>
 
           {/* Step Content */}
-          <StepContent content={step.content} modelPath={modelPath} />
+          <StepContent content={step.content} modelPath={modelPath} t={t} />
 
           {/* Navigation */}
           <StepNavigation 
@@ -65,6 +65,7 @@ export default function ManualViewer({ manual, step, locale }) {
             step={step}
             steps={manual.steps}
             locale={locale}
+            t={t}
           />
         </div>
       </motion.div>
@@ -83,7 +84,7 @@ export default function ManualViewer({ manual, step, locale }) {
           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
           </svg>
-          Back to All Manuals
+          {t?.manuals?.backToAllManuals}
         </Link>
       </motion.div>
     </div>

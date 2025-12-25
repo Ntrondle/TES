@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import { useRouter, usePathname } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
 import { X, Menu, Mail } from 'lucide-react'
 import Link from 'next/link'
@@ -8,7 +9,20 @@ import Logo from './Logo'
 import { cn } from '../../lib/utils'
 
 export default function MobileNav({ locale, t, navItems }) {
+  const router = useRouter()
+  const pathname = usePathname()
   const [isOpen, setIsOpen] = useState(false)
+
+  // Get current path without locale prefix
+  const getPathWithoutLocale = (path) => {
+    const segments = path.split('/').filter(Boolean)
+    if (segments[0] && ['en', 'fr', 'de'].includes(segments[0])) {
+      return '/' + segments.slice(1).join('/')
+    }
+    return path
+  }
+
+  const currentPath = getPathWithoutLocale(pathname)
 
   // Animation variants
   const overlayVariants = {
@@ -172,7 +186,7 @@ export default function MobileNav({ locale, t, navItems }) {
                     {['en', 'fr', 'de'].map((lang) => (
                       <Link
                         key={lang}
-                        href={`/${lang}`}
+                        href={`/${lang}${currentPath}`}
                         onClick={() => setIsOpen(false)}
                         className={cn(
                           "flex-1 px-4 py-3 rounded-xl text-sm font-medium",

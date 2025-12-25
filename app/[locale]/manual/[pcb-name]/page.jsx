@@ -39,6 +39,7 @@ export default async function ManualStepPage({ params: { locale, 'pcb-name': pcb
       manual={manual}
       step={manual.steps[0]}
       locale={locale}
+      t={t}
     />
   )
 }
