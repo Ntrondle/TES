@@ -69,4 +69,4 @@ Before final installation, verify your wiring:
 | Terminal won't lock in housing | Wrong orientation | Rotate terminal 180° and reinsert |
 | Wire pulls out of crimp | Insufficient crimp pressure | Re-crimp with a new terminal |
 | No continuity | Bad solder joint or crimp | Inspect and redo the faulty connection |
-| Motor runs backward | Reversed polarity | Swap the two wires at either end |
+| Motor runs backward | Reversed polarity |Flipping the switch on the back of the PCB will invert the motor rotation. |
